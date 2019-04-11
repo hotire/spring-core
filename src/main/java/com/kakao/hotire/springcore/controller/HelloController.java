@@ -2,16 +2,17 @@ package com.kakao.hotire.springcore.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * RequestMappingHandlerMapping / RequestMappingHandlerAdapter
  */
-@Controller
+@RestController
 public class HelloController {
 
   @GetMapping("/hello")
-  public String hello() {
-    return "index";
+  public ModelAndView hello() {
+    return new ModelAndView("/index");
   }
-
 }
