@@ -9,10 +9,11 @@ https://blog.naver.com/gngh0101/221511448131
 ### HandlerMapping의 이해
 https://blog.naver.com/gngh0101/221513567499
 
-### HandlerAdapter의 이해 + @ResponseBody 동작원리
+### HandlerAdapter의 이해 
 https://blog.naver.com/gngh0101/221515450102
 
-
+### @ResponseBody, @RestController 동작원리
+https://blog.naver.com/gngh0101/221516352327
 
 
 ### 초기화(initStrategies)
