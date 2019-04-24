@@ -12,9 +12,24 @@ https://blog.naver.com/gngh0101/221513567499
 ### HandlerAdapter의 이해 
 https://blog.naver.com/gngh0101/221515450102
 
-### @ResponseBody, @RestController 동작원리
+### @ResponseBody, @RestController 동작 원리
 https://blog.naver.com/gngh0101/221516352327
 
+```
+```
+
+## AOP(Aspect-Oriented Programming)
+
+### AOP의 이해
+https://blog.naver.com/gngh0101/221518490172
+
+### Dynamic Proxy 동작 원리
+https://blog.naver.com/gngh0101/221521927798
+
+### cglib
+
+```
+```
 
 ### 초기화(initStrategies)
 DispatcherSevlet은 initStrategies를 통해 handlerMapping, handlerAdapter 등 초기화한다.
