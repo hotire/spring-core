@@ -1,6 +1,8 @@
 # spring-core
 study
 
+너무 많은 내용이라, 블로그에 정리함
+
 ## DispatcherServlet
 
 ### 초기화와 기본전략
@@ -27,6 +29,9 @@ https://blog.naver.com/gngh0101/221518490172
 https://blog.naver.com/gngh0101/221521927798
 
 ### cglib
+
+https://blog.naver.com/gngh0101/221527082367
+
 
 ```
 ```

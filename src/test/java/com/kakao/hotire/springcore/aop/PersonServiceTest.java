@@ -21,4 +21,16 @@ public class PersonServiceTest {
 
     assertEquals("Hello Tom!", res);
   }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void hello_cannot_subclass_final_class() {
+    Enhancer enhancer = new Enhancer();
+    enhancer.setSuperclass(FinalPersonService.class);
+    enhancer.setCallback((FixedValue) () -> "Hello Tom!");
+
+    PersonService proxy = (PersonService) enhancer.create();
+    String res = proxy.sayHello(null);
+
+    assertEquals("Hello Tom!", res);
+  }
 }
