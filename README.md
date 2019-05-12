@@ -29,13 +29,17 @@ https://blog.naver.com/gngh0101/221518490172
 https://blog.naver.com/gngh0101/221521927798
 
 ### cglib
-
 https://blog.naver.com/gngh0101/221527082367
 
+```
+```
+## Configuration 
+
+### Configuration Component Difference
+https://blog.naver.com/gngh0101/221535845386
 
 ```
 ```
-
 ### 초기화(initStrategies)
 DispatcherSevlet은 initStrategies를 통해 handlerMapping, handlerAdapter 등 초기화한다.
 

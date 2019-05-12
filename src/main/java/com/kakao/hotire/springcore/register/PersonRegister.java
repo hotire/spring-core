@@ -7,6 +7,9 @@ import org.springframework.core.type.AnnotationMetadata;
 
 
 /**
+ *
+ * http://dimafeng.com/2015/08/29/spring-configuration_vs_component/
+ *
  * https://javacan.tistory.com/entry/spring-at-enable-config
  *
  * http://wonwoo.ml/index.php/post/1829
