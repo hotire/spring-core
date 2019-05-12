@@ -35,7 +35,7 @@ https://blog.naver.com/gngh0101/221527082367
 ```
 ## Configuration 
 
-### Configuration Component Difference
+### Configuration Component 차이점 
 https://blog.naver.com/gngh0101/221535845386
 
 ```
