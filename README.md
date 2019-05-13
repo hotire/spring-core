@@ -38,6 +38,10 @@ https://blog.naver.com/gngh0101/221527082367
 ### Configuration Component 차이점 
 https://blog.naver.com/gngh0101/221535845386
 
+### Configuration CGLIB 동작 원리
+https://blog.naver.com/gngh0101/221536672573
+
+
 ```
 ```
 ### 초기화(initStrategies)

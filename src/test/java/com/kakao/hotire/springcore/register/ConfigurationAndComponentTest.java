@@ -15,8 +15,12 @@ public class ConfigurationAndComponentTest {
   @Autowired
   SimpleBean2 simpleBean2;
 
+  @Autowired
+  ConfigurationAndComponent.Config config;
+
   @Test
   public void di() {
     log.info("Test simpleBean2 hashCode : {}",  simpleBean2.hashCode());
   }
+
 }
