@@ -49,6 +49,11 @@ study
 
 - https://blog.naver.com/gngh0101/221542525164
 
+### Import(Configuration, ImportSelector, ImportBeanDefinitionRegistrar)의 동작 원리
+
+- https://blog.naver.com/gngh0101/221547017730
+
+
 
 ```
 ```
