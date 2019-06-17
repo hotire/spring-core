@@ -3,6 +3,13 @@ study
 
 너무 많은 내용이라, 블로그에 정리함
 
+## ApplicationContext
+
+### ClassPathXmlApplicationContext
+
+- 고전적인 xml를 이용한 빈 설정 방법
+
+
 ## DispatcherServlet
 
 ### 초기화와 기본전략
