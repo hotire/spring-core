@@ -4,15 +4,24 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class ApplicationTest {
+public class ApplicationConfigTest {
 
   @Test
-  public void di() {
-    // Given
-    ApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
+  public void configByAnnotation() {
+    ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+    assert_di(context);
+  }
 
+  @Test
+  public void configByXml() {
+    ApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
+    assert_di(context);
+  }
+
+  private void assert_di(ApplicationContext context) {
     // When
     BookRepository bookRepository = context.getBean(BookRepository.class);
     BookService bookService = context.getBean(BookService.class);
@@ -24,5 +33,4 @@ public class ApplicationTest {
     assertThat(ref).isNotNull();
     assertThat(ref).isEqualTo(bookRepository);
   }
-
 }

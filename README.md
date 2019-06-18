@@ -9,6 +9,11 @@ study
 
 - 고전적인 xml를 이용한 빈 설정 방법
 
+### AnnotationConfigApplicationContext
+
+- @Configuration 을 이용한 빈 설정 방법
+
+
 
 ## DispatcherServlet
 
