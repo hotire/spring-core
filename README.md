@@ -14,6 +14,24 @@ study
 - @Configuration 을 이용한 빈 설정 방법
 
 
+## Bean Scope
+
+- Singleton
+
+- Prototype
+
+프로토타입 빈이 싱글톤 빈을 참조할 경우 문제가 없다.
+
+하지만 싱글톤 빈이 프로토 타입 빈을 참조하면 
+
+프로토타입 빈이 초기 래퍼런스 값을 변경하지 않는다. 
+
+-> scoped-proxy, Object-Provider
+
+
+
+
+
 
 ## DispatcherServlet
 

@@ -17,7 +17,7 @@ public class ApplicationConfigTest {
 
   @Test
   public void configByXml() {
-    ApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
+    ApplicationContext context = new ClassPathXmlApplicationContext("xml/application.xml");
     assert_di(context);
   }
 
