@@ -84,9 +84,21 @@ study
 - https://blog.naver.com/gngh0101/221547017730
 
 
+```
+```
 
-```
-```
+## SpEL 
+Spring Expression Language의 줄인 말로 런타임 시점에 object graph 를
+
+조회, 조작하는 강력한 언어이다. 
+
+- object graph : 객체들의 연관 관계, 정보를 보여주는 그래프
+
+
+
+
+~~~
+~~~
 
 
 ### 초기화(initStrategies)
