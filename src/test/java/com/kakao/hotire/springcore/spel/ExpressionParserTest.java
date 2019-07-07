@@ -15,6 +15,8 @@ import org.springframework.expression.spel.standard.SpelExpressionParser;
  * https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#expressions
  *
  * https://rahs.tistory.com/197
+ *
+ * https://blog.outsider.ne.kr/835
  */
 public class ExpressionParserTest {
 
@@ -37,7 +39,7 @@ public class ExpressionParserTest {
   }
 
   @Test
-  public void invoke_length() {
+  public void length() {
     ExpressionParser parser = new SpelExpressionParser();
     Expression exp = parser.parseExpression("'Hello World'.length()");
     Integer length = (Integer) exp.getValue();
