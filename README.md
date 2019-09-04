@@ -11,6 +11,8 @@ https://blog.naver.com/gngh0101/221576302088
 ### Bean register 등록 원리 -2
 https://blog.naver.com/gngh0101/221590684880
 
+### BeanFactory vs ApplicationContext 
+https://blog.naver.com/gngh0101/221639046641
 
 ### ClassPathXmlApplicationContext
 
