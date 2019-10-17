@@ -5,13 +5,23 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import lombok.Getter;
 
-public class ContainerService {
+public class TestApplicationContext {
 
-  public static Map<Class, Object> BEAN_MAP = new HashMap<>();
+  @Getter
+  public final Map<Class<?>, Object> beanMap;
 
-  public static <T> T getBean(Class<T> type) {
-    return Optional.ofNullable(BEAN_MAP.get(type)).map(o -> (T)o).orElseGet(() -> {
+  public TestApplicationContext(Map<Class<?>, Object> beanMap) {
+    this.beanMap = beanMap;
+  }
+
+  public TestApplicationContext() {
+    this.beanMap = new HashMap<>();
+  }
+
+  public <T> T getBean(Class<T> type) {
+    return Optional.ofNullable(beanMap.get(type)).map(o -> (T)o).orElseGet(() -> {
       final T instance = createInstance(type);
       Arrays.stream(type.getDeclaredFields())
         .filter(field -> field.isAnnotationPresent(Inject.class))
@@ -24,12 +34,12 @@ public class ContainerService {
             throw new RuntimeException(e);
           }
         });
-      BEAN_MAP.put(type, instance);
+      beanMap.put(type, instance);
       return instance;
     });
   }
 
-  public static <T> T createInstance(Class<T> type) {
+  public <T> T createInstance(Class<T> type) {
     try {
       return type.getConstructor(null).newInstance();
     } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {

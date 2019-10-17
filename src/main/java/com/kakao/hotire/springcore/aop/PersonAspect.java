@@ -20,6 +20,14 @@ public class PersonAspect {
     return result;
   }
 
+  @Around("execution(* com.kakao.hotire.springcore.aop.PersonService.*(..))")
+  public Object logging3(ProceedingJoinPoint pjp) throws Throwable {
+    log.info("start - " + pjp.getSignature().getDeclaringTypeName() + " / " + pjp.getSignature().getName());
+    Object result = pjp.proceed();
+    log.info("finished - " + pjp.getSignature().getDeclaringTypeName() + " / " + pjp.getSignature().getName());
+    return result;
+  }
+
   @Around("execution(* com.kakao.hotire.springcore.aop.AOPService.service(..))")
   public Object logging2(ProceedingJoinPoint pjp) throws Throwable {
     log.info("start - " + pjp.getSignature().getDeclaringTypeName() + " / " + pjp.getSignature().getName());
