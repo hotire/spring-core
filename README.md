@@ -14,6 +14,10 @@ https://blog.naver.com/gngh0101/221590684880
 ### BeanFactory vs ApplicationContext 
 https://blog.naver.com/gngh0101/221639046641
 
+### Dependency Injection Constructor 생성자 주입 원리
+https://blog.naver.com/gngh0101/221683567520
+
+
 ### ClassPathXmlApplicationContext
 
 - 고전적인 xml를 이용한 빈 설정 방법
