@@ -17,6 +17,14 @@ https://blog.naver.com/gngh0101/221639046641
 ### Dependency Injection Constructor 생성자 주입 원리
 https://blog.naver.com/gngh0101/221683567520
 
+### Dependency Injection Autowired Filed Setter 주입 원리
+
+- TODO
+
+### InitializeBean
+
+- TODO
+
 
 ### ClassPathXmlApplicationContext
 
