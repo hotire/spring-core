@@ -1,7 +1,11 @@
 package com.kakao.hotire.springcore.controller;
 
 import com.kakao.hotire.springcore.service.HelloService;
+import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEvent;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,11 +16,21 @@ import org.springframework.web.servlet.ModelAndView;
  * RequestMappingHandlerMapping / RequestMappingHandlerAdapter
  */
 @Controller
-public class HelloController {
+public class HelloController implements ApplicationListener {
 
   private HelloService helloService;
 
-  public HelloController() {
+  @PostConstruct
+  public void test() {
+    System.out.println("/");
+  }
+
+  @Bean(initMethod = "init")
+  public InitTest initTest() {
+    return new InitTest();
+  }
+
+  public HelloController(HelloService helloService) {
     System.out.println();
   }
 
@@ -35,4 +49,8 @@ public class HelloController {
     this.helloService = helloService;
   }
 
+  @Override
+  public void onApplicationEvent(ApplicationEvent event) {
+
+  }
 }

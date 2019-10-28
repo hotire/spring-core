@@ -20,9 +20,8 @@ https://blog.naver.com/gngh0101/221683567520
 ### Dependency Injection Autowired Filed Setter 주입 원리
 https://blog.naver.com/gngh0101/221690000028
 
-### InitializeBean
-
-- TODO
+### InitializeBean (@PostConstruct / InitializingBean / CustomInitMethod ... )동작 원리와 순서 
+https://blog.naver.com/gngh0101/221691289433
 
 
 ### ClassPathXmlApplicationContext
