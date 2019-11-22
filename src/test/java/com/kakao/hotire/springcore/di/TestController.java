@@ -1,8 +1,10 @@
 package com.kakao.hotire.springcore.di;
 
 import lombok.Getter;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class TestController {
-  @Inject @Getter
+  @Autowired
+  @Getter
   private TestService testService;
 }

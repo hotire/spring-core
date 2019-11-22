@@ -1,5 +1,8 @@
 package com.kakao.hotire.springcore.di;
 
-public class TestService {
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
+public class TestService {
+  private final TestRepository testRepository;
 }
