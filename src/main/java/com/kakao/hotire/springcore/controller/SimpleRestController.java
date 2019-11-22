@@ -9,10 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SimpleRestController {
 
   @Autowired(required = false)
-  Proto proto;
-
-  @Autowired
-  SimpleService simpleService;
+  private Proto proto;
 
   @GetMapping("/hello3")
   public String hello() {
@@ -21,8 +18,6 @@ public class SimpleRestController {
 
   @GetMapping("/hello4")
   public String h() {
-    System.out.println(proto);
-    simpleService.test();
     return proto.toString();
   }
 
