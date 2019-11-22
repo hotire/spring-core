@@ -57,7 +57,7 @@ public class TestApplicationContextTest {
     final TestApplicationContext testApplicationContext = new TestApplicationContext(mockMap);
 
     // When
-    TestController testController = testApplicationContext.getBean(TestController.class);
+    final TestController testController = testApplicationContext.getBean(TestController.class);
 
     // Then
     assertThat(testController).isNotNull();
