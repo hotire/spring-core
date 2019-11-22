@@ -1,1 +1,21 @@
+spring:
+  profiles:
+    active: development
+
+
+---
+spring.profiles: development
+
 spring.aop.proxy-target-class: false
+spring.http.log-request-details: true
+logging.level.web: debug
+
+
+---
+
+spring.profiles: production
+
+
+spring.aop.proxy-target-class: true
+spring.http.log-request-details: false
+logging.level.web: debug

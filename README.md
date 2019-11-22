@@ -5,6 +5,25 @@ study
 
 ## ApplicationContext
 
+### Bean register 등록 원리 -1
+https://blog.naver.com/gngh0101/221576302088
+
+### Bean register 등록 원리 -2
+https://blog.naver.com/gngh0101/221590684880
+
+### BeanFactory vs ApplicationContext 
+https://blog.naver.com/gngh0101/221639046641
+
+### Dependency Injection Constructor 생성자 주입 원리
+https://blog.naver.com/gngh0101/221683567520
+
+### Dependency Injection Autowired Filed Setter 주입 원리
+https://blog.naver.com/gngh0101/221690000028
+
+### InitializeBean (@PostConstruct / InitializingBean / CustomInitMethod ... )동작 원리와 순서 
+https://blog.naver.com/gngh0101/221691289433
+
+
 ### ClassPathXmlApplicationContext
 
 - 고전적인 xml를 이용한 빈 설정 방법
@@ -84,9 +103,21 @@ study
 - https://blog.naver.com/gngh0101/221547017730
 
 
+```
+```
 
-```
-```
+## SpEL 
+Spring Expression Language의 줄인 말로 런타임 시점에 object graph 를
+
+조회, 조작하는 강력한 언어이다. 
+
+- object graph : 객체들의 연관 관계, 정보를 보여주는 그래프
+
+
+
+
+~~~
+~~~
 
 
 ### 초기화(initStrategies)
