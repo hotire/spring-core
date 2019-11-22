@@ -22,6 +22,7 @@ public class TestApplicationContext {
     this.beanMap = new HashMap<>();
   }
 
+  @SuppressWarnings("unchecked")
   public <T> T getBean(Class<T> type) {
     return Optional.ofNullable(beanMap.get(type)).map(o -> (T)o).orElseGet(() -> {
       final T instance = createInstance(type);
