@@ -26,7 +26,7 @@ public class TestApplicationContext {
       Arrays.stream(type.getDeclaredFields())
         .filter(field -> field.isAnnotationPresent(Inject.class))
         .forEach(field -> {
-           Object fieldInstance = getBean(field.getType());
+           final Object fieldInstance = getBean(field.getType());
            field.setAccessible(true);
           try {
             field.set(instance, fieldInstance);
