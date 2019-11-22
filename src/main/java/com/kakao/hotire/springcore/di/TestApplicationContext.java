@@ -1,11 +1,13 @@
 package com.kakao.hotire.springcore.di;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import lombok.Getter;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class TestApplicationContext {
 
@@ -24,7 +26,7 @@ public class TestApplicationContext {
     return Optional.ofNullable(beanMap.get(type)).map(o -> (T)o).orElseGet(() -> {
       final T instance = createInstance(type);
       Arrays.stream(type.getDeclaredFields())
-        .filter(field -> field.isAnnotationPresent(Inject.class))
+        .filter(field -> field.isAnnotationPresent(Autowired.class))
         .forEach(field -> {
            final Object fieldInstance = getBean(field.getType());
            field.setAccessible(true);
@@ -39,10 +41,19 @@ public class TestApplicationContext {
     });
   }
 
+  @SuppressWarnings("unchecked")
   public <T> T createInstance(Class<T> type) {
     try {
-      return type.getConstructor(null).newInstance();
-    } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+      final Constructor<?>[] candidates = type.getDeclaredConstructors();
+      for (Constructor candidate : candidates) {
+        return (T) candidate.newInstance(
+            Arrays.stream(candidate.getParameterTypes())
+                .map(beanMap::get)
+                .toArray()
+        );
+      }
+      throw new IllegalStateException("Can not found constructor of " + type.getName());
+    } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
       throw new RuntimeException(e);
     }
   }
