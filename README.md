@@ -48,10 +48,6 @@ https://blog.naver.com/gngh0101/221691289433
 -> scoped-proxy, Object-Provider
 
 
-
-
-
-
 ## DispatcherServlet
 
 ### 초기화와 기본전략
@@ -65,6 +61,10 @@ https://blog.naver.com/gngh0101/221691289433
 
 ### @ResponseBody, @RestController 동작 원리
 - https://blog.naver.com/gngh0101/221516352327
+
+### 예외 처리 - @ControllerAdvice  동작 원리
+
+- https://blog.naver.com/gngh0101/221738449583
 
 ```
 ```
