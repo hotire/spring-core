@@ -1,4 +1,7 @@
 # spring-core
+
+![logo](/doc/img/logo.jpg)
+
 study
 
 너무 많은 내용이라, 블로그에 정리함
