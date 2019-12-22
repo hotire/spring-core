@@ -1,7 +1,6 @@
 package com.kakao.hotire.springcore.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.web.client.RestTemplate;
 
 public abstract class AbstractBaseController  {
