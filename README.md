@@ -6,6 +6,7 @@ study
 
 너무 많은 내용이라, 블로그에 정리함
 
+
 ## ApplicationContext
 
 ### Bean register 등록 원리 -1
@@ -50,6 +51,12 @@ https://blog.naver.com/gngh0101/221691289433
 
 -> scoped-proxy, Object-Provider
 
+
+## MVC
+
+### @EnableWebMvc, AutoConfiguration 원리
+
+- https://blog.naver.com/gngh0101/221754735617
 
 ## DispatcherServlet
 
