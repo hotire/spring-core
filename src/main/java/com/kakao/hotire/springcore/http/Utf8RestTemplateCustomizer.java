@@ -11,8 +11,8 @@ public class Utf8RestTemplateCustomizer implements RestTemplateCustomizer {
     public void customize(RestTemplate restTemplate) {
         restTemplate.getMessageConverters()
                     .stream()
-                    .filter(writer -> writer instanceof AbstractHttpMessageConverter)
+                    .filter(converter -> converter instanceof AbstractHttpMessageConverter)
                     .map(AbstractHttpMessageConverter.class::cast)
-                    .forEach(writer -> writer.setDefaultCharset(StandardCharsets.UTF_8));
+                    .forEach(converter -> converter.setDefaultCharset(StandardCharsets.UTF_8));
     }
 }
