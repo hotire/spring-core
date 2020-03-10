@@ -39,4 +39,13 @@ public class ConditionalConfig {
             log.debug("OnClass");
         }
     }
+
+    @Configuration
+    @ConditionalOnMissingProfile(value = "beta")
+    public static class OnMissingProfile implements InitializingBean{
+        @Override
+        public void afterPropertiesSet() throws Exception {
+            log.debug("OnClass");
+        }
+    }
 }
