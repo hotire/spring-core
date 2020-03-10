@@ -1,6 +1,7 @@
 package com.kakao.hotire.springcore.config;
 
-import com.sun.tools.javac.util.List;
+
+import com.google.common.collect.Lists;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.converter.AbstractHttpMessageConverter;
 
@@ -18,7 +19,7 @@ class WebConfigTest {
         final WebConfig webConfig = new WebConfig();
 
         // when
-        webConfig.configureMessageConverters(List.of(converter));
+        webConfig.configureMessageConverters(Lists.newArrayList(converter));
 
         // then
         assertThat(converter.getDefaultCharset()).isEqualTo(StandardCharsets.UTF_8);
