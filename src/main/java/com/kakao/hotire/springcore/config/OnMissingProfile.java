@@ -20,7 +20,7 @@ public class OnMissingProfile implements Condition {
                        .map(profiles -> profiles.stream()
                                                 .map(Object::toString)
                                                 .map(Profiles::of)
-                                                .anyMatch(profile -> context.getEnvironment().acceptsProfiles(profile)))
+                                                .noneMatch(profile -> context.getEnvironment().acceptsProfiles(profile)))
                        .orElse(true);
     }
 }
