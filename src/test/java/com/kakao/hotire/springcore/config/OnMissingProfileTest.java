@@ -1,7 +1,6 @@
 package com.kakao.hotire.springcore.config;
 
 import org.assertj.core.util.Lists;
-import org.junit.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -23,7 +22,7 @@ class OnMissingProfileTest {
 
     @MethodSource("provideArguments")
     @ParameterizedTest
-    void matches(final List<String> profiles, final List<Profiles> activeProfiles) {
+    void matches(final List<String> profiles, final List<Profiles> activeProfiles, final boolean expected) {
         // given
         final Environment environment = new MockEnvironment() {
             @Override
@@ -48,7 +47,8 @@ class OnMissingProfileTest {
 
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of(Lists.newArrayList("beta"), Lists.newArrayList(Profiles.of("beat")))
+                Arguments.of(Lists.newArrayList("beta"), Lists.newArrayList(Profiles.of("beta")), false),
+                Arguments.of(Lists.newArrayList("beta"), Lists.newArrayList(Profiles.of("alpha")), true)
         );
     }
 
