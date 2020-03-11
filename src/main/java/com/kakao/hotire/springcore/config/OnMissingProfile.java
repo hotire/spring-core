@@ -17,10 +17,6 @@ public class OnMissingProfile implements Condition {
 
         return Optional.ofNullable(attrs)
                        .map(it -> (List<?>) it.get("value"))
-                       .map(it -> {
-                           System.out.println(it);
-                           return it;
-                       })
                        .map(profiles -> profiles.stream()
                                                 .map(Object::toString)
                                                 .map(Profiles::of)
