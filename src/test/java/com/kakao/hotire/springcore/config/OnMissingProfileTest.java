@@ -1,6 +1,7 @@
 package com.kakao.hotire.springcore.config;
 
 import org.assertj.core.util.Lists;
+import org.assertj.core.util.Sets;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -13,8 +14,10 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Stream;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -22,33 +25,34 @@ class OnMissingProfileTest {
 
     @MethodSource("provideArguments")
     @ParameterizedTest
-    void matches(final List<String> profiles, final List<Profiles> activeProfiles, final boolean expected) {
+    void matches(final List<String> profiles, final List<String> activeProfiles, final boolean expected) {
         // given
         final Environment environment = new MockEnvironment() {
             @Override
-            public boolean acceptsProfiles(Profiles profiles) {
-                return activeProfiles.stream().anyMatch(it -> it.equals(profiles));
+            protected Set<String> doGetActiveProfiles() {
+             return Sets.newHashSet(activeProfiles);
             }
         };
         final ConditionContext context = mock(ConditionContext.class);
         final MultiValueMap<String, Object> multiValueMap = new LinkedMultiValueMap<>();
         final AnnotatedTypeMetadata metadata = mock(AnnotatedTypeMetadata.class);
         final OnMissingProfile onMissingProfile = new OnMissingProfile();
-
-
-        multiValueMap.add("value", profiles);
+        multiValueMap.addAll("value", profiles);
 
         // when
         when(context.getEnvironment()).thenReturn(environment);
         when(metadata.getAllAnnotationAttributes(ConditionalOnMissingProfile.class.getName())).thenReturn(multiValueMap);
-        onMissingProfile.matches(context, metadata);
+        final boolean result = onMissingProfile.matches(context, metadata);
+
+        // then
+        assertThat(result).isEqualTo(expected);
     }
 
 
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of(Lists.newArrayList("beta"), Lists.newArrayList(Profiles.of("beta")), false),
-                Arguments.of(Lists.newArrayList("beta"), Lists.newArrayList(Profiles.of("alpha")), true)
+                Arguments.of(Lists.newArrayList("beta"), Lists.newArrayList("beta"), false),
+                Arguments.of(Lists.newArrayList("beta"), Lists.newArrayList("alpha"), true)
         );
     }
 
