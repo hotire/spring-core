@@ -7,7 +7,6 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.context.annotation.ConditionContext;
 import org.springframework.core.env.Environment;
-import org.springframework.core.env.Profiles;
 import org.springframework.core.type.AnnotatedTypeMetadata;
 import org.springframework.mock.env.MockEnvironment;
 import org.springframework.util.LinkedMultiValueMap;
@@ -55,8 +54,4 @@ class OnMissingProfileTest {
                 Arguments.of(Lists.newArrayList("beta"), Lists.newArrayList("alpha"), true)
         );
     }
-
-
-
-
 }
