@@ -9,4 +9,5 @@ import java.lang.annotation.*;
 public @interface EntityArgument {
     EntityArgumentResolver.EntityType type();
     String value() default "";
+    String parameterType() default "path";
 }
