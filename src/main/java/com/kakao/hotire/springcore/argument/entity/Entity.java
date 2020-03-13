@@ -1,4 +1,4 @@
-package com.kakao.hotire.springcore.argument;
+package com.kakao.hotire.springcore.argument.entity;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

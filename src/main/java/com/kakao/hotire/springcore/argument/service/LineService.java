@@ -1,6 +1,6 @@
 package com.kakao.hotire.springcore.argument.service;
 
-import com.kakao.hotire.springcore.argument.Line;
+import com.kakao.hotire.springcore.argument.entity.Line;
 import org.springframework.stereotype.Service;
 
 @Service

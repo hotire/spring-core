@@ -1,4 +1,4 @@
-package com.kakao.hotire.springcore.argument;
+package com.kakao.hotire.springcore.argument.entity;
 
 public class Line extends Entity {
     public Line(Long id) {
