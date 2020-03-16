@@ -1,6 +1,8 @@
 package com.kakao.hotire.springcore.argument;
 
 import com.kakao.hotire.springcore.argument.entity.Entity;
+import com.kakao.hotire.springcore.argument.entity.Kakao;
+import com.kakao.hotire.springcore.argument.entity.Line;
 import com.kakao.hotire.springcore.argument.service.KakaoService;
 import com.kakao.hotire.springcore.argument.service.LineService;
 import lombok.AccessLevel;
@@ -12,22 +14,33 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.core.MethodParameter;
 import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
+import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
+import org.springframework.web.servlet.HandlerMapping;
 
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.function.Function;
 
-import static com.kakao.hotire.springcore.argument.EntityArgumentResolver.EntityType.KAKAO;
-import static com.kakao.hotire.springcore.argument.EntityArgumentResolver.EntityType.LINE;
+import static com.kakao.hotire.springcore.argument.EntityArgumentResolver.EntityArgumentType.KAKAO;
+import static com.kakao.hotire.springcore.argument.EntityArgumentResolver.EntityArgumentType.LINE;
+import static org.springframework.web.bind.annotation.ValueConstants.DEFAULT_NONE;
 
 public class EntityArgumentResolver implements HandlerMethodArgumentResolver, ApplicationContextAware {
 
-    public enum EntityType {
-        KAKAO,
-        LINE;
+    public enum EntityArgumentType {
+        KAKAO("kakaoId"),
+        LINE("Lineid");
+        private final String path;
         @Getter(AccessLevel.PRIVATE)
         @Setter(AccessLevel.PRIVATE)
-        public Function<Long, Entity> function ;
+        public Map<Class<?>, Function<Long, Entity>> typeHandler;
+
+        EntityArgumentType(final String path) {
+            this.path = path;
+        }
     }
 
     @Override
@@ -35,8 +48,8 @@ public class EntityArgumentResolver implements HandlerMethodArgumentResolver, Ap
         final KakaoService kakaoService = applicationContext.getBean(KakaoService.class);
         final LineService lineService = applicationContext.getBean(LineService.class);
 
-        KAKAO.setFunction(kakaoService::findById);
-        LINE.setFunction(lineService::findById);
+        KAKAO.typeHandler = Map.of(Kakao.class, kakaoService::findById);
+        LINE.typeHandler = Map.of(Line.class, lineService::findById);
     }
 
     @Override
@@ -46,7 +59,17 @@ public class EntityArgumentResolver implements HandlerMethodArgumentResolver, Ap
 
     @Override
     public Object resolveArgument(MethodParameter methodParameter, ModelAndViewContainer modelAndViewContainer, NativeWebRequest nativeWebRequest, WebDataBinderFactory webDataBinderFactory) throws Exception {
-        // TODO Implement
-        return null;
+        @SuppressWarnings("unchecked")
+        final Map<String, String> pathVariables = (Map<String, String>) Objects.requireNonNull(nativeWebRequest.getAttribute(
+                HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST));
+
+        final Class<?> entityType = methodParameter.getParameter().getType();
+        final EntityArgument entityArgument = Objects.requireNonNull(methodParameter.getMethodAnnotation(EntityArgument.class));
+        final EntityArgumentType entityArgumentType = entityArgument.type();
+        final String value = DEFAULT_NONE.equals(entityArgument.value()) ? DEFAULT_NONE : entityArgumentType.path;
+
+        return Optional.ofNullable(entityArgumentType.getTypeHandler().get(methodParameter.getParameter().getType()))
+                .map(handler -> handler.apply(Long.valueOf(pathVariables.get(value))))
+                .orElseThrow(() -> new IllegalArgumentException("Cannot support entity type" + entityType));
     }
 }
