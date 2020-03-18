@@ -36,7 +36,7 @@ public class EntityArgumentResolver implements HandlerMethodArgumentResolver, Ap
         private final String path;
         @Getter(AccessLevel.PRIVATE)
         @Setter(AccessLevel.PRIVATE)
-        public Map<Class<?>, Function<Long, Entity>> typeHandler;
+        private Map<Class<?>, Function<Long, Entity>> typeHandler;
 
         EntityArgumentType(final String path) {
             this.path = path;
