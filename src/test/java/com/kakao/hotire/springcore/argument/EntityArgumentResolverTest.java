@@ -6,6 +6,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.MethodParameter;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
@@ -42,4 +46,15 @@ class EntityArgumentResolverTest {
         verify(applicationContext, times(1)).getBean(LineService.class);
     }
 
+    @Test
+    void entityArgumentType() {
+        // given
+        final List<EntityArgumentResolver.EntityArgumentType> entityArgumentTypes = Arrays.stream(EntityArgumentResolver.EntityArgumentType.values()).collect(Collectors.toList());
+
+        // when
+        int result = entityArgumentTypes.size();
+
+        // then
+        assertThat(result).isEqualTo(2);
+    }
 }
