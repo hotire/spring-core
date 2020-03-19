@@ -32,7 +32,7 @@ public class EntityArgumentResolver implements HandlerMethodArgumentResolver, Ap
 
     public enum EntityArgumentType {
         KAKAO("kakaoId"),
-        LINE("Lineid");
+        LINE("lineId");
         private final String path;
         @Getter(AccessLevel.PRIVATE)
         @Setter(AccessLevel.PRIVATE)
@@ -66,9 +66,9 @@ public class EntityArgumentResolver implements HandlerMethodArgumentResolver, Ap
         final Class<?> entityType = methodParameter.getParameter().getType();
         final EntityArgument entityArgument = Objects.requireNonNull(methodParameter.getMethodAnnotation(EntityArgument.class));
         final EntityArgumentType entityArgumentType = entityArgument.type();
-        final String value = DEFAULT_NONE.equals(entityArgument.value()) ? DEFAULT_NONE : entityArgumentType.path;
+        final String value = DEFAULT_NONE.equals(entityArgument.value()) ? entityArgumentType.path : entityArgument.value();
 
-        return Optional.ofNullable(entityArgumentType.getTypeHandler().get(methodParameter.getParameter().getType()))
+        return Optional.ofNullable(entityArgumentType.getTypeHandler().get(entityType))
                 .map(handler -> handler.apply(Long.valueOf(pathVariables.get(value))))
                 .orElseThrow(() -> new IllegalArgumentException("Cannot support entity type" + entityType));
     }
