@@ -9,6 +9,6 @@ class LineTest {
     @Test
     void create() {
         // when then
-        assertThat(new Line(1L));
+        assertThat(new Line(1L)).isNotNull();
     }
 }

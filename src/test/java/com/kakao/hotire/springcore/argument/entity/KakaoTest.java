@@ -9,6 +9,6 @@ class KakaoTest {
     @Test
     void create() {
         // when then
-        assertThat(new Kakao(1L));
+        assertThat(new Kakao(1L)).isNotNull();
     }
 }
