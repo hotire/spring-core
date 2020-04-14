@@ -29,8 +29,8 @@ public class MonitorAspect {
     protected Object monitor(ProceedingJoinPoint joinPoint, Monitor monitor) throws Throwable {
         final MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
         final StopWatch stopWatch = new StopWatch();
-        stopWatch.start();
 
+        stopWatch.start();
 
         log.info("monitor :{}", monitor);
         log.info("Monitor Start");
