@@ -1,7 +1,6 @@
 package com.kakao.hotire.springcore.controller;
 
 import com.kakao.hotire.springcore.service.HelloService;
-import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
@@ -11,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.annotation.PostConstruct;
 
 /**
  * RequestMappingHandlerMapping / RequestMappingHandlerAdapter
