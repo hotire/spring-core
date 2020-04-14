@@ -8,5 +8,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD, ElementType.TYPE})
 public @interface Monitor {
+    boolean timer() default true;
     System.Logger.Level level() default System.Logger.Level.DEBUG;
 }
