@@ -10,18 +10,29 @@ import org.springframework.util.StopWatch;
 
 import java.util.Objects;
 
+
 @Slf4j
 @Aspect
 @Component
 public class MonitorAspect {
 
-    final StopWatch stopWatch = new StopWatch();
+    @Around("@annotation(monitor)")
+    public Object monitorMethod(ProceedingJoinPoint joinPoint, Monitor monitor) throws Throwable {
+        return monitor(joinPoint, monitor);
+    }
 
-    @Around("@annotation(Monitor) || @within(Monitor)")
-    public Object monitor(ProceedingJoinPoint joinPoint) throws Throwable {
+    @Around("@within(monitor)")
+    public Object monitorType(ProceedingJoinPoint joinPoint, Monitor monitor) throws Throwable {
+        return monitor(joinPoint, monitor);
+    }
+
+    protected Object monitor(ProceedingJoinPoint joinPoint, Monitor monitor) throws Throwable {
         final MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+        final StopWatch stopWatch = new StopWatch();
         stopWatch.start();
 
+
+        log.info("monitor :{}", monitor);
         log.info("Monitor Start");
         log.info("method : {}", methodSignature.getMethod());
 
