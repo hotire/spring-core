@@ -11,29 +11,29 @@ import java.util.Optional;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class MDCUtils {
 
-    private final MDCAdapter mdcAdapter = MDC.getMDCAdapter();
+    private static final MDCAdapter ADAPTER = MDC.getMDCAdapter();
 
-    public void put(String key, String value) {
-        mdcAdapter.put(key, value);
+    public static void put(String key, String value) {
+        ADAPTER.put(key, value);
     }
 
-    public Optional<String> get(String key) {
-        return Optional.ofNullable(mdcAdapter.get(key));
+    public static Optional<String> get(String key) {
+        return Optional.ofNullable(ADAPTER.get(key));
     }
 
-    public void remove(String key) {
-        mdcAdapter.remove(key);
+    public static void remove(String key) {
+        ADAPTER.remove(key);
     }
 
-    public void clear() {
-        mdcAdapter.clear();;
+    public static void clear() {
+        ADAPTER.clear();;
     }
 
-    public Map<String, String> getCopyOfContextMap() {
-        return mdcAdapter.getCopyOfContextMap();
+    public static Map<String, String> getCopyOfContextMap() {
+        return ADAPTER.getCopyOfContextMap();
     }
 
-    public void putAll(Map<String, String> map) {
-        map.forEach(mdcAdapter::put);
+    public static void putAll(Map<String, String> map) {
+        map.forEach(ADAPTER::put);
     }
 }
