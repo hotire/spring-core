@@ -16,6 +16,18 @@ import java.util.Objects;
 @Component
 public class MonitorAspect {
 
+    interface Logger {
+        void log(final String format, Object ... args);
+    }
+
+    public enum Level implements Logger {
+        DEBUG;
+        @Override
+        public void log(String format, Object... args) {
+            log.debug(format, args);
+        }
+    }
+
     @Around("@annotation(monitor)")
     public Object monitorMethod(ProceedingJoinPoint joinPoint, Monitor monitor) throws Throwable {
         return monitor(joinPoint, monitor);

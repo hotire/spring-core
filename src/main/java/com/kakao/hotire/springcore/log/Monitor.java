@@ -7,5 +7,5 @@ import java.lang.annotation.*;
 @Target({ElementType.METHOD, ElementType.TYPE})
 public @interface Monitor {
     boolean timer() default true;
-    System.Logger.Level level() default System.Logger.Level.DEBUG;
+    MonitorAspect.Level level() default MonitorAspect.Level.DEBUG;
 }
