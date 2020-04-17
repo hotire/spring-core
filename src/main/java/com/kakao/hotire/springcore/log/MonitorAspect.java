@@ -22,11 +22,17 @@ public class MonitorAspect {
     }
 
     public enum Level implements Logger {
-        DEBUG;
-        @Override
-        public void log(String format, Object... args) {
-            log.debug(format, args);
+        TRACE {
+            @Override
+            public void log(String format, Object... args) {
+                log.trace(format, args);
+            }
         }
+        ,
+        DEBUG {
+            @Override
+            public void log(String format, Object... args) { log.debug(format, args); }
+        },
     }
 
     @Around("@annotation(monitor)")
