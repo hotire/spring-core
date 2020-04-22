@@ -33,6 +33,12 @@ public class MonitorAspect {
             @Override
             public void log(String format, Object... args) { log.debug(format, args); }
         },
+        INFO {
+            @Override
+            public void log(String format, Object... args) {
+                log.info(format, args);
+            }
+        },
     }
 
     @Around("@annotation(monitor)")
