@@ -1,9 +1,10 @@
 package com.kakao.hotire.springcore.formatter;
 
-import java.text.ParseException;
-import java.util.Locale;
 import org.springframework.format.Formatter;
 import org.springframework.stereotype.Component;
+
+import java.text.ParseException;
+import java.util.Locale;
 
 @Component
 public class PersonFormatter implements Formatter<Person> {

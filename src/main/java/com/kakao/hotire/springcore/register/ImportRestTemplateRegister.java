@@ -2,9 +2,6 @@ package com.kakao.hotire.springcore.register;
 
 import com.google.common.collect.ImmutableMap;
 import com.kakao.hotire.springcore.importSelector.Mode;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.Objects;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.GenericBeanDefinition;
@@ -14,6 +11,10 @@ import org.springframework.core.type.AnnotationMetadata;
 import org.springframework.util.StringUtils;
 import org.springframework.web.client.AsyncRestTemplate;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.Arrays;
+import java.util.Map;
+import java.util.Objects;
 
 
 /**

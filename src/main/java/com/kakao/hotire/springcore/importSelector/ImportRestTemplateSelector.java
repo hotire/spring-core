@@ -1,13 +1,14 @@
 package com.kakao.hotire.springcore.importSelector;
 
 import com.google.common.collect.ImmutableMap;
-import java.util.Map;
-import java.util.Objects;
 import org.springframework.context.annotation.ImportSelector;
 import org.springframework.core.annotation.AnnotationAttributes;
 import org.springframework.core.type.AnnotationMetadata;
 import org.springframework.web.client.AsyncRestTemplate;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.Map;
+import java.util.Objects;
 
 public class ImportRestTemplateSelector implements ImportSelector {
 
