@@ -32,13 +32,17 @@ public class ProtoTest {
 
     @Test
     void assert_singleton() {
+        // when
         final Single single = context.getBean(Single.class);
+        // then
         assertThat(single).isEqualTo(single);
     }
 
     @Test
     void assert_prototype() {
+        // when
         final Proto proto = context.getBean(Proto.class);
+        // then
         assertThat(proto).isNotEqualTo(context.getBean(Proto.class));
     }
 }
