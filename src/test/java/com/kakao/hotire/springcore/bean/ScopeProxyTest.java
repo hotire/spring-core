@@ -33,4 +33,5 @@ class ScopeProxyTest {
         // then
         assertThat(proto).isEqualTo(context.getBean(Proto.class));
     }
+
 }
