@@ -28,6 +28,10 @@ https://blog.naver.com/gngh0101/221690000028
 https://blog.naver.com/gngh0101/221691289433
 
 
+### Event Publisher 동작 원리 
+
+https://blog.naver.com/gngh0101/222020512119
+
 ### ClassPathXmlApplicationContext
 
 - 고전적인 xml를 이용한 빈 설정 방법
