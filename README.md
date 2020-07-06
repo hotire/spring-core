@@ -27,10 +27,11 @@ https://blog.naver.com/gngh0101/221690000028
 ### InitializeBean (@PostConstruct / InitializingBean / CustomInitMethod ... )동작 원리와 순서 
 https://blog.naver.com/gngh0101/221691289433
 
-
 ### Event Publisher 동작 원리 
-
 https://blog.naver.com/gngh0101/222020512119
+
+### EventListener Bean 등록 과정
+https://blog.naver.com/gngh0101/222022197174
 
 ### ClassPathXmlApplicationContext
 
