@@ -3,12 +3,12 @@ package com.kakao.hotire.springcore.event;
 import lombok.Getter;
 import org.springframework.context.ApplicationEvent;
 
-public class BaseEvent extends ApplicationEvent {
+public class AsyncApplicationEvent extends ApplicationEvent {
 
     @Getter
-    private boolean async;
+    private boolean async = true;
 
-    public BaseEvent(Object source) {
+    public AsyncApplicationEvent(Object source) {
         super(source);
     }
 }

@@ -27,8 +27,8 @@ public class AsyncApplicationEventMulticaster extends SimpleApplicationEventMult
     }
 
     protected boolean checkAsyncEvent(final ApplicationEvent event) {
-        if (event instanceof BaseEvent) {
-            return ((BaseEvent) event).isAsync();
+        if (event instanceof AsyncApplicationEvent) {
+            return ((AsyncApplicationEvent) event).isAsync();
         }
         return false;
     }
