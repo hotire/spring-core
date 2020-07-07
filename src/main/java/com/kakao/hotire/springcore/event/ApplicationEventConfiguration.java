@@ -2,6 +2,7 @@ package com.kakao.hotire.springcore.event;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.event.AbstractApplicationEventMulticaster;
 import org.springframework.core.task.AsyncTaskExecutor;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
 
@@ -11,7 +12,7 @@ import static org.springframework.context.support.AbstractApplicationContext.APP
 public class ApplicationEventConfiguration {
 
     @Bean(APPLICATION_EVENT_MULTICASTER_BEAN_NAME)
-    public AsyncApplicationEventMulticaster asyncApplicationEventMulticaster() {
+    public AbstractApplicationEventMulticaster asyncApplicationEventMulticaster() {
         return new AsyncApplicationEventMulticaster(asyncTaskExecutor());
     }
 
