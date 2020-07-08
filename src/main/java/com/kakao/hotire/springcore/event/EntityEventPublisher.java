@@ -2,9 +2,8 @@ package com.kakao.hotire.springcore.event;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.stereotype.Component;
 
-@Component
+@EventComponent
 @RequiredArgsConstructor
 public class EntityEventPublisher {
     private final ApplicationEventPublisher publisher;
