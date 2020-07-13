@@ -1,7 +1,5 @@
 package com.kakao.hotire.springcore.factory;
 
-import com.kakao.hotire.springcore.di.TestService;
-import com.kakao.hotire.springcore.service.HelloService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,11 +17,12 @@ class ToolFactoryTest {
 
     @Test
     void di() {
-
+        // given
         final Tool result = context.getBean(Tool.class);
-        final HelloService testService = context.getBean(HelloService.class);
 
+        // then
         assertThat(tool).isNotNull();
+        assertThat(tool).isEqualTo(result);
     }
 
 }

@@ -1,6 +1,5 @@
 package com.kakao.hotire.springcore.aop;
 
-
 import org.springframework.stereotype.Service;
 
 @Service
