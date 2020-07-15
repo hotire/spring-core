@@ -2,6 +2,7 @@ package com.kakao.hotire.springcore.event;
 
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
 import org.springframework.core.annotation.AliasFor;
 
 import java.lang.annotation.ElementType;
@@ -24,7 +25,7 @@ public @interface EventDataJpaTest {
     boolean useDefaultFilters() default true;
 
     @AliasFor(annotation = DataJpaTest.class)
-    ComponentScan.Filter[] includeFilters() default {};
+    ComponentScan.Filter[] includeFilters() default { @ComponentScan.Filter(type = FilterType.ANNOTATION, value = EventComponent.class)};
 
     @AliasFor(annotation = DataJpaTest.class)
     ComponentScan.Filter[] excludeFilters() default {};
