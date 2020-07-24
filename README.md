@@ -37,6 +37,10 @@ https://blog.naver.com/gngh0101/222020512119
 ### EventListener Bean 등록 과정
 https://blog.naver.com/gngh0101/222022197174
 
+### EventListener Event dispatch 동작 원리 
+
+https://blog.naver.com/gngh0101/222040857815
+
 ### ClassPathXmlApplicationContext
 
 - 고전적인 xml를 이용한 빈 설정 방법
@@ -142,4 +146,6 @@ https://www.baeldung.com/spring-boot-custom-starter
 ### Optimizing Spring Integration Tests
 
 https://www.baeldung.com/spring-tests
+
+
 
