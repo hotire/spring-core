@@ -3,13 +3,9 @@ package com.kakao.hotire.springcore.event;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.ApplicationContext;
 
 @SpringBootTest
 class EntityEventPublisherTest {
-
-    @Autowired
-    private ApplicationContext applicationContext;
 
     @Autowired
     private EntityEventPublisher entityEventPublisher;
@@ -22,6 +18,6 @@ class EntityEventPublisherTest {
         // when
         entityEventPublisher.publish(entity);
 
-        // no assert
+//      no assert
     }
 }
