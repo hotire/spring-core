@@ -1,4 +1,4 @@
-package com.github.hotire.autoconfig;
+package com.github.hotire.autoconfiguration;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
