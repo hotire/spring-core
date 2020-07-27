@@ -137,11 +137,12 @@ Spring Expression Language의 줄인 말로 런타임 시점에 object graph 를
 - object graph : 객체들의 연관 관계, 정보를 보여주는 그래프
 
 
-## 기타 
+## AutoConfig
 
 ### Stater 
-
 https://www.baeldung.com/spring-boot-custom-starter
+
+## 기타 
 
 ### Optimizing Spring Integration Tests
 
