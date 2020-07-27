@@ -10,7 +10,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>hotire-spring-boot-starter</artifactId>
-
+    <version>0.0.1-SNAPSHOT</version>
+    <properties>
+        <java>11</java>
+    </properties>
 
     <dependencies>
         <dependency>

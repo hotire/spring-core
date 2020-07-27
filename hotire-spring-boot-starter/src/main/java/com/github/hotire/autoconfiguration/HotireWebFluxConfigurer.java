@@ -13,6 +13,6 @@ public class HotireWebFluxConfigurer implements WebFluxConfigurer, InitializingB
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        log.debug("init HotireWebFluxConfigurer message : {}", properties.getInitMessage());
+        log.info("init HotireWebFluxConfigurer message : {}", properties.getInitMessage());
     }
 }

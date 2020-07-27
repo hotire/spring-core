@@ -2,6 +2,10 @@ spring:
   profiles:
     active: development
 
+hotire:
+  webflux:
+    enabled: true
+    initMessage: hello
 
 ---
 spring.profiles: development
