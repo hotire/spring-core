@@ -140,6 +140,9 @@ Spring Expression Language의 줄인 말로 런타임 시점에 object graph 를
 ## AutoConfig
 
 ### Stater 
+https://blog.naver.com/gngh0101/222044744634
+
+- reference 
 https://www.baeldung.com/spring-boot-custom-starter
 
 ## 기타 
