@@ -2,10 +2,11 @@ spring:
   profiles:
     active: development
 
-hotire:
-  webflux:
-    enabled: true
-    initMessage: hello
+hotire.webflux:
+  enabled: true
+  initMessage: hello2
+
+
 
 ---
 spring.profiles: development
@@ -13,6 +14,8 @@ spring.profiles: development
 spring.aop.proxy-target-class: false
 spring.http.log-request-details: true
 logging.level.web: debug
+
+
 
 
 ---
