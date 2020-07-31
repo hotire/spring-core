@@ -9,6 +9,13 @@ import org.springframework.context.event.EventListener;
 public class EntityEventListener {
 
     @EventListener
+    public void consume(final CallbackEvent event) throws InterruptedException {
+        Thread.sleep(1000);
+        log.info("async : {}", event);
+        event.getCallback().accept(event.getSource());
+    }
+
+    @EventListener
     public void consume(final EntityEvent entityEvent) {
         log.info("event : {}", entityEvent);
     }
