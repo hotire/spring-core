@@ -83,6 +83,12 @@
       <artifactId>hotire-spring-boot-starter</artifactId>
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
+    <dependency>
+      <groupId>org.awaitility</groupId>
+      <artifactId>awaitility</artifactId>
+      <version>4.0.3</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>
