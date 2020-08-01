@@ -41,6 +41,10 @@ https://blog.naver.com/gngh0101/222022197174
 
 https://blog.naver.com/gngh0101/222040857815
 
+### Event Custom ApplicationEventMulticaster
+
+https://blog.naver.com/gngh0101/222047805469
+
 ### ClassPathXmlApplicationContext
 
 - 고전적인 xml를 이용한 빈 설정 방법
