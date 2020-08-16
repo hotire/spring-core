@@ -5,10 +5,10 @@ import lombok.Setter;
 
 import java.util.function.Consumer;
 
-public class CallbackEvent extends AsyncApplicationEvent {
+public class CallbackEvent<T> extends AsyncApplicationEvent {
 
     @Getter @Setter
-    private Consumer<Object> callback;
+    private Consumer<T> callback;
 
     public CallbackEvent(Object source) {
         super(source);
