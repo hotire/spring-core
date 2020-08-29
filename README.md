@@ -151,6 +151,10 @@ https://www.baeldung.com/spring-boot-custom-starter
 
 ## 기타 
 
+
+### Enable Async 동작 원리 
+https://blog.naver.com/gngh0101/222073112894
+
 ### Optimizing Spring Integration Tests
 
 https://www.baeldung.com/spring-tests
