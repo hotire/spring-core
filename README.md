@@ -149,6 +149,12 @@ https://blog.naver.com/gngh0101/222044744634
 - reference 
 https://www.baeldung.com/spring-boot-custom-starter
 
+
+## Profile 
+
+2.4.0 이후부터 spring.profiles 이 아닌 spring.config.activate.on-profile 사용함 
+
+
 ## 기타 
 
 
@@ -158,6 +164,5 @@ https://blog.naver.com/gngh0101/222073112894
 ### Optimizing Spring Integration Tests
 
 https://www.baeldung.com/spring-tests
-
 
 
