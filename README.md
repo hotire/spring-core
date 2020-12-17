@@ -154,6 +154,8 @@ https://www.baeldung.com/spring-boot-custom-starter
 
 2.4.0 이후부터 spring.profiles 이 아닌 spring.config.activate.on-profile 사용함 
 
+- 2.4.0 Migration Guide : https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-Config-Data-Migration-Guide
+
 
 ## 기타 
 
