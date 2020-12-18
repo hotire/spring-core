@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import lombok.Data;
 
 @Data
-@ConfigurationProperties(prefix = "hotire.webflux")
+@ConfigurationProperties(prefix = "custom.webflux")
 public class CustomProperties {
     private boolean enabled;
     private String initMessage;

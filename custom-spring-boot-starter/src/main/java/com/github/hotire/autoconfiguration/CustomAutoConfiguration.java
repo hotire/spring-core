@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConditionalOnProperty(prefix = "other.webflux", value = "enabled", matchIfMissing = true)
+@ConditionalOnProperty(prefix = "custom.webflux", value = "enabled", matchIfMissing = true)
 @EnableConfigurationProperties(CustomProperties.class)
 public class CustomAutoConfiguration {
 
