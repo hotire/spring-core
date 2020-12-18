@@ -7,9 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RequiredArgsConstructor
-public class HotireService implements InitializingBean {
+public class CustomService implements InitializingBean {
 
-    private final HotireProperties properties;
+    private final CustomProperties properties;
 
     @Override
     public void afterPropertiesSet() throws Exception {

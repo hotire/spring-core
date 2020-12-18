@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @ConfigurationProperties(prefix = "hotire.webflux")
-public class HotireProperties {
+public class CustomProperties {
     private boolean enabled;
     private String initMessage;
 }

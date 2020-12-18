@@ -5,12 +5,12 @@
   <modelVersion>4.0.0</modelVersion>
   <packaging>pom</packaging>
   <modules>
-    <module>hotire-spring-boot-starter</module>
+    <module>custom-spring-boot-starter</module>
   </modules>
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.4.1</version>
+    <version>2.3.3.RELEASE</version>
     <relativePath /> <!-- lookup parent from repository -->
   </parent>
   <groupId>com.kakao.hotire</groupId>
@@ -72,7 +72,7 @@
     </dependency>
     <dependency>
       <groupId>com.kakao.hotire</groupId>
-      <artifactId>hotire-spring-boot-starter</artifactId>
+      <artifactId>custom-spring-boot-starter</artifactId>
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
     <dependency>
