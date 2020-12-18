@@ -5,25 +5,22 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-@RunWith(SpringRunner.class)
 @WebMvcTest(HelloController.class)
-public class HelloControllerTest {
+class HelloControllerTest {
 
   @Autowired
   MockMvc mockMvc;
 
   @Test
-  public void assert_get() throws Exception {
+  void assert_get() throws Exception {
     mockMvc.perform(get("/hello"))
-      .andExpect(status().isOk())
-      .andExpect(view().name("/index"))
-      .andDo(print());
+           .andExpect(status().isOk())
+           .andExpect(view().name("/index"))
+           .andDo(print());
   }
 }

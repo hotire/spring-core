@@ -1,8 +1,9 @@
 package com.github.hotire.autoconfiguration;
 
+import org.springframework.beans.factory.InitializingBean;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.InitializingBean;
 
 @Slf4j
 @RequiredArgsConstructor

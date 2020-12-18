@@ -1,32 +1,33 @@
 package com.kakao.hotire.springcore.application;
 
-import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Slf4j
-public class CustomAnnotationConfigApplicationContextTest {
+class CustomAnnotationConfigApplicationContextTest {
 
   @Test
-  public void config_custom() {
+  void config_custom() {
     final BeanFactory context =
-      new CustomAnnotationConfigApplicationContext(ApplicationConfig.class);
+            new CustomAnnotationConfigApplicationContext(ApplicationConfig.class);
     log.debug("before getBean()");
     context.getBean(BookService.class);
   }
 
   @Test
-  public void config_beanFactory() {
+  void config_beanFactory() {
     final BeanFactory context = new XmlBeanFactory(new ClassPathResource("xml/application.xml"));
     log.debug("before getBean()");
     context.getBean(BookService.class);
   }
 
   @Test
-  public void config() {
+  void config() {
     final BeanFactory context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
     log.debug("before getBean()");
     context.getBean(BookService.class);

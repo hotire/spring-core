@@ -2,21 +2,21 @@ package com.kakao.hotire.springcore.application;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class ApplicationConfigTest {
+class ApplicationConfigTest {
 
   @Test
-  public void configByAnnotation() {
+  void configByAnnotation() {
     ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
     assert_di(context);
   }
 
   @Test
-  public void configByXml() {
+  void configByXml() {
     ApplicationContext context = new ClassPathXmlApplicationContext("xml/application.xml");
     assert_di(context);
   }

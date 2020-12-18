@@ -5,12 +5,13 @@ import static org.mockito.Mockito.mock;
 
 import java.util.HashMap;
 import java.util.Map;
-import org.junit.Test;
 
-public class TestApplicationContextTest {
+import org.junit.jupiter.api.Test;
+
+class TestApplicationContextTest {
 
   @Test
-  public void getBean() {
+  void getBean() {
     // Given
     final TestApplicationContext testApplicationContext = new TestApplicationContext();
 
@@ -22,7 +23,7 @@ public class TestApplicationContextTest {
   }
 
   @Test
-  public void getBeanIsSingleTon() {
+  void getBeanIsSingleTon() {
     // Given
     final TestApplicationContext testApplicationContext = new TestApplicationContext();
 
@@ -35,7 +36,7 @@ public class TestApplicationContextTest {
   }
 
   @Test
-  public void di() {
+  void di() {
     // Given
     final TestApplicationContext testApplicationContext = new TestApplicationContext();
 
@@ -49,7 +50,7 @@ public class TestApplicationContextTest {
   }
 
   @Test
-  public void di_mock() {
+  void di_mock() {
     // Given
     final TestService testService = mock(TestService.class);
     final Map<Class<?>, Object> mockMap = new HashMap<>();

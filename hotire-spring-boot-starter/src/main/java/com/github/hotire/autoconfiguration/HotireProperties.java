@@ -1,7 +1,8 @@
 package com.github.hotire.autoconfiguration;
 
-import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+
+import lombok.Data;
 
 @Data
 @ConfigurationProperties(prefix = "hotire.webflux")

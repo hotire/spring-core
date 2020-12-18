@@ -2,11 +2,10 @@ package com.kakao.hotire.springcore.spel;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.expression.Expression;
 import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
-
 
 /**
  * https://engkimbs.tistory.com/741
@@ -17,10 +16,10 @@ import org.springframework.expression.spel.standard.SpelExpressionParser;
  *
  * https://blog.outsider.ne.kr/835
  */
-public class ExpressionParserTest {
+class ExpressionParserTest {
 
   @Test
-  public void parse() {
+  void parse() {
     ExpressionParser parser = new SpelExpressionParser();
     Expression exp = parser.parseExpression("'Hello World'");
     String message = (String) exp.getValue();
@@ -29,7 +28,7 @@ public class ExpressionParserTest {
   }
 
   @Test
-  public void concat() {
+  void concat() {
     ExpressionParser parser = new SpelExpressionParser();
     Expression exp = parser.parseExpression("'Hello World'.concat('!')");
     String message = (String) exp.getValue();
@@ -38,7 +37,7 @@ public class ExpressionParserTest {
   }
 
   @Test
-  public void length() {
+  void length() {
     ExpressionParser parser = new SpelExpressionParser();
     Expression exp = parser.parseExpression("'Hello World'.length()");
     Integer length = (Integer) exp.getValue();
@@ -47,7 +46,7 @@ public class ExpressionParserTest {
   }
 
   @Test
-  public void constructor() {
+  void constructor() {
     ExpressionParser parser = new SpelExpressionParser();
     Expression exp = parser.parseExpression("new String('hello world').toUpperCase()");
     String message = exp.getValue(String.class);
