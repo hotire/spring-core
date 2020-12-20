@@ -1,19 +1,24 @@
 spring.profiles.active: development
 
+
 ---
 
 spring:
   config:
     activate:
       on-profile: development
+  aop.proxy-target-class: false
+  http.log-request-details: true
 
-spring.aop.proxy-target-class: false
-spring.http.log-request-details: true
+
+
 logging.level.web: debug
 
 custom.webflux:
   enabled: true
   initMessage: hello2
+
+
 
 ---
 
@@ -25,3 +30,5 @@ spring:
 spring.aop.proxy-target-class: true
 spring.http.log-request-details: false
 logging.level.web: debug
+
+
