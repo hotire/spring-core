@@ -2,10 +2,11 @@ package com.kakao.hotire.springcore;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
-import lombok.extern.slf4j.Slf4j;
+import com.kakao.hotire.springcore.property.ConstructorBindingProperties;
 
-@Slf4j
+@EnableConfigurationProperties(ConstructorBindingProperties.class)
 @SpringBootApplication
 public class Application {
 

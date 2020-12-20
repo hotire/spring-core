@@ -1,6 +1,11 @@
 spring.profiles.active: development
 
 
+application:
+  name: spring-core
+  user:
+    name: hotire
+
 ---
 
 spring:
