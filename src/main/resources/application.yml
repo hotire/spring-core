@@ -1,7 +1,15 @@
+spring.profiles.active: development
+
+---
+
 spring:
   config:
     activate:
       on-profile: development
+
+spring.aop.proxy-target-class: false
+spring.http.log-request-details: true
+logging.level.web: debug
 
 custom.webflux:
   enabled: true
@@ -9,16 +17,10 @@ custom.webflux:
 
 ---
 
-spring.profiles: development
-
-spring.aop.proxy-target-class: false
-spring.http.log-request-details: true
-logging.level.web: debug
-
-
----
-
-spring.profiles: production
+spring:
+  config:
+    activate:
+      on-profile: production
 
 spring.aop.proxy-target-class: true
 spring.http.log-request-details: false
