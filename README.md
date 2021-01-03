@@ -157,6 +157,12 @@ https://www.baeldung.com/spring-boot-custom-starter
 - 2.4.0 Migration Guide : https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-Config-Data-Migration-Guide
 
 
+## Boot Run
+
+- WebApplicationType / SpringFactoriesLoader
+
+https://blog.naver.com/gngh0101/222195371984
+
 ## 기타 
 
 
