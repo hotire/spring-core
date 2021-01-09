@@ -163,6 +163,10 @@ https://www.baeldung.com/spring-boot-custom-starter
 
 https://blog.naver.com/gngh0101/222195371984
 
+- bootstrapper, SpringApplicationRunListener
+
+https://blog.naver.com/gngh0101/222202365575
+
 ## 기타 
 
 
