@@ -1,8 +1,9 @@
 package com.kakao.hotire.springcore.event;
 
+import org.springframework.context.ApplicationEvent;
+
 import lombok.Getter;
 import lombok.ToString;
-import org.springframework.context.ApplicationEvent;
 
 
 @ToString

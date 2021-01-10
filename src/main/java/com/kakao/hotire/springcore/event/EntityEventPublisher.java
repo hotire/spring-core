@@ -1,7 +1,8 @@
 package com.kakao.hotire.springcore.event;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
+
+import lombok.RequiredArgsConstructor;
 
 @EventComponent
 @RequiredArgsConstructor

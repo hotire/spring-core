@@ -1,7 +1,8 @@
 package com.kakao.hotire.springcore.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.client.RestTemplate;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public abstract class AbstractBaseController  {
   protected final ObjectMapper objectMapper;

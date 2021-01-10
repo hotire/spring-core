@@ -1,9 +1,10 @@
 package com.kakao.hotire.springcore.argument;
 
-import org.junit.jupiter.api.Test;
-import springfox.documentation.spi.DocumentationType;
-
 import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.Test;
+
+import springfox.documentation.spi.DocumentationType;
 
 class EntityArgumentParameterBuilderPluginTest {
 

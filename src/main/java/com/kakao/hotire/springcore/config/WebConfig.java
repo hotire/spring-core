@@ -1,13 +1,13 @@
 package com.kakao.hotire.springcore.config;
 
+import java.nio.charset.StandardCharsets;
+import java.util.List;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.AbstractHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-import java.nio.charset.StandardCharsets;
-import java.util.List;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {

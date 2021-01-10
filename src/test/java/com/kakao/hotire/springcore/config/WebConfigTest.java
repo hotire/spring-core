@@ -1,14 +1,14 @@
 package com.kakao.hotire.springcore.config;
 
-
-import com.google.common.collect.Lists;
-import org.junit.jupiter.api.Test;
-import org.springframework.http.converter.AbstractHttpMessageConverter;
+import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
+import static org.mockito.Mockito.mock;
 
 import java.nio.charset.StandardCharsets;
 
-import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
-import static org.mockito.Mockito.mock;
+import org.junit.jupiter.api.Test;
+import org.springframework.http.converter.AbstractHttpMessageConverter;
+
+import com.google.common.collect.Lists;
 
 class WebConfigTest {
 

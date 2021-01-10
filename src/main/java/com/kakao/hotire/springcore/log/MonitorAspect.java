@@ -1,6 +1,8 @@
 package com.kakao.hotire.springcore.log;
 
-import lombok.extern.slf4j.Slf4j;
+import java.util.Objects;
+import java.util.Optional;
+
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -8,8 +10,7 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
 
-import java.util.Objects;
-import java.util.Optional;
+import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
@@ -65,11 +66,10 @@ public class MonitorAspect {
         log.info("Monitor Start");
         log.info("method : {}", methodSignature.getMethod());
 
-        for (Object arg : joinPoint.getArgs()) {
+        for (Object arg : joinPoint.getArgs())
             if (Objects.nonNull(arg)) {
                 log.info("arg type : {} value : {}", arg.getClass().getSimpleName(), arg);
             }
-        }
 
         final Object result = joinPoint.proceed();
 

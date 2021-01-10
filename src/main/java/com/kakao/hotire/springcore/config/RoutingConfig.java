@@ -1,11 +1,12 @@
 package com.kakao.hotire.springcore.config;
 
-import com.kakao.hotire.springcore.controller.SimpleController;
+import java.util.Properties;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.handler.SimpleUrlHandlerMapping;
 
-import java.util.Properties;
+import com.kakao.hotire.springcore.controller.SimpleController;
 
 @Configuration
 public class RoutingConfig {

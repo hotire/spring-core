@@ -1,9 +1,9 @@
 package com.kakao.hotire.springcore.event;
 
+import java.util.function.Consumer;
+
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.function.Consumer;
 
 public class CallbackEvent<T> extends AsyncApplicationEvent {
 

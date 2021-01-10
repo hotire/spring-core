@@ -1,12 +1,13 @@
 package com.kakao.hotire.springcore.log;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
+import java.util.Map;
+import java.util.Optional;
+
 import org.slf4j.MDC;
 import org.slf4j.spi.MDCAdapter;
 
-import java.util.Map;
-import java.util.Optional;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class MDCUtils {

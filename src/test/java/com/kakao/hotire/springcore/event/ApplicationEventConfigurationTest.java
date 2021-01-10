@@ -1,10 +1,10 @@
 package com.kakao.hotire.springcore.event;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.context.event.AbstractApplicationEventMulticaster;
 import org.springframework.core.task.AsyncTaskExecutor;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 class ApplicationEventConfigurationTest {
 

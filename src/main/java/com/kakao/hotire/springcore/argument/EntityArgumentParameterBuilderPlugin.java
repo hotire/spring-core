@@ -1,6 +1,7 @@
 package com.kakao.hotire.springcore.argument;
 
 import org.springframework.stereotype.Component;
+
 import springfox.documentation.schema.ModelRef;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spi.service.ParameterBuilderPlugin;

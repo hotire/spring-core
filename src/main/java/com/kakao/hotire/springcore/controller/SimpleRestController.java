@@ -1,10 +1,11 @@
 package com.kakao.hotire.springcore.controller;
 
-import com.kakao.hotire.springcore.bean.Proto;
-import com.kakao.hotire.springcore.log.Monitor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.kakao.hotire.springcore.bean.Proto;
+import com.kakao.hotire.springcore.log.Monitor;
 
 @Monitor
 @RestController

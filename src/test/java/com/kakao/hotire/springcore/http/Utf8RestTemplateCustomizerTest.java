@@ -1,17 +1,19 @@
 package com.kakao.hotire.springcore.http;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.springframework.http.converter.AbstractHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
-
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
 
 class Utf8RestTemplateCustomizerTest {
 

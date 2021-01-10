@@ -1,11 +1,11 @@
 package com.kakao.hotire.springcore.register;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * http://dimafeng.com/2015/08/29/spring-configuration_vs_component/

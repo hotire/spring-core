@@ -1,7 +1,8 @@
 package com.kakao.hotire.springcore.event;
 
-import lombok.Getter;
 import org.springframework.context.ApplicationEvent;
+
+import lombok.Getter;
 
 public class AsyncApplicationEvent extends ApplicationEvent {
 

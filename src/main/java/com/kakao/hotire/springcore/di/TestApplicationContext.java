@@ -1,14 +1,15 @@
 package com.kakao.hotire.springcore.di;
 
-import lombok.Getter;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import lombok.Getter;
 
 public class TestApplicationContext {
 

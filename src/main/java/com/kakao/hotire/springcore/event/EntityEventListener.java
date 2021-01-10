@@ -1,8 +1,9 @@
 package com.kakao.hotire.springcore.event;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.event.EventListener;
+
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @EventComponent

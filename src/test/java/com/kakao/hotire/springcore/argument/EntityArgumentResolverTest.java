@@ -1,8 +1,19 @@
 package com.kakao.hotire.springcore.argument;
 
-import com.kakao.hotire.springcore.argument.entity.Line;
-import com.kakao.hotire.springcore.argument.service.KakaoService;
-import com.kakao.hotire.springcore.argument.service.LineService;
+import static com.kakao.hotire.springcore.argument.EntityArgumentResolver.EntityArgumentType.LINE;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.springframework.web.bind.annotation.ValueConstants.DEFAULT_NONE;
+
+import java.lang.reflect.Parameter;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
@@ -13,16 +24,9 @@ import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.method.support.ModelAndViewContainer;
 import org.springframework.web.servlet.HandlerMapping;
 
-import java.lang.reflect.Parameter;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
-import static com.kakao.hotire.springcore.argument.EntityArgumentResolver.EntityArgumentType.LINE;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
-import static org.springframework.web.bind.annotation.ValueConstants.DEFAULT_NONE;
+import com.kakao.hotire.springcore.argument.entity.Line;
+import com.kakao.hotire.springcore.argument.service.KakaoService;
+import com.kakao.hotire.springcore.argument.service.LineService;
 
 class EntityArgumentResolverTest {
 

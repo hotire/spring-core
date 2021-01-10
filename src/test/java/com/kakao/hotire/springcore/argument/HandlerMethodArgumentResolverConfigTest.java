@@ -1,12 +1,12 @@
 package com.kakao.hotire.springcore.argument;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.web.method.support.HandlerMethodArgumentResolver;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 
 class HandlerMethodArgumentResolverConfigTest {
 

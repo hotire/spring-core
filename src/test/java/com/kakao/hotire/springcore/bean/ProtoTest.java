@@ -1,5 +1,6 @@
 package com.kakao.hotire.springcore.bean;
 
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +9,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 public class ProtoTest {

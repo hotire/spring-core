@@ -1,13 +1,14 @@
 package com.kakao.hotire.springcore.argument;
 
-import com.kakao.hotire.springcore.argument.entity.Entity;
-import com.kakao.hotire.springcore.argument.entity.Kakao;
-import com.kakao.hotire.springcore.argument.entity.Line;
-import com.kakao.hotire.springcore.argument.service.KakaoService;
-import com.kakao.hotire.springcore.argument.service.LineService;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
+import static com.kakao.hotire.springcore.argument.EntityArgumentResolver.EntityArgumentType.KAKAO;
+import static com.kakao.hotire.springcore.argument.EntityArgumentResolver.EntityArgumentType.LINE;
+import static org.springframework.web.bind.annotation.ValueConstants.DEFAULT_NONE;
+
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.function.Function;
+
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -19,14 +20,15 @@ import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
 import org.springframework.web.servlet.HandlerMapping;
 
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.function.Function;
+import com.kakao.hotire.springcore.argument.entity.Entity;
+import com.kakao.hotire.springcore.argument.entity.Kakao;
+import com.kakao.hotire.springcore.argument.entity.Line;
+import com.kakao.hotire.springcore.argument.service.KakaoService;
+import com.kakao.hotire.springcore.argument.service.LineService;
 
-import static com.kakao.hotire.springcore.argument.EntityArgumentResolver.EntityArgumentType.KAKAO;
-import static com.kakao.hotire.springcore.argument.EntityArgumentResolver.EntityArgumentType.LINE;
-import static org.springframework.web.bind.annotation.ValueConstants.DEFAULT_NONE;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
 
 public class EntityArgumentResolver implements HandlerMethodArgumentResolver, ApplicationContextAware {
 
@@ -59,7 +61,6 @@ public class EntityArgumentResolver implements HandlerMethodArgumentResolver, Ap
 
     @Override
     public Object resolveArgument(MethodParameter methodParameter, ModelAndViewContainer modelAndViewContainer, NativeWebRequest nativeWebRequest, WebDataBinderFactory webDataBinderFactory) throws Exception {
-        @SuppressWarnings("unchecked")
         final Map<String, String> pathVariables = (Map<String, String>) Objects.requireNonNull(nativeWebRequest.getAttribute(
                 HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST));
 

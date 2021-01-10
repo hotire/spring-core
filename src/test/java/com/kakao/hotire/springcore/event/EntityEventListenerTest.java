@@ -1,14 +1,17 @@
 package com.kakao.hotire.springcore.event;
 
-import lombok.RequiredArgsConstructor;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.timeout;
+import static org.mockito.Mockito.verify;
+
+import java.util.concurrent.atomic.AtomicBoolean;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.test.context.TestConstructor;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
-import static org.mockito.Mockito.*;
+import lombok.RequiredArgsConstructor;
 
 @SpringBootTest
 @TestConstructor(autowireMode = TestConstructor.AutowireMode.ALL)
