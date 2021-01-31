@@ -6,8 +6,13 @@ study
 
 너무 많은 내용이라, 블로그에 정리함
 
+core reference : https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#spring-core
 
 ## ApplicationContext
+
+Spring IoC Container and Beans
+
+![context](/doc/img/context.png)
 
 ### Bean register 등록 원리 -1
 https://blog.naver.com/gngh0101/221576302088
@@ -54,7 +59,7 @@ https://blog.naver.com/gngh0101/222047805469
 - @Configuration 을 이용한 빈 설정 방법
 
 
-## Bean Scope
+### Bean Scope
 
 - Singleton
 
@@ -67,31 +72,6 @@ https://blog.naver.com/gngh0101/222047805469
 프로토타입 빈이 초기 래퍼런스 값을 변경하지 않는다. 
 
 -> scoped-proxy, Object-Provider
-
-
-## MVC
-
-### @EnableWebMvc, AutoConfiguration 원리
-
-- https://blog.naver.com/gngh0101/221754735617
-
-## DispatcherServlet
-
-### 초기화와 기본전략
-- https://blog.naver.com/gngh0101/221511448131
-
-### HandlerMapping의 이해
-- https://blog.naver.com/gngh0101/221513567499
-
-### HandlerAdapter의 이해 
-- https://blog.naver.com/gngh0101/221515450102
-
-### @ResponseBody, @RestController 동작 원리
-- https://blog.naver.com/gngh0101/221516352327
-
-### 예외 처리 - @ControllerAdvice  동작 원리
-
-- https://blog.naver.com/gngh0101/221738449583
 
 ```
 ```
@@ -171,8 +151,39 @@ https://blog.naver.com/gngh0101/222202365575
 
 https://blog.naver.com/gngh0101/222208890915
 
-## 기타 
 
+## MVC
+
+### @EnableWebMvc, AutoConfiguration 원리
+
+- https://blog.naver.com/gngh0101/221754735617
+
+## DispatcherServlet
+
+### 초기화와 기본전략
+- https://blog.naver.com/gngh0101/221511448131
+
+### HandlerMapping의 이해
+- https://blog.naver.com/gngh0101/221513567499
+
+### HandlerAdapter의 이해 
+- https://blog.naver.com/gngh0101/221515450102
+
+### @ResponseBody, @RestController 동작 원리
+- https://blog.naver.com/gngh0101/221516352327
+
+### 예외 처리 - @ControllerAdvice  동작 원리
+
+- https://blog.naver.com/gngh0101/221738449583
+
+```
+```
+
+## WebFlux
+
+https://github.com/hotire/spring-boot-webflux
+
+## 기타 
 
 ### Enable Async 동작 원리 
 https://blog.naver.com/gngh0101/222073112894
