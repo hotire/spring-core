@@ -1,4 +1,4 @@
-package com.kakao.hotire.springcore.importSelector;
+package com.kakao.hotire.springcore.import_selector;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

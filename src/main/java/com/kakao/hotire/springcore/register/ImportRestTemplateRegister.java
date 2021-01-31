@@ -14,7 +14,7 @@ import org.springframework.web.client.AsyncRestTemplate;
 import org.springframework.web.client.RestTemplate;
 
 import com.google.common.collect.ImmutableMap;
-import com.kakao.hotire.springcore.importSelector.Mode;
+import com.kakao.hotire.springcore.import_selector.Mode;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -26,9 +26,8 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class ImportRestTemplateRegister implements ImportBeanDefinitionRegistrar {
-    private Map<Mode, Class[]> restTemplateMap;
+    private final Map<Mode, Class[]> restTemplateMap;
 
-    @SuppressWarnings("deprecation")
     public ImportRestTemplateRegister() {
         restTemplateMap = ImmutableMap.of(Mode.NONE, new Class[]{RestTemplate.class},
           Mode.ASYNC, new Class[]{AsyncRestTemplate.class},

@@ -9,7 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.web.client.AsyncRestTemplate;
 import org.springframework.web.client.RestTemplate;
 
-import com.kakao.hotire.springcore.importSelector.Mode;
+import com.kakao.hotire.springcore.import_selector.Mode;
 
 @SpringBootTest
 @EnableRegisterRestTemplate(mode = Mode.ALL)

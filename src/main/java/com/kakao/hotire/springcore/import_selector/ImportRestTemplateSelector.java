@@ -1,4 +1,4 @@
-package com.kakao.hotire.springcore.importSelector;
+package com.kakao.hotire.springcore.import_selector;
 
 import java.util.Map;
 import java.util.Objects;
@@ -13,9 +13,8 @@ import com.google.common.collect.ImmutableMap;
 
 public class ImportRestTemplateSelector implements ImportSelector {
 
-  private Map<Mode, String[]> restTemplateMap;
+  private final Map<Mode, String[]> restTemplateMap;
 
-  @SuppressWarnings("deprecation")
   public ImportRestTemplateSelector() {
     restTemplateMap = ImmutableMap.of(Mode.NONE, new String[]{RestTemplate.class.getName()},
       Mode.ASYNC, new String[]{AsyncRestTemplate.class.getName()},

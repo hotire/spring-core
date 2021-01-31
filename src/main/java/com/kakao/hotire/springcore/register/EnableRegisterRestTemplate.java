@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 
 import org.springframework.context.annotation.Import;
 
-import com.kakao.hotire.springcore.importSelector.Mode;
+import com.kakao.hotire.springcore.import_selector.Mode;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
