@@ -139,17 +139,21 @@ https://www.baeldung.com/spring-boot-custom-starter
 
 ## Boot Run
 
-- WebApplicationType / SpringFactoriesLoader
+### WebApplicationType / SpringFactoriesLoader
 
 https://blog.naver.com/gngh0101/222195371984
 
-- bootstrapper, SpringApplicationRunListener
+### bootstrapper, SpringApplicationRunListener
 
 https://blog.naver.com/gngh0101/222202365575
 
-- ConfigurableEnvironment
+### ConfigurableEnvironment
 
 https://blog.naver.com/gngh0101/222208890915
+
+### Application.yml / properties load
+  
+https://blog.naver.com/gngh0101/222234252938
 
 
 ## MVC
