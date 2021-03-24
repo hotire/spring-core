@@ -21,7 +21,7 @@ import javax.validation.Payload;
 @Documented
 public @interface CustomValidation {
 
-    String message() default "CustomValidation";
+    String message() default "";
 
     Class<?>[] groups() default {};
 

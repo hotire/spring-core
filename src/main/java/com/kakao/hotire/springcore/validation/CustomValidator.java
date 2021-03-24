@@ -17,7 +17,10 @@ public class CustomValidator implements ConstraintValidator<CustomValidation, Se
     }
     @Override
     public boolean isValid(Set<Entry> values, ConstraintValidatorContext context) {
-        log.info("values", values);
+        log.info("values : {}", values);
+        context.disableDefaultConstraintViolation();
+        context.buildConstraintViolationWithTemplate("hello")
+               .addConstraintViolation();
         return false;
     }
 }
