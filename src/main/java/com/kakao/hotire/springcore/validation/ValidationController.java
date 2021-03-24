@@ -31,10 +31,11 @@ public class ValidationController {
     }
 
     /**
-     * 동작함
+     * Valid / Validated 둘다 상관없이 동작함.
+     * ModelAttributeMethodProcessor.determineValidationHints
      */
     @GetMapping("/3")
-    public ResponseEntity<ValidationRequest> validation(@Validated ValidationRequest request) {
+    public ResponseEntity<ValidationRequest> validation(@Valid ValidationRequest request) {
         return ResponseEntity.ok(request);
     }
 
