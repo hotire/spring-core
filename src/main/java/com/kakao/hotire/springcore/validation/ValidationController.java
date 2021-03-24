@@ -18,7 +18,7 @@ public class ValidationController {
      * Validated 동작하지 않음
      */
     @GetMapping
-    public ResponseEntity<Validation> validation(@Validated Validation validation) {
+    public ResponseEntity<Validation> validation(@Valid Validation validation) {
         return ResponseEntity.ok(validation);
     }
 
@@ -28,6 +28,14 @@ public class ValidationController {
     @GetMapping("/2")
     public ResponseEntity<String> validation2(@Valid @NotEmpty String name) {
         return ResponseEntity.ok(name);
+    }
+
+    /**
+     * 동작함
+     */
+    @GetMapping("/3")
+    public ResponseEntity<ValidationRequest> validation(@Validated ValidationRequest request) {
+        return ResponseEntity.ok(request);
     }
 
     /**
