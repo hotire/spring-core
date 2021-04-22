@@ -196,4 +196,39 @@ https://blog.naver.com/gngh0101/222073112894
 
 https://www.baeldung.com/spring-tests
 
+### Converter
+
+org.springframework.core.convert.converter.Converter
+
+WebMvcAutoConfiguration AutoConfig에 의해서 
+
+ApplicationConversionService.class addBeans 호출하여 web 영역으로 converter가 등록된다.
+
+~~~java
+public static void addBeans(FormatterRegistry registry, ListableBeanFactory beanFactory) {
+		Set<Object> beans = new LinkedHashSet<>();
+		beans.addAll(beanFactory.getBeansOfType(GenericConverter.class).values());
+		beans.addAll(beanFactory.getBeansOfType(Converter.class).values());
+		beans.addAll(beanFactory.getBeansOfType(Printer.class).values());
+		beans.addAll(beanFactory.getBeansOfType(Parser.class).values());
+		for (Object bean : beans) {
+			if (bean instanceof GenericConverter) {
+				registry.addConverter((GenericConverter) bean);
+			}
+			else if (bean instanceof Converter) {
+				registry.addConverter((Converter<?, ?>) bean);
+			}
+			else if (bean instanceof Formatter) {
+				registry.addFormatter((Formatter<?>) bean);
+			}
+			else if (bean instanceof Printer) {
+				registry.addPrinter((Printer<?>) bean);
+			}
+			else if (bean instanceof Parser) {
+				registry.addParser((Parser<?>) bean);
+			}
+		}
+	}
+~~~
+
 
