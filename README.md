@@ -232,3 +232,12 @@ public static void addBeans(FormatterRegistry registry, ListableBeanFactory bean
 ~~~
 
 
+- Auto-configured Spring MVC Tests
+
+To test whether Spring MVC controllers are working as expected, use the @WebMvcTest annotation. 
+@WebMvcTest auto-configures the Spring MVC infrastructure and limits scanned beans to @Controller, 
+@ControllerAdvice, @JsonComponent, Converter, GenericConverter, Filter, HandlerInterceptor, WebMvcConfigurer, and HandlerMethodArgumentResolver.
+ Regular @Component and @ConfigurationProperties beans are not scanned when the @WebMvcTest annotation is used. @EnableConfigurationProperties can be used to include @ConfigurationProperties beans.
+
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-testing-spring-boot-applications-testing-autoconfigured-mvc-tests
+
