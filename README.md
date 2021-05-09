@@ -61,6 +61,8 @@ https://blog.naver.com/gngh0101/222047805469
 
 ### Bean Scope
 
+https://blog.naver.com/gngh0101/222344239921
+
 - Singleton
 
 - Prototype
