@@ -1,4 +1,4 @@
-# Spring Life-Cycle
+# Spring ApplicationContext Life-Cycle
 
 ## Life-Cycle
 
@@ -49,6 +49,7 @@ Event raised when an ApplicationContext gets stopped.
 Event raised when an ApplicationContext gets closed.
 ### ContextRefreshedEvent
 Event raised when an ApplicationContext gets initialized or refreshed.
+
 
 ### callRunners
 
