@@ -9,6 +9,8 @@ import org.springframework.beans.factory.config.Scope;
 
 public class CustomScope implements Scope {
 
+    public static final String CUSTOM_SCOPE = "custom";
+
     public static final Map<String, Object> SCOPE_MAP = new ConcurrentHashMap<>();
     public static final Map<String, Runnable> DESTRUCTION_CALLBACK = new ConcurrentHashMap<>();
 
