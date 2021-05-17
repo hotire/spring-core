@@ -1,4 +1,4 @@
-package com.kakao.hotire.springcore.config;
+package com.kakao.hotire.springcore.condition;
 
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;

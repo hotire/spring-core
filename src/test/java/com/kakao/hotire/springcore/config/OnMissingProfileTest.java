@@ -20,6 +20,9 @@ import org.springframework.mock.env.MockEnvironment;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
+import com.kakao.hotire.springcore.condition.ConditionalOnMissingProfile;
+import com.kakao.hotire.springcore.condition.OnMissingProfile;
+
 class OnMissingProfileTest {
 
     @MethodSource("provideArguments")

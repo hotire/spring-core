@@ -1,4 +1,4 @@
-package com.kakao.hotire.springcore.config;
+package com.kakao.hotire.springcore.condition;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,4 +1,4 @@
-package com.kakao.hotire.springcore.config;
+package com.kakao.hotire.springcore.condition;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
