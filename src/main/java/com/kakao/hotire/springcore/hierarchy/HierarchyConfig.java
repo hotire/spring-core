@@ -6,11 +6,10 @@ import com.kakao.hotire.child.ChildContext;
 import com.kakao.hotire.springcore.Application;
 
 public class HierarchyConfig {
-
-    public static void main(String ... args) {
+    public static void main(String... args) {
         final SpringApplicationBuilder appBuilder = new SpringApplicationBuilder()
-                        .parent(Application.class)
-                        .child(ChildContext.class);
+                .parent(Application.class)
+                .child(ChildContext.class);
         appBuilder.run();
     }
 }
