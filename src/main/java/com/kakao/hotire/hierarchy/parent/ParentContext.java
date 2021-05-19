@@ -1,9 +1,9 @@
-package com.kakao.hotire.child;
+package com.kakao.hotire.hierarchy.parent;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
-@PropertySource("classpath:/child/application.yml")
-public class ChildContext {
+@PropertySource("classpath:/hierarchy/parent/application.yml")
+public class ParentContext {
 }

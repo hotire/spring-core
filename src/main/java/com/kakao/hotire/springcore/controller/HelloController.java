@@ -1,7 +1,5 @@
 package com.kakao.hotire.springcore.controller;
 
-import javax.annotation.PostConstruct;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
@@ -21,12 +19,7 @@ import com.kakao.hotire.springcore.service.HelloService;
 public class HelloController implements ApplicationListener {
 
   private HelloService helloService;
-
-  @PostConstruct
-  public void test() {
-    System.out.println("/");
-  }
-
+  
   @Bean(initMethod = "init")
   public InitTest initTest() {
     return new InitTest();
