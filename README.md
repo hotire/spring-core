@@ -196,6 +196,7 @@ https://blog.naver.com/gngh0101/222073112894
 
 ### Optimizing Spring Integration Tests
 
+https://docs.spring.io/spring-framework/docs/current/reference/html/testing.html#testcontext-ctx-management-caching
 https://www.baeldung.com/spring-tests
 
 ### Converter
