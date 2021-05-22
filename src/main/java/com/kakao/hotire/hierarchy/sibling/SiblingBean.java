@@ -17,7 +17,6 @@ public class SiblingBean implements InitializingBean {
     @Autowired(required = false)
     private ChildBean childBean;
 
-
     @Override
     public void afterPropertiesSet() throws Exception {
         Assert.notNull(parentBean, "parentBean is parentContext");
