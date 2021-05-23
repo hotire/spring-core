@@ -58,6 +58,8 @@ https://blog.naver.com/gngh0101/222047805469
 
 - @Configuration 을 이용한 빈 설정 방법
 
+### Application Context LifeCycle with Event
+https://blog.naver.com/gngh0101/222363176425
 
 ### Bean Scope
 
