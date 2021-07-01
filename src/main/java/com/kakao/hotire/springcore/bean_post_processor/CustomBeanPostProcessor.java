@@ -12,13 +12,13 @@ public class CustomBeanPostProcessor implements BeanPostProcessor {
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        log.info("beanName : {}, bean : {}", beanName, bean);
+        log.debug("beanName : {}, bean : {}", beanName, bean);
         return bean;
     }
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        log.info("beanName : {}, bean : {}", beanName, bean);
+        log.debug("beanName : {}, bean : {}", beanName, bean);
         return bean;
     }
 
