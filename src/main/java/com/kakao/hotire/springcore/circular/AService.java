@@ -2,11 +2,15 @@ package com.kakao.hotire.springcore.circular;
 
 import org.springframework.stereotype.Component;
 
-@Component
-public class AService {
-    private final CService cService;
+import lombok.extern.slf4j.Slf4j;
 
-    public AService(final CService cService) {
-        this.cService = cService;
+@Component
+@Slf4j
+public class AService {
+    private final BService bService;
+
+    public AService(final BService bService) {
+        log.info("AService");
+        this.bService = bService;
     }
 }
