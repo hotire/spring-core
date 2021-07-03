@@ -1,6 +1,5 @@
 package com.kakao.hotire.springcore.circular;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import lombok.extern.slf4j.Slf4j;
@@ -8,7 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 @Slf4j
 public class BService {
-    @Autowired
+//    @Autowired
+// if autowired is enabled, The dependencies of some of the beans in the application context form a cycle:
+
     private AService aService;
 
     public BService() {
