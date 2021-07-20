@@ -1,4 +1,8 @@
-spring.profiles.active: development
+spring:
+  profiles:
+    group:
+      dev: development
+    active: development
 
 
 application:
