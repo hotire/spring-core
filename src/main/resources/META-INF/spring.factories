@@ -1,5 +1,0 @@
-# Run Listeners
-org.springframework.boot.SpringApplicationRunListener=\
-com.kakao.hotire.springcore.boot.CustomSpringApplicationRunListener
-org.springframework.context.ApplicationListener=\
-com.kakao.hotire.springcore.boot.SpringApplicationEventListener  
