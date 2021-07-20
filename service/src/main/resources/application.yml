@@ -15,7 +15,7 @@ application:
 spring:
   config:
     activate:
-      on-profile: development
+      on-profile: development, alpha, beta
   aop.proxy-target-class: false
   http.log-request-details: true
 
