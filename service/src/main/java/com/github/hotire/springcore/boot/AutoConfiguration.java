@@ -8,6 +8,9 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
  *
  * @Import(AutoConfigurationPackages.Registrar.class)
  *
+ * @see org.springframework.boot.autoconfigure.SpringBootApplication
+ * @see EnableAutoConfiguration
+ * @see AutoConfigurationPackage
  * @see org.springframework.boot.autoconfigure.AutoConfigurationPackages.Registrar is ImportBeanDefinitionRegistrar
  */
 @AutoConfigurationPackage
