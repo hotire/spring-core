@@ -1,4 +1,4 @@
-package com.github.hotire.springcore.import_selector;
+package com.github.hotire.springcore.bean.register.import_selector;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -7,17 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.client.AsyncRestTemplate;
-import org.springframework.web.client.RestTemplate;
 
 @SpringBootTest
-@EnableRestTemplate(mode = Mode.ALL)
-class EnableRestTemplateAllTest {
+@EnableRestTemplate(mode = Mode.ASYNC)
+class EnableRestTemplateAsyncTest {
+
   @Autowired
   ApplicationContext context;
 
   @Test
   void di() {
     assertThat(context.getBean(AsyncRestTemplate.class)).isNotNull();
-    assertThat(context.getBean(RestTemplate.class)).isNotNull();
   }
 }

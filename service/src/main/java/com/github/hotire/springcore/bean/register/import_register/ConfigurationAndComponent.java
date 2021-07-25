@@ -1,4 +1,4 @@
-package com.github.hotire.springcore.register;
+package com.github.hotire.springcore.bean.register.import_register;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,12 +17,12 @@ public class ConfigurationAndComponent {
   public static class Config {
 
     @Bean
-    public com.github.hotire.springcore.register.SimpleBean simpleBean() {
+    public SimpleBean simpleBean() {
       return new SimpleBean();
     }
 
     @Bean
-    public com.github.hotire.springcore.register.SimpleBeanConsumer simpleBeanConsumer() {
+    public SimpleBeanConsumer simpleBeanConsumer() {
       Assert.isTrue(simpleBean() == simpleBean(), "Configuration Bean");
       return new SimpleBeanConsumer(simpleBean());
     }
@@ -32,12 +32,12 @@ public class ConfigurationAndComponent {
   public static class ComponentConfig {
 
     @Bean
-    public com.github.hotire.springcore.register.SimpleBean2 simpleBean2() {
+    public SimpleBean2 simpleBean2() {
       return new SimpleBean2();
     }
 
     @Bean
-    public com.github.hotire.springcore.register.SimpleBeanConsumer2 simpleBeanConsumer2() {
+    public SimpleBeanConsumer2 simpleBeanConsumer2() {
       Assert.isTrue(simpleBean2() != simpleBean2(), "Component Bean");
       return new SimpleBeanConsumer2(simpleBean2());
     }

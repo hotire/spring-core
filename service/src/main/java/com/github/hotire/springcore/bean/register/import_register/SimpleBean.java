@@ -1,4 +1,4 @@
-package com.github.hotire.springcore.register;
+package com.github.hotire.springcore.bean.register.import_register;
 
 import lombok.extern.slf4j.Slf4j;
 

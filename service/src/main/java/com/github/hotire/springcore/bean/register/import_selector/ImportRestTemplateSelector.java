@@ -1,4 +1,4 @@
-package com.github.hotire.springcore.import_selector;
+package com.github.hotire.springcore.bean.register.import_selector;
 
 import java.util.Map;
 import java.util.Objects;
@@ -13,12 +13,12 @@ import com.google.common.collect.ImmutableMap;
 
 public class ImportRestTemplateSelector implements ImportSelector {
 
-  private final Map<com.github.hotire.springcore.import_selector.Mode, String[]> restTemplateMap;
+  private final Map<com.github.hotire.springcore.bean.register.import_selector.Mode, String[]> restTemplateMap;
 
   public ImportRestTemplateSelector() {
-    restTemplateMap = ImmutableMap.of(com.github.hotire.springcore.import_selector.Mode.NONE, new String[]{ RestTemplate.class.getName()},
-                                      com.github.hotire.springcore.import_selector.Mode.ASYNC, new String[]{ AsyncRestTemplate.class.getName()},
-                                      com.github.hotire.springcore.import_selector.Mode.ALL, new String[]{ RestTemplate.class.getName(), AsyncRestTemplate.class.getName()});
+    restTemplateMap = ImmutableMap.of(com.github.hotire.springcore.bean.register.import_selector.Mode.NONE, new String[] { RestTemplate.class.getName() },
+                                      com.github.hotire.springcore.bean.register.import_selector.Mode.ASYNC, new String[] { AsyncRestTemplate.class.getName() },
+                                      com.github.hotire.springcore.bean.register.import_selector.Mode.ALL, new String[] { RestTemplate.class.getName(), AsyncRestTemplate.class.getName() });
   }
 
   @Override

@@ -8,6 +8,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.client.RestTemplate;
 
+import com.github.hotire.springcore.bean.register.import_register.EnableRegisterRestTemplate;
+
 @SpringBootTest
 @EnableRegisterRestTemplate
 class EnableRegisterRestTemplateTest {

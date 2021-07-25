@@ -1,4 +1,4 @@
-package com.github.hotire.springcore.register;
+package com.github.hotire.springcore.bean.register.import_register;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Data
 public class SimpleBeanConsumer {
-  private com.github.hotire.springcore.register.SimpleBean simpleBean;
+  private SimpleBean simpleBean;
   public SimpleBeanConsumer(SimpleBean simpleBean) {
     this.simpleBean = simpleBean;
     log.info("SimpleBeanConsumer SimpleBean hashcode : {}", this.simpleBean.hashCode());

@@ -1,4 +1,4 @@
-package com.github.hotire.springcore.register;
+package com.github.hotire.springcore.bean.register.import_register;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

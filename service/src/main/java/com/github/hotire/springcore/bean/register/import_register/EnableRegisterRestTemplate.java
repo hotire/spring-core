@@ -1,4 +1,4 @@
-package com.github.hotire.springcore.register;
+package com.github.hotire.springcore.bean.register.import_register;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 
 import org.springframework.context.annotation.Import;
 
-import com.github.hotire.springcore.import_selector.Mode;
+import com.github.hotire.springcore.bean.register.import_selector.Mode;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)

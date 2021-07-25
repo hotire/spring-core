@@ -1,4 +1,4 @@
-package com.github.hotire.springcore.register;
+package com.github.hotire.springcore.bean.register.import_register;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -13,8 +13,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.client.AsyncRestTemplate;
 import org.springframework.web.client.RestTemplate;
 
+import com.github.hotire.springcore.bean.register.import_selector.Mode;
 import com.google.common.collect.ImmutableMap;
-import com.github.hotire.springcore.import_selector.Mode;
 
 import lombok.extern.slf4j.Slf4j;
 

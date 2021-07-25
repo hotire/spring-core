@@ -8,7 +8,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.client.AsyncRestTemplate;
 
-import com.github.hotire.springcore.import_selector.Mode;
+import com.github.hotire.springcore.bean.register.import_register.EnableRegisterRestTemplate;
+import com.github.hotire.springcore.bean.register.import_selector.Mode;
 
 @SpringBootTest
 @EnableRegisterRestTemplate(mode = Mode.ASYNC)

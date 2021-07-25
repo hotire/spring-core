@@ -1,4 +1,4 @@
-package com.github.hotire.springcore.factory;
+package com.github.hotire.springcore.bean.register.factory;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
