@@ -1,16 +1,22 @@
 package com.github.hotire.springcore.bean.register.factory;
 
 import org.springframework.beans.factory.FactoryBean;
+import org.springframework.core.ResolvableType;
 import org.springframework.stereotype.Component;
 
+/**
+ * @see org.springframework.beans.factory.support.AbstractBeanFactory#isTypeMatch(String, ResolvableType, boolean)
+ * @see org.springframework.beans.factory.support.FactoryBeanRegistrySupport#getTypeForFactoryBean(FactoryBean)
+ * getObjectType -> FactoryBean Proxy getObjectType && getObject
+ */
 @Component
-public class ToolFactory implements FactoryBean<com.github.hotire.springcore.bean.register.factory.Tool> {
+public class ToolFactory implements FactoryBean<Tool> {
     private Long factoryId;
     private Long toolId;
 
     @Override
-    public com.github.hotire.springcore.bean.register.factory.Tool getObject() throws Exception {
-        return new com.github.hotire.springcore.bean.register.factory.Tool(toolId);
+    public Tool getObject() throws Exception {
+        return new Tool(toolId);
     }
 
     @Override
@@ -18,4 +24,8 @@ public class ToolFactory implements FactoryBean<com.github.hotire.springcore.bea
         return Tool.class;
     }
 
+    @Override
+    public boolean isSingleton() {
+        return true;
+    }
 }
