@@ -14,11 +14,11 @@ import com.github.hotire.springcore.bean.register.import_register.EnableRegister
 @EnableRegisterRestTemplate
 class EnableRegisterRestTemplateTest {
 
-  @Autowired
-  ApplicationContext context;
+    @Autowired
+    ApplicationContext context;
 
-  @Test
-  void di() {
-    assertThat(context.getBean(RestTemplate.class)).isNotNull();
-  }
+    @Test
+    void di() {
+        assertThat(context.getBean(RestTemplate.class)).isNotNull();
+    }
 }

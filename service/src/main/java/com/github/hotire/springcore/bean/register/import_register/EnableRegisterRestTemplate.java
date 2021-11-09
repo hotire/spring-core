@@ -13,5 +13,5 @@ import com.github.hotire.springcore.bean.register.import_selector.Mode;
 @Retention(RetentionPolicy.RUNTIME)
 @Import(ImportRestTemplateRegister.class)
 public @interface EnableRegisterRestTemplate {
-  Mode mode() default Mode.NONE;
+    Mode mode() default Mode.NONE;
 }

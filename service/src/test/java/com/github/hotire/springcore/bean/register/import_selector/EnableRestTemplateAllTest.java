@@ -12,12 +12,12 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootTest
 @EnableRestTemplate(mode = Mode.ALL)
 class EnableRestTemplateAllTest {
-  @Autowired
-  ApplicationContext context;
+    @Autowired
+    ApplicationContext context;
 
-  @Test
-  void di() {
-    assertThat(context.getBean(AsyncRestTemplate.class)).isNotNull();
-    assertThat(context.getBean(RestTemplate.class)).isNotNull();
-  }
+    @Test
+    void di() {
+        assertThat(context.getBean(AsyncRestTemplate.class)).isNotNull();
+        assertThat(context.getBean(RestTemplate.class)).isNotNull();
+    }
 }

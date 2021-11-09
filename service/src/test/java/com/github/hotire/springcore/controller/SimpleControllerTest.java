@@ -14,13 +14,13 @@ import com.github.hotire.springcore.config.RoutingConfig;
 @WebMvcTest(RoutingConfig.class)
 class SimpleControllerTest {
 
-  @Autowired
-  MockMvc mockMvc;
+    @Autowired
+    MockMvc mockMvc;
 
-  @Test
-  void whenSimpleUrlMapping_thenMappedOK() throws Exception {
-    mockMvc.perform(get("/simple"))
-           .andExpect(status().isOk())
-           .andExpect(view().name("/index"));
-  }
+    @Test
+    void whenSimpleUrlMapping_thenMappedOK() throws Exception {
+        mockMvc.perform(get("/simple"))
+               .andExpect(status().isOk())
+               .andExpect(view().name("/index"));
+    }
 }

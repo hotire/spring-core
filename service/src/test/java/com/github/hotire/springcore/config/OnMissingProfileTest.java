@@ -32,7 +32,7 @@ class OnMissingProfileTest {
         final Environment environment = new MockEnvironment() {
             @Override
             protected Set<String> doGetActiveProfiles() {
-             return Sets.newHashSet(activeProfiles);
+                return Sets.newHashSet(activeProfiles);
             }
         };
         final ConditionContext context = mock(ConditionContext.class);
@@ -49,7 +49,6 @@ class OnMissingProfileTest {
         // then
         assertThat(result).isEqualTo(expected);
     }
-
 
     private static Stream<Arguments> provideArguments() {
         return Stream.of(

@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class CustomFilterConfig {
 
-    public static class LoggingFilter implements Filter  {
+    public static class LoggingFilter implements Filter {
         @Override
         public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
             filterChain.doFilter(servletRequest, servletResponse);
@@ -24,7 +24,7 @@ public class CustomFilterConfig {
     }
 
     @Bean
-    public FilterRegistrationBean<LoggingFilter> loggingFilter(){
+    public FilterRegistrationBean<LoggingFilter> loggingFilter() {
         final FilterRegistrationBean<LoggingFilter> bean = new FilterRegistrationBean<>();
         bean.setFilter(new LoggingFilter());
         bean.setUrlPatterns(List.of("*"));

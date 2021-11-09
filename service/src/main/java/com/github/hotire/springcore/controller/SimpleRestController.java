@@ -11,17 +11,17 @@ import com.github.hotire.springcore.log.Monitor;
 @RestController
 public class SimpleRestController {
 
-  @Autowired(required = false)
-  private Proto proto;
+    @Autowired(required = false)
+    private Proto proto;
 
-  @GetMapping("/hello3")
-  public String hello() {
-    return "hello3";
-  }
+    @GetMapping("/hello3")
+    public String hello() {
+        return "hello3";
+    }
 
-  @GetMapping("/hello4")
-  public String h() {
-    return proto.toString();
-  }
+    @GetMapping("/hello4")
+    public String h() {
+        return proto.toString();
+    }
 
 }

@@ -16,14 +16,14 @@ public class ProtoTest {
     static class Config {
         @Bean
         public Single single() {
-      return new Single();
-    }
+            return new Single();
+        }
 
         @Scope("prototype")
         @Bean
         public Proto proto() {
-      return new Proto();
-    }
+            return new Proto();
+        }
     }
 
     @Autowired

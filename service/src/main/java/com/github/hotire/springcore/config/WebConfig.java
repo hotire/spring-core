@@ -12,16 +12,16 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
-  @Override
-  public void addViewControllers(ViewControllerRegistry registry) {
-    registry.addViewController("/simple2").setViewName("/index");
-  }
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/simple2").setViewName("/index");
+    }
 
-  @Override
-  public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-    converters.stream()
-              .filter(it -> it instanceof AbstractHttpMessageConverter)
-              .map(AbstractHttpMessageConverter.class::cast)
-              .forEach(it -> it.setDefaultCharset(StandardCharsets.UTF_8));
-  }
+    @Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        converters.stream()
+                  .filter(it -> it instanceof AbstractHttpMessageConverter)
+                  .map(AbstractHttpMessageConverter.class::cast)
+                  .forEach(it -> it.setDefaultCharset(StandardCharsets.UTF_8));
+    }
 }

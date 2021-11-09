@@ -68,7 +68,7 @@ public class EntityArgumentResolver implements HandlerMethodArgumentResolver, Ap
         final String value = DEFAULT_NONE.equals(entityArgument.value()) ? entityArgumentType.path : entityArgument.value();
 
         return Optional.ofNullable(entityArgumentType.getTypeHandler().get(entityType))
-                .map(handler -> handler.apply(Long.valueOf(pathVariables.get(value))))
-                .orElseThrow(() -> new IllegalArgumentException("Cannot support entity type" + entityType));
+                       .map(handler -> handler.apply(Long.valueOf(pathVariables.get(value))))
+                       .orElseThrow(() -> new IllegalArgumentException("Cannot support entity type" + entityType));
     }
 }

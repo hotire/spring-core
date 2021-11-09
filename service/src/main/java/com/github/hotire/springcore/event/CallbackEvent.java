@@ -7,7 +7,8 @@ import lombok.Setter;
 
 public class CallbackEvent<T> extends AsyncApplicationEvent {
 
-    @Getter @Setter
+    @Getter
+    @Setter
     private Consumer<T> callback;
 
     public CallbackEvent(Object source) {

@@ -11,9 +11,9 @@ import org.springframework.web.HttpRequestHandler;
 @org.springframework.stereotype.Controller("/http")
 public class HttpRequestController implements HttpRequestHandler {
 
-  @Override
-  public void handleRequest(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+    @Override
+    public void handleRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-  }
+    }
 }

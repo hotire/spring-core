@@ -15,14 +15,14 @@ import org.springframework.test.web.servlet.MockMvc;
 @Import(PersonFormatter.class)
 class SampleControllerTest {
 
-  @Autowired
-  MockMvc mockMvc;
+    @Autowired
+    MockMvc mockMvc;
 
-  @Test
-  void hello() throws Exception {
-    mockMvc.perform(get("/sample/tire.ho"))
-           .andDo(print())
-           .andExpect(status().isOk())
-           .andExpect(content().string("hello tire.ho, by PersonFormatter"));
-  }
+    @Test
+    void hello() throws Exception {
+        mockMvc.perform(get("/sample/tire.ho"))
+               .andDo(print())
+               .andExpect(status().isOk())
+               .andExpect(content().string("hello tire.ho, by PersonFormatter"));
+    }
 }

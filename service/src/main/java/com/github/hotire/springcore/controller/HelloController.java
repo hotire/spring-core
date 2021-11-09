@@ -18,34 +18,35 @@ import com.github.hotire.springcore.service.HelloService;
 @Controller
 public class HelloController implements ApplicationListener {
 
-  private HelloService helloService;
-  
-  @Bean(initMethod = "init")
-  public com.github.hotire.springcore.controller.InitTest initTest() {
-    return new InitTest();
-  }
+    private HelloService helloService;
 
-  public HelloController(HelloService helloService) {
-    System.out.println();
-  }
+    @Bean(initMethod = "init")
+    public com.github.hotire.springcore.controller.InitTest initTest() {
+        return new InitTest();
+    }
 
-  @PostMapping("/hello")
-  public ModelAndView hello() {
-    return new ModelAndView("/index");
-  }
+    public HelloController(HelloService helloService) {
+        System.out.println();
+    }
 
-  @GetMapping("/hello2")
-  public @ResponseBody String hello2() {
-    return "hello2";
-  }
+    @PostMapping("/hello")
+    public ModelAndView hello() {
+        return new ModelAndView("/index");
+    }
 
-  @Autowired
-  public void setHelloService(HelloService helloService) {
-    this.helloService = helloService;
-  }
+    @GetMapping("/hello2")
+    public @ResponseBody
+    String hello2() {
+        return "hello2";
+    }
 
-  @Override
-  public void onApplicationEvent(ApplicationEvent event) {
+    @Autowired
+    public void setHelloService(HelloService helloService) {
+        this.helloService = helloService;
+    }
 
-  }
+    @Override
+    public void onApplicationEvent(ApplicationEvent event) {
+
+    }
 }

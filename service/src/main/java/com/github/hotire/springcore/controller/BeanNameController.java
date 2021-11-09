@@ -13,9 +13,9 @@ import org.springframework.web.servlet.mvc.Controller;
 @org.springframework.stereotype.Controller("/bean")
 public class BeanNameController implements Controller {
 
-  @Override
-  public ModelAndView handleRequest(HttpServletRequest httpServletRequest,
-    HttpServletResponse httpServletResponse) throws Exception {
-    return new ModelAndView("/index");
-  }
+    @Override
+    public ModelAndView handleRequest(HttpServletRequest httpServletRequest,
+                                      HttpServletResponse httpServletResponse) throws Exception {
+        return new ModelAndView("/index");
+    }
 }

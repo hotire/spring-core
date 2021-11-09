@@ -14,7 +14,7 @@ public class EventController {
 
     @InitBinder
     public void initBinder(WebDataBinder webDataBinder) {
-       webDataBinder.registerCustomEditor(com.github.hotire.springcore.property.Event.class, new EventEditor());
+        webDataBinder.registerCustomEditor(com.github.hotire.springcore.property.Event.class, new EventEditor());
     }
 
     @GetMapping("/{event}")

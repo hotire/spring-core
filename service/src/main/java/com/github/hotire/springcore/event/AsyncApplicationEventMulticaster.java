@@ -18,11 +18,11 @@ public class AsyncApplicationEventMulticaster extends SimpleApplicationEventMult
     public void multicastEvent(final ApplicationEvent event, @Nullable ResolvableType eventType) {
         final ResolvableType type = Optional.ofNullable(eventType).orElseGet(() -> ResolvableType.forInstance(event));
         getApplicationListeners(event, type).forEach(listener ->
-                Optional.ofNullable(getTaskExecutor())
-                        .filter(executor -> checkAsyncEvent(event))
-                        .ifPresentOrElse(
-                                executor -> executor.execute(() -> invokeListener(listener, event)),
-                                () -> invokeListener(listener, event))
+                                                             Optional.ofNullable(getTaskExecutor())
+                                                                     .filter(executor -> checkAsyncEvent(event))
+                                                                     .ifPresentOrElse(
+                                                                             executor -> executor.execute(() -> invokeListener(listener, event)),
+                                                                             () -> invokeListener(listener, event))
         );
     }
 

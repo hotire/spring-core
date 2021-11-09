@@ -19,8 +19,8 @@ class ScopeProxyTest {
         @Scope(value = "prototype", proxyMode = ScopedProxyMode.INTERFACES)
         @Bean
         public Proto proto() {
-      return new Proto();
-    }
+            return new Proto();
+        }
     }
 
     @Autowired

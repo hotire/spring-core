@@ -10,12 +10,12 @@ import lombok.extern.slf4j.Slf4j;
 @SpringBootTest
 class PersonTest {
 
-  @Autowired
-  PersonService personService;
+    @Autowired
+    PersonService personService;
 
-  @Test
-  void assert_aop() {
-    log.debug("stop");
-    personService.sayHello("hi");
-  }
+    @Test
+    void assert_aop() {
+        log.debug("stop");
+        personService.sayHello("hi");
+    }
 }

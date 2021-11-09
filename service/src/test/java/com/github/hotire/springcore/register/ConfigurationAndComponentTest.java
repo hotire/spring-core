@@ -13,15 +13,15 @@ import lombok.extern.slf4j.Slf4j;
 @SpringBootTest
 class ConfigurationAndComponentTest {
 
-  @Autowired
-  SimpleBean2 simpleBean2;
+    @Autowired
+    SimpleBean2 simpleBean2;
 
-  @Autowired
-  ConfigurationAndComponent.Config config;
+    @Autowired
+    ConfigurationAndComponent.Config config;
 
-  @Test
-  void di() {
-    log.info("Test simpleBean2 hashCode : {}", simpleBean2.hashCode());
-  }
+    @Test
+    void di() {
+        log.info("Test simpleBean2 hashCode : {}", simpleBean2.hashCode());
+    }
 
 }

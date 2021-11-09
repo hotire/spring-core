@@ -27,7 +27,8 @@ public class MDCUtils {
     }
 
     public static void clear() {
-        ADAPTER.clear();;
+        ADAPTER.clear();
+        ;
     }
 
     public static Map<String, String> getCopyOfContextMap() {

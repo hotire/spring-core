@@ -15,6 +15,7 @@ public class CustomValidator implements ConstraintValidator<CustomValidation, Se
     public void initialize(CustomValidation constraintAnnotation) {
 
     }
+
     @Override
     public boolean isValid(Set<Entry> values, ConstraintValidatorContext context) {
         log.info("values : {}", values);

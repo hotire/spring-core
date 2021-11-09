@@ -14,43 +14,43 @@ import org.springframework.expression.spel.support.SimpleEvaluationContext;
 
 class StandardEvaluationContextTest {
 
-  ExpressionParser parser = new SpelExpressionParser();
+    ExpressionParser parser = new SpelExpressionParser();
 
-  class Simple {
-    public List<Boolean> booleanList = new ArrayList<>();
-  }
+    class Simple {
+        public List<Boolean> booleanList = new ArrayList<>();
+    }
 
-  @Test
-  void setValue() {
-    // Given
-    Simple simple = new Simple();
-    simple.booleanList.add(true);
-    EvaluationContext context = SimpleEvaluationContext.forReadOnlyDataBinding().build();
+    @Test
+    void setValue() {
+        // Given
+        Simple simple = new Simple();
+        simple.booleanList.add(true);
+        EvaluationContext context = SimpleEvaluationContext.forReadOnlyDataBinding().build();
 
-    // When
-    parser.parseExpression("booleanList[0]").setValue(context, simple, "false");
+        // When
+        parser.parseExpression("booleanList[0]").setValue(context, simple, "false");
 
-    // Then
-    Boolean result = simple.booleanList.get(0);
-    Assertions.assertThat(result).isFalse();
-  }
+        // Then
+        Boolean result = simple.booleanList.get(0);
+        Assertions.assertThat(result).isFalse();
+    }
 
-  class Demo {
-    public List<String> list;
-  }
+    class Demo {
+        public List<String> list;
+    }
 
-  @Test
-  void autoConfig() {
-    // Given
-    SpelParserConfiguration config = new SpelParserConfiguration(true, true);
-    ExpressionParser parser = new SpelExpressionParser(config);
-    Demo demo = new Demo();
+    @Test
+    void autoConfig() {
+        // Given
+        SpelParserConfiguration config = new SpelParserConfiguration(true, true);
+        ExpressionParser parser = new SpelExpressionParser(config);
+        Demo demo = new Demo();
 
-    // When
-    Expression expression = parser.parseExpression("list[3]");
-    expression.getValue(demo);
+        // When
+        Expression expression = parser.parseExpression("list[3]");
+        expression.getValue(demo);
 
-    // Then
-    Assertions.assertThat(demo.list.size()).isEqualTo(4);
-  }
+        // Then
+        Assertions.assertThat(demo.list.size()).isEqualTo(4);
+    }
 }

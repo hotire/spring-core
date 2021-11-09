@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.ValueConstants;
 @Documented
 public @interface EntityArgument {
     EntityArgumentResolver.EntityArgumentType type();
+
     String value() default ValueConstants.DEFAULT_NONE;
+
     String parameterType() default "path";
 }

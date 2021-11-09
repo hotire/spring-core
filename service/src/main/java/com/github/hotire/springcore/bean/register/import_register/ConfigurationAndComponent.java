@@ -13,33 +13,33 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ConfigurationAndComponent {
 
-  @Configuration
-  public static class Config {
+    @Configuration
+    public static class Config {
 
-    @Bean
-    public SimpleBean simpleBean() {
-      return new SimpleBean();
+        @Bean
+        public SimpleBean simpleBean() {
+            return new SimpleBean();
+        }
+
+        @Bean
+        public SimpleBeanConsumer simpleBeanConsumer() {
+            Assert.isTrue(simpleBean() == simpleBean(), "Configuration Bean");
+            return new SimpleBeanConsumer(simpleBean());
+        }
     }
 
-    @Bean
-    public SimpleBeanConsumer simpleBeanConsumer() {
-      Assert.isTrue(simpleBean() == simpleBean(), "Configuration Bean");
-      return new SimpleBeanConsumer(simpleBean());
-    }
-  }
+    @Component
+    public static class ComponentConfig {
 
-  @Component
-  public static class ComponentConfig {
+        @Bean
+        public SimpleBean2 simpleBean2() {
+            return new SimpleBean2();
+        }
 
-    @Bean
-    public SimpleBean2 simpleBean2() {
-      return new SimpleBean2();
+        @Bean
+        public SimpleBeanConsumer2 simpleBeanConsumer2() {
+            Assert.isTrue(simpleBean2() != simpleBean2(), "Component Bean");
+            return new SimpleBeanConsumer2(simpleBean2());
+        }
     }
-
-    @Bean
-    public SimpleBeanConsumer2 simpleBeanConsumer2() {
-      Assert.isTrue(simpleBean2() != simpleBean2(), "Component Bean");
-      return new SimpleBeanConsumer2(simpleBean2());
-    }
-  }
 }

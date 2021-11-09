@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CorsController {
 
-  @CrossOrigin("*")
-  @GetMapping
-  public ResponseEntity hello () {
-    return ResponseEntity.ok().body("hello");
-  }
+    @CrossOrigin("*")
+    @GetMapping
+    public ResponseEntity hello() {
+        return ResponseEntity.ok().body("hello");
+    }
 }

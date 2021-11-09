@@ -18,7 +18,6 @@ import com.google.common.collect.ImmutableMap;
 
 import lombok.extern.slf4j.Slf4j;
 
-
 /**
  *
  * https://javacan.tistory.com/entry/spring-at-enable-config
@@ -29,15 +28,15 @@ public class ImportRestTemplateRegister implements ImportBeanDefinitionRegistrar
     private final Map<Mode, Class[]> restTemplateMap;
 
     public ImportRestTemplateRegister() {
-        restTemplateMap = ImmutableMap.of(Mode.NONE, new Class[]{RestTemplate.class},
-          Mode.ASYNC, new Class[]{AsyncRestTemplate.class},
-          Mode.ALL, new Class[]{RestTemplate.class, AsyncRestTemplate.class});
+        restTemplateMap = ImmutableMap.of(Mode.NONE, new Class[] { RestTemplate.class },
+                                          Mode.ASYNC, new Class[] { AsyncRestTemplate.class },
+                                          Mode.ALL, new Class[] { RestTemplate.class, AsyncRestTemplate.class });
     }
 
     @Override
     public void registerBeanDefinitions(AnnotationMetadata annotationMetadata, BeanDefinitionRegistry beanDefinitionRegistry) {
         Map<String, Object> metaData = annotationMetadata.getAnnotationAttributes(
-          EnableRegisterRestTemplate.class.getName());
+                EnableRegisterRestTemplate.class.getName());
         final AnnotationAttributes attributes = AnnotationAttributes.fromMap(metaData);
         Objects.requireNonNull(attributes);
 

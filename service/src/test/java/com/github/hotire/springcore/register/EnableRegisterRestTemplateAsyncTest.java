@@ -14,11 +14,11 @@ import com.github.hotire.springcore.bean.register.import_selector.Mode;
 @SpringBootTest
 @EnableRegisterRestTemplate(mode = Mode.ASYNC)
 class EnableRegisterRestTemplateAsyncTest {
-  @Autowired
-  ApplicationContext context;
+    @Autowired
+    ApplicationContext context;
 
-  @Test
-  void di() {
-    assertThat(context.getBean(AsyncRestTemplate.class)).isNotNull();
-  }
+    @Test
+    void di() {
+        assertThat(context.getBean(AsyncRestTemplate.class)).isNotNull();
+    }
 }

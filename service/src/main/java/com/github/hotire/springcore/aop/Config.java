@@ -1,4 +1,5 @@
 package com.github.hotire.springcore.aop;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 

@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.core.annotation.AliasFor;
 
-@Target({ElementType.TYPE})
+@Target({ ElementType.TYPE })
 @Retention(RetentionPolicy.RUNTIME)
 //@DataJpaTest
 public @interface EventDataJpaTest {
@@ -25,7 +25,7 @@ public @interface EventDataJpaTest {
     boolean useDefaultFilters() default true;
 
     @AliasFor(annotation = DataJpaTest.class)
-    ComponentScan.Filter[] includeFilters() default { @ComponentScan.Filter(type = FilterType.ANNOTATION, value = EventComponent.class)};
+    ComponentScan.Filter[] includeFilters() default { @ComponentScan.Filter(type = FilterType.ANNOTATION, value = EventComponent.class) };
 
     @AliasFor(annotation = DataJpaTest.class)
     ComponentScan.Filter[] excludeFilters() default {};

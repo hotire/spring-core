@@ -10,9 +10,9 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 public class SampleController {
 
-  @GetMapping("/sample/{name}")
-  public String sample(@PathVariable("name") Person person) {
-    log.debug(person.toString());
-    return "hello " + person.getName();
-  }
+    @GetMapping("/sample/{name}")
+    public String sample(@PathVariable("name") Person person) {
+        log.debug(person.toString());
+        return "hello " + person.getName();
+    }
 }

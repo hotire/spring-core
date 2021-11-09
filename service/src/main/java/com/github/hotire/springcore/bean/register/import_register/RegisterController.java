@@ -8,11 +8,11 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequiredArgsConstructor
 public class RegisterController {
-  private final ConfigurationAndComponent.Config config;
+    private final ConfigurationAndComponent.Config config;
 
-  @GetMapping("/config")
-  public String config() {
-    config.simpleBean();
-    return "config";
-  }
+    @GetMapping("/config")
+    public String config() {
+        config.simpleBean();
+        return "config";
+    }
 }

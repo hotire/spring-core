@@ -8,8 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class PersonService2 implements AOPService {
 
-  @Override
-  public void service() {
-    log.info("hello AOPService");
-  }
+    @Override
+    public void service() {
+        log.info("hello AOPService");
+    }
 }

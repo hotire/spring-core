@@ -12,14 +12,13 @@ import org.springframework.util.StopWatch;
 
 import lombok.extern.slf4j.Slf4j;
 
-
 @Slf4j
 @Aspect
 @Component
 public class MonitorAspect {
 
     interface Logger {
-        void log(final String format, Object ... args);
+        void log(final String format, Object... args);
     }
 
     public enum Level implements Logger {
@@ -28,11 +27,12 @@ public class MonitorAspect {
             public void log(String format, Object... args) {
                 log.trace(format, args);
             }
-        }
-        ,
+        },
         DEBUG {
             @Override
-            public void log(String format, Object... args) { log.debug(format, args); }
+            public void log(String format, Object... args) {
+                log.debug(format, args);
+            }
         },
         INFO {
             @Override
@@ -66,10 +66,11 @@ public class MonitorAspect {
         log.info("Monitor Start");
         log.info("method : {}", methodSignature.getMethod());
 
-        for (Object arg : joinPoint.getArgs())
+        for (Object arg : joinPoint.getArgs()) {
             if (Objects.nonNull(arg)) {
                 log.info("arg type : {} value : {}", arg.getClass().getSimpleName(), arg);
             }
+        }
 
         final Object result = joinPoint.proceed();
 

@@ -12,11 +12,11 @@ import org.springframework.web.client.RestTemplate;
 @EnableRestTemplate
 class EnableRestTemplateTest {
 
-  @Autowired
-  ApplicationContext context;
+    @Autowired
+    ApplicationContext context;
 
-  @Test
-  void di() {
-    assertThat(context.getBean(RestTemplate.class)).isNotNull();
-  }
+    @Test
+    void di() {
+        assertThat(context.getBean(RestTemplate.class)).isNotNull();
+    }
 }

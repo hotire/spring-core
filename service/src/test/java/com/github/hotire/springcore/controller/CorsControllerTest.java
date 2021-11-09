@@ -13,14 +13,14 @@ import org.springframework.test.web.servlet.MockMvc;
 @WebMvcTest(CorsController.class)
 class CorsControllerTest {
 
-  @Autowired
-  private MockMvc mockMvc;
+    @Autowired
+    private MockMvc mockMvc;
 
-  @Test
-  void cors() throws Exception {
-    mockMvc.perform(get("/cors"))
-           .andExpect(header().exists(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN))
-           .andExpect(header().exists(HttpHeaders.ACCESS_CONTROL_ALLOW_METHODS))
-           .andDo(print());
-  }
+    @Test
+    void cors() throws Exception {
+        mockMvc.perform(get("/cors"))
+               .andExpect(header().exists(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN))
+               .andExpect(header().exists(HttpHeaders.ACCESS_CONTROL_ALLOW_METHODS))
+               .andDo(print());
+    }
 }

@@ -12,28 +12,28 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 class PersonServiceTest {
 
-  @Test
-  void hello() {
-    Enhancer enhancer = new Enhancer();
-    enhancer.setSuperclass(PersonService.class);
-    enhancer.setCallback((FixedValue) () -> "Hello Tom!");
-    PersonService proxy = (PersonService) enhancer.create();
+    @Test
+    void hello() {
+        Enhancer enhancer = new Enhancer();
+        enhancer.setSuperclass(PersonService.class);
+        enhancer.setCallback((FixedValue) () -> "Hello Tom!");
+        PersonService proxy = (PersonService) enhancer.create();
 
-    String res = proxy.sayHello(null);
+        String res = proxy.sayHello(null);
 
-    assertEquals("Hello Tom!", res);
-  }
+        assertEquals("Hello Tom!", res);
+    }
 
-  @Disabled("migration Junit5")
-  @Test
-  void hello_cannot_subclass_final_class() {
-    Enhancer enhancer = new Enhancer();
-    enhancer.setSuperclass(FinalPersonService.class);
-    enhancer.setCallback((FixedValue) () -> "Hello Tom!");
+    @Disabled("migration Junit5")
+    @Test
+    void hello_cannot_subclass_final_class() {
+        Enhancer enhancer = new Enhancer();
+        enhancer.setSuperclass(FinalPersonService.class);
+        enhancer.setCallback((FixedValue) () -> "Hello Tom!");
 
-    PersonService proxy = (PersonService) enhancer.create();
-    String res = proxy.sayHello(null);
+        PersonService proxy = (PersonService) enhancer.create();
+        String res = proxy.sayHello(null);
 
-    assertEquals("Hello Tom!", res);
-  }
+        assertEquals("Hello Tom!", res);
+    }
 }

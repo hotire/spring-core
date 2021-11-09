@@ -26,7 +26,7 @@ public class ConditionalConfig {
 
     @Configuration
     @ConditionalOnClass(DispatcherServlet.class)
-    public static class OnClass implements InitializingBean{
+    public static class OnClass implements InitializingBean {
         @Override
         public void afterPropertiesSet() throws Exception {
             log.debug("OnClass");
@@ -35,7 +35,7 @@ public class ConditionalConfig {
 
     @Configuration
     @ConditionalOnBean(SimpleRestController.class)
-    public static class OnBean implements InitializingBean{
+    public static class OnBean implements InitializingBean {
         @Override
         public void afterPropertiesSet() throws Exception {
             log.debug("OnClass");
@@ -44,7 +44,7 @@ public class ConditionalConfig {
 
     @Configuration
     @ConditionalOnMissingProfile(value = "beta")
-    public static class OnMissingProfile implements InitializingBean{
+    public static class OnMissingProfile implements InitializingBean {
         @Override
         public void afterPropertiesSet() throws Exception {
             log.debug("OnClass");

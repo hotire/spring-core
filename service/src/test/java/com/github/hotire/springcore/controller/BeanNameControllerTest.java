@@ -13,14 +13,14 @@ import org.springframework.test.web.servlet.MockMvc;
 @WebMvcTest(BeanNameController.class)
 class BeanNameControllerTest {
 
-  @Autowired
-  MockMvc mockMvc;
+    @Autowired
+    MockMvc mockMvc;
 
-  @Test
-  void assert_get() throws Exception {
-    mockMvc.perform(get("/bean"))
-           .andExpect(status().isOk())
-           .andExpect(view().name("/index"))
-           .andDo(print());
-  }
+    @Test
+    void assert_get() throws Exception {
+        mockMvc.perform(get("/bean"))
+               .andExpect(status().isOk())
+               .andExpect(view().name("/index"))
+               .andDo(print());
+    }
 }

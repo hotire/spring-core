@@ -11,13 +11,13 @@ import com.github.hotire.springcore.controller.SimpleController;
 @Configuration
 public class RoutingConfig {
 
-  @Bean
-  public SimpleUrlHandlerMapping sampleServletMapping() {
-    SimpleUrlHandlerMapping mapping = new SimpleUrlHandlerMapping();
-    mapping.setOrder(0);
-    Properties urlProperties = new Properties();
-    urlProperties.put("/simple", new SimpleController());
-    mapping.setMappings(urlProperties);
-    return mapping;
-  }
+    @Bean
+    public SimpleUrlHandlerMapping sampleServletMapping() {
+        SimpleUrlHandlerMapping mapping = new SimpleUrlHandlerMapping();
+        mapping.setOrder(0);
+        Properties urlProperties = new Properties();
+        urlProperties.put("/simple", new SimpleController());
+        mapping.setMappings(urlProperties);
+        return mapping;
+    }
 }

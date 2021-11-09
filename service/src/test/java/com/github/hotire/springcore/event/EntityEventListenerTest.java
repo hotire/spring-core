@@ -29,7 +29,6 @@ class EntityEventListenerTest {
         // when
         publisher.publishEvent(new AsyncApplicationEvent("data"));
 
-
         // then
         verify(atomicBoolean, timeout(2000)).set(true);
     }

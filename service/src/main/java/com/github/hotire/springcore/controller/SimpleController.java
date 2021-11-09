@@ -8,9 +8,9 @@ import org.springframework.web.servlet.mvc.Controller;
 
 public class SimpleController implements Controller {
 
-  @Override
-  public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
-    throws Exception {
-    return new ModelAndView("/index");
-  }
+    @Override
+    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
+        return new ModelAndView("/index");
+    }
 }

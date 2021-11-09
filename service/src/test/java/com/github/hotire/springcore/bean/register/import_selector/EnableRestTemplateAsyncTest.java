@@ -12,11 +12,11 @@ import org.springframework.web.client.AsyncRestTemplate;
 @EnableRestTemplate(mode = Mode.ASYNC)
 class EnableRestTemplateAsyncTest {
 
-  @Autowired
-  ApplicationContext context;
+    @Autowired
+    ApplicationContext context;
 
-  @Test
-  void di() {
-    assertThat(context.getBean(AsyncRestTemplate.class)).isNotNull();
-  }
+    @Test
+    void di() {
+        assertThat(context.getBean(AsyncRestTemplate.class)).isNotNull();
+    }
 }

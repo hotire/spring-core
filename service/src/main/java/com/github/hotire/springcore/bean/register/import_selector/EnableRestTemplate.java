@@ -11,5 +11,5 @@ import org.springframework.context.annotation.Import;
 @Retention(RetentionPolicy.RUNTIME)
 @Import(ImportRestTemplateSelector.class)
 public @interface EnableRestTemplate {
-  com.github.hotire.springcore.bean.register.import_selector.Mode mode() default Mode.NONE;
+    com.github.hotire.springcore.bean.register.import_selector.Mode mode() default Mode.NONE;
 }

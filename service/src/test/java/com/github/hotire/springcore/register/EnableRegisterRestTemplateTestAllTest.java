@@ -16,12 +16,12 @@ import com.github.hotire.springcore.bean.register.import_selector.Mode;
 @EnableRegisterRestTemplate(mode = Mode.ALL)
 class EnableRegisterRestTemplateTestAllTest {
 
-  @Autowired
-  ApplicationContext context;
+    @Autowired
+    ApplicationContext context;
 
-  @Test
-  void di() {
-    assertThat(context.getBean(AsyncRestTemplate.class)).isNotNull();
-    assertThat(context.getBean(RestTemplate.class)).isNotNull();
-  }
+    @Test
+    void di() {
+        assertThat(context.getBean(AsyncRestTemplate.class)).isNotNull();
+        assertThat(context.getBean(RestTemplate.class)).isNotNull();
+    }
 }

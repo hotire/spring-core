@@ -18,39 +18,39 @@ import org.springframework.expression.spel.standard.SpelExpressionParser;
  */
 class ExpressionParserTest {
 
-  @Test
-  void parse() {
-    ExpressionParser parser = new SpelExpressionParser();
-    Expression exp = parser.parseExpression("'Hello World'");
-    String message = (String) exp.getValue();
+    @Test
+    void parse() {
+        ExpressionParser parser = new SpelExpressionParser();
+        Expression exp = parser.parseExpression("'Hello World'");
+        String message = (String) exp.getValue();
 
-    assertThat(message).isEqualTo("Hello World");
-  }
+        assertThat(message).isEqualTo("Hello World");
+    }
 
-  @Test
-  void concat() {
-    ExpressionParser parser = new SpelExpressionParser();
-    Expression exp = parser.parseExpression("'Hello World'.concat('!')");
-    String message = (String) exp.getValue();
+    @Test
+    void concat() {
+        ExpressionParser parser = new SpelExpressionParser();
+        Expression exp = parser.parseExpression("'Hello World'.concat('!')");
+        String message = (String) exp.getValue();
 
-    assertThat(message).isEqualTo("Hello World!");
-  }
+        assertThat(message).isEqualTo("Hello World!");
+    }
 
-  @Test
-  void length() {
-    ExpressionParser parser = new SpelExpressionParser();
-    Expression exp = parser.parseExpression("'Hello World'.length()");
-    Integer length = (Integer) exp.getValue();
+    @Test
+    void length() {
+        ExpressionParser parser = new SpelExpressionParser();
+        Expression exp = parser.parseExpression("'Hello World'.length()");
+        Integer length = (Integer) exp.getValue();
 
-    assertThat(length).isEqualTo(11);
-  }
+        assertThat(length).isEqualTo(11);
+    }
 
-  @Test
-  void constructor() {
-    ExpressionParser parser = new SpelExpressionParser();
-    Expression exp = parser.parseExpression("new String('hello world').toUpperCase()");
-    String message = exp.getValue(String.class);
+    @Test
+    void constructor() {
+        ExpressionParser parser = new SpelExpressionParser();
+        Expression exp = parser.parseExpression("new String('hello world').toUpperCase()");
+        String message = exp.getValue(String.class);
 
-    assertThat(message).isEqualTo("HELLO WORLD");
-  }
+        assertThat(message).isEqualTo("HELLO WORLD");
+    }
 }

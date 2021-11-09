@@ -12,13 +12,13 @@ import org.springframework.test.web.servlet.MockMvc;
 @WebMvcTest
 class WelcomePageTest {
 
-  @Autowired
-  MockMvc mockMvc;
+    @Autowired
+    MockMvc mockMvc;
 
-  @Test
-  void whenSimpleUrlMapping_thenMappedOK() throws Exception {
-    mockMvc.perform(get("/"))
-           .andExpect(status().isOk())
-           .andExpect(view().name("index"));
-  }
+    @Test
+    void whenSimpleUrlMapping_thenMappedOK() throws Exception {
+        mockMvc.perform(get("/"))
+               .andExpect(status().isOk())
+               .andExpect(view().name("index"));
+    }
 }
