@@ -3,7 +3,6 @@ package com.github.hotire.springcore.boot;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringApplicationRunListener;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.core.env.ConfigurableEnvironment;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,15 +19,15 @@ public class CustomSpringApplicationRunListener implements SpringApplicationRunL
 
     private final String[] args;
 
-    @Override
-    public void starting() {
-        log.info("starting");
-    }
-
-    @Override
-    public void environmentPrepared(ConfigurableEnvironment environment) {
-        log.info("environmentPrepared");
-    }
+//    @Override
+//    public void starting() {
+//        log.info("starting");
+//    }
+//
+//    @Override
+//    public void environmentPrepared(ConfigurableEnvironment environment) {
+//        log.info("environmentPrepared");
+//    }
 
     @Override
     public void contextPrepared(ConfigurableApplicationContext context) {
