@@ -1,4 +1,4 @@
-package com.github.hotire.springcore.aop.proxy;
+package com.github.hotire.springcore.aop.proxy.ex;
 
 public class TestServiceByStatic {
 
