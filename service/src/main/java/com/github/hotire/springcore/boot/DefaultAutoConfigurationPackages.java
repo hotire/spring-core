@@ -9,6 +9,10 @@ import org.springframework.boot.context.annotation.DeterminableImports;
 import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
 import org.springframework.core.type.AnnotationMetadata;
 
+/**
+ * @see org.springframework.boot.autoconfigure.AutoConfigurationPackage
+ * @see org.springframework.boot.autoconfigure.AutoConfigurationPackages.Registrar
+ */
 public class DefaultAutoConfigurationPackages extends AutoConfigurationPackages {
 
     public static class CustomRegister implements ImportBeanDefinitionRegistrar, DeterminableImports {
