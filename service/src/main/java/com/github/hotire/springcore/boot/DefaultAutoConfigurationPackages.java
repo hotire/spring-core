@@ -45,7 +45,8 @@ public class DefaultAutoConfigurationPackages extends AutoConfigurationPackages 
         PackageImports(AnnotationMetadata metadata) {
             AnnotationAttributes attributes = AnnotationAttributes
                     .fromMap(metadata.getAnnotationAttributes(MyAutoConfigurationPackage.class.getName(), false));
-            List<String> packageNames = new ArrayList<>(Arrays.asList(attributes.getStringArray("basePackages")));
+            assert attributes != null;
+            final List<String> packageNames = new ArrayList<>(Arrays.asList(attributes.getStringArray("basePackages")));
             for (Class<?> basePackageClass : attributes.getClassArray("basePackageClasses")) {
                 packageNames.add(basePackageClass.getPackage().getName());
             }
