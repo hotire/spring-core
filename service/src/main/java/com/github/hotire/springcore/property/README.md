@@ -54,11 +54,15 @@ this.loaders = new ConfigDataLoaders(logFactory, bootstrapContext);
 
 - ConfigDataEnvironment 내부 필드 loaders에 사용할 loaders가 설정된다. 
 
-이중 StandardConfigDataLocationResolver 존재한다. 
+이중 StandardConfigDataLoader 존재한다. 
 
 - withProcessedImports
 
 - resolveAndLoad
+
+- resolve 
+
+해당 과정중 StandardConfigDataLocationResolver 가져온다. 
 
 - load
 
@@ -66,9 +70,20 @@ this.loaders = new ConfigDataLoaders(logFactory, bootstrapContext);
 
 ### ConfigDataLoaders
 
-### ConfigDataLoader
+- load
+
+### StandardConfigDataLoader : ConfigDataLoader
+
+- load
 
 ### StandardConfigDataLocationResolver
+
+~~~java
+	this.propertySourceLoaders = SpringFactoriesLoader.loadFactories(PropertySourceLoader.class,
+				getClass().getClassLoader());
+~~~
+
+- 생성할떄 PropertySourceLoader 구현체를 전부 가져온다. 
 
 ~~~java
 	private String[] getConfigNames(Binder binder) {
@@ -80,6 +95,11 @@ this.loaders = new ConfigDataLoaders(logFactory, bootstrapContext);
 	}
 ~~~
 -  DEFAULT_CONFIG_NAMES : application
+
+### YamlPropertySourceLoader : PropertySourceLoader
+
+- load 
+
 
 
 ## References
