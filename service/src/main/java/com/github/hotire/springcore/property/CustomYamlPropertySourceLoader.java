@@ -19,6 +19,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class CustomYamlPropertySourceLoader implements PropertySourceLoader {
 
+    private static final Resource[] EMPTY_RESOURCES = {};
+
     private final ResourceLoader resourceLoader;
 
     @Override
@@ -35,5 +37,13 @@ public class CustomYamlPropertySourceLoader implements PropertySourceLoader {
         @Cleanup
         final InputStream inputStream = getClass().getClassLoader().getResourceAsStream(resourcePath);
         return new Yaml().loadAs(inputStream, type);
+    }
+
+    private Resource[] getResources(String locationReference) {
+        try {
+            return new Resource[] { this.resourceLoader.getResource(locationReference) };
+        } catch (Exception ex) {
+            return EMPTY_RESOURCES;
+        }
     }
 }
