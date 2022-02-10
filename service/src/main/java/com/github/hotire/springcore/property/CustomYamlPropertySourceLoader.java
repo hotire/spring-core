@@ -1,0 +1,39 @@
+package com.github.hotire.springcore.property;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
+
+import org.springframework.boot.env.PropertySourceLoader;
+import org.springframework.core.env.PropertySource;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
+import org.yaml.snakeyaml.Yaml;
+
+import lombok.Cleanup;
+import lombok.RequiredArgsConstructor;
+
+/**
+ * @see org.springframework.boot.env.YamlPropertySourceLoader
+ */
+@RequiredArgsConstructor
+public class CustomYamlPropertySourceLoader implements PropertySourceLoader {
+
+    private final ResourceLoader resourceLoader;
+
+    @Override
+    public String[] getFileExtensions() {
+        return new String[0];
+    }
+
+    @Override
+    public List<PropertySource<?>> load(String name, Resource resource) throws IOException {
+        return null;
+    }
+
+    public <T> T load(String resourcePath, Class<T> type) {
+        @Cleanup
+        final InputStream inputStream = getClass().getClassLoader().getResourceAsStream(resourcePath);
+        return new Yaml().loadAs(inputStream, type);
+    }
+}
