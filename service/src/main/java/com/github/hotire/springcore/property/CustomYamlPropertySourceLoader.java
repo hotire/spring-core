@@ -23,6 +23,8 @@ public class CustomYamlPropertySourceLoader implements PropertySourceLoader {
 
     private final ResourceLoader resourceLoader;
 
+    private static final String CLASSPATH_URL_PREFIX = ResourceLoader.CLASSPATH_URL_PREFIX;
+
     @Override
     public String[] getFileExtensions() {
         return new String[0];
