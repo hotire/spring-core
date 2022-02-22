@@ -8,9 +8,13 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 
 import lombok.Getter;
 
+/**
+ * @see ApplicationContext
+ */
 public class TestApplicationContext {
 
     @Getter
