@@ -27,13 +27,42 @@
 
 ### WebMvcConfigurationSupport
 
-WebMvcAutoConfiguration
+- WebMvcAutoConfiguration
 ~~~java
 @ConditionalOnMissingBean(WebMvcConfigurationSupport.class)
 ~~~
 
+WebMvcAutoConfiguration에 의해서 WebMvcConfigurationSupport를 상속받은 EnableWebMvcConfiguration를 config로 등록한다.
+
+~~~java
+protected ExceptionHandlerExceptionResolver createExceptionHandlerExceptionResolver() {
+		return new ExceptionHandlerExceptionResolver();
+	}
+~~~
+
+createExceptionHandlerExceptionResolver 의해 ExceptionHandlerExceptionResolver가 생성된다. 
+
+~~~java
+	@Bean
+	public HandlerExceptionResolver handlerExceptionResolver(
+			@Qualifier("mvcContentNegotiationManager") ContentNegotiationManager contentNegotiationManager) {
+		List<HandlerExceptionResolver> exceptionResolvers = new ArrayList<>();
+		configureHandlerExceptionResolvers(exceptionResolvers);
+		if (exceptionResolvers.isEmpty()) {
+			addDefaultHandlerExceptionResolvers(exceptionResolvers, contentNegotiationManager);
+		}
+		extendHandlerExceptionResolvers(exceptionResolvers);
+		HandlerExceptionResolverComposite composite = new HandlerExceptionResolverComposite();
+		composite.setOrder(0);
+		composite.setExceptionResolvers(exceptionResolvers);
+		return composite;
+	}
+~~~
 
 
+### HandlerExceptionResolverComposite
+
+WebMvcConfigurationSupport에 의해 HandlerExceptionResolverComposite이 빈으로 등록된다. 
 
 
 ### ErrorController
