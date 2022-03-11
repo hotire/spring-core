@@ -1,16 +1,13 @@
 package com.github.hotire.springcore.property;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 import org.springframework.boot.env.PropertySourceLoader;
 import org.springframework.core.env.PropertySource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
-import org.yaml.snakeyaml.Yaml;
 
-import lombok.Cleanup;
 import lombok.RequiredArgsConstructor;
 
 /**
@@ -35,11 +32,11 @@ public class CustomYamlPropertySourceLoader implements PropertySourceLoader {
         return null;
     }
 
-    public <T> T load(String resourcePath, Class<T> type) {
-        @Cleanup
-        final InputStream inputStream = getClass().getClassLoader().getResourceAsStream(resourcePath);
-        return new Yaml().loadAs(inputStream, type);
-    }
+//    public <T> T load(String resourcePath, Class<T> type) {
+//        @Cleanup
+//        final InputStream inputStream = getClass().getClassLoader().getResourceAsStream(resourcePath);
+//        return new Yaml().loadAs(inputStream, type);
+//    }
 
     private Resource[] getResources(String locationReference) {
         try {

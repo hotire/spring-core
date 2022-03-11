@@ -6,6 +6,25 @@
 
 - https://blog.naver.com/gngh0101/221738449583
 
+### ExceptionHandlerExceptionResolver
+
+~~~java
+	List<ControllerAdviceBean> adviceBeans = ControllerAdviceBean.findAnnotatedBeans(getApplicationContext());
+		for (ControllerAdviceBean adviceBean : adviceBeans) {
+			Class<?> beanType = adviceBean.getBeanType();
+			if (beanType == null) {
+				throw new IllegalStateException("Unresolvable type for ControllerAdviceBean: " + adviceBean);
+			}
+			ExceptionHandlerMethodResolver resolver = new ExceptionHandlerMethodResolver(beanType);
+			if (resolver.hasExceptionMappings()) {
+				this.exceptionHandlerAdviceCache.put(adviceBean, resolver);
+			}
+			if (ResponseBodyAdvice.class.isAssignableFrom(beanType)) {
+				this.responseBodyAdvice.add(adviceBean);
+			}
+		}
+~~~
+
 
 ### ErrorController
 
