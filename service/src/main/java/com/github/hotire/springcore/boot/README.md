@@ -1,5 +1,6 @@
 # Auto-Config
 
+
 ConfigurationClassParser 까지 ... (https://blog.naver.com/gngh0101/221547017730)
 
 - AbstractApplicationContext.refresh
@@ -68,7 +69,33 @@ static final class BasePackagesBeanDefinition extends GenericBeanDefinition {
 	}
 ~~~
 
+## @SpringBootApplication
 
+-https://blog.naver.com/gngh0101/221754735617
+
+### @EnableAutoConfiguration
+
+### AutoConfigurationImportSelector
+
+~~~java
+protected List<String> getCandidateConfigurations(AnnotationMetadata metadata, AnnotationAttributes attributes) {
+		List<String> configurations = SpringFactoriesLoader.loadFactoryNames(getSpringFactoriesLoaderFactoryClass(),
+				getBeanClassLoader());
+		Assert.notEmpty(configurations, "No auto configuration classes found in META-INF/spring.factories. If you "
+				+ "are using a custom packaging, make sure that file is correct.");
+		return configurations;
+	}
+~~~
+
+AutoConfigurationImportSelector를 통해서 configurations 전부 가져온다. 
+
+
+### WebMvcAutoConfiguration
+~~~java
+@ConditionalOnMissingBean(WebMvcConfigurationSupport.class)
+~~~
+
+### EnableWebMvcConfiguration extends DelegatingWebMvcConfiguration
 
 
 

@@ -25,6 +25,16 @@
 		}
 ~~~
 
+### WebMvcConfigurationSupport
+
+WebMvcAutoConfiguration
+~~~java
+@ConditionalOnMissingBean(WebMvcConfigurationSupport.class)
+~~~
+
+
+
+
 
 ### ErrorController
 
