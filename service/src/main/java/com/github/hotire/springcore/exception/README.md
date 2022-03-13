@@ -83,3 +83,20 @@ rd.forward(request.getRequest(), response.getResponse());
 
 
 
+## Error Page
+
+### ErrorMvcAutoConfiguration
+
+### ErrorPageCustomizer
+
+~~~java
+        @Override
+		public void registerErrorPages(ErrorPageRegistry errorPageRegistry) {
+			ErrorPage errorPage = new ErrorPage(
+					this.dispatcherServletPath.getRelativePath(this.properties.getError().getPath()));
+			errorPageRegistry.addErrorPages(errorPage);
+		}
+~~~
+
+
+
