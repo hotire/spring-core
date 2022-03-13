@@ -1,7 +1,5 @@
 # Exception 
 
-## MVC
-
 ### Spring DispatcherServlet의 내부 속으로 - 5 고급편(예외 처리 - @ControllerAdvice  동작 원리)
 
 - https://blog.naver.com/gngh0101/221738449583
@@ -69,17 +67,14 @@ WebMvcConfigurationSupport에 의해 HandlerExceptionResolverComposite이 빈으
 
 - https://supawer0728.github.io/2019/04/04/spring-error-handling/
 
+### BasicErrorController
 
+- ErrorMvcAutoConfiguration.basicErrorController
 
-### StandardHostValve
+### DefaultErrorAttributes extends ErrorAttributes
 
-custom method 
+- ErrorMvcAutoConfiguration.errorAttributes
 
-~~~java 
-RequestDispatcher rd =
-                servletContext.getRequestDispatcher(errorPage.getLocation());
-rd.forward(request.getRequest(), response.getResponse());
-~~~
 
 
 
@@ -128,6 +123,15 @@ private Set<ErrorPage> errorPages = new LinkedHashSet<>();
 ### StandardHostValve
 
 - invoke
+
+custom method 
+
+~~~java 
+RequestDispatcher rd =
+                servletContext.getRequestDispatcher(errorPage.getLocation());
+rd.forward(request.getRequest(), response.getResponse());
+~~~
+
 
 ### AuthenticatorBase
 
