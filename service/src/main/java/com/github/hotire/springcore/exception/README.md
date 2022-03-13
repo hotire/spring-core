@@ -111,6 +111,114 @@ private Set<ErrorPage> errorPages = new LinkedHashSet<>();
 ### TomcatServletWebServerFactory
 
 
+## Error Request 과정 
+
+### CoyoteAdapter
+
+- service
+
+### StandardEngineValve
+
+- invoke
+
+### ErrorReportValve
+
+- invoke
+
+### StandardHostValve
+
+- invoke
+
+### AuthenticatorBase
+
+- invoke
+
+### StandardContextValve
+
+- invoke
+
+### StandardWrapperValve
+
+~~~java
+ @Override
+ public final void invoke(Request request, Response response) {
+
+try {
+....
+
+}  catch (ServletException e) {
+              Throwable rootCause = StandardWrapper.getRootCause(e);
+              if (!(rootCause instanceof ClientAbortException)) {
+                  container.getLogger().error(sm.getString(
+                          "standardWrapper.serviceExceptionRoot",
+                          wrapper.getName(), context.getName(), e.getMessage()),
+                          rootCause);
+              }
+              throwable = e;
+              exception(request, response, e);
+          }
+
+}
+~~~
 
 
+## 404
 
+### HandlerMapping
+
+- SimpleUrlHandlerMapping
+
+: /**
+
+-> WebMvcConfigurationSupport.resourceHandlerMapping에 의해 등록된다. 
+
+### HandlerAdapter
+
+- HttpRequestHandlerAdapter
+
+### ResourceHttpRequestHandler
+
+~~~java
+	Resource resource = getResource(request);
+		if (resource == null) {
+			logger.debug("Resource not found");
+			response.sendError(HttpServletResponse.SC_NOT_FOUND);
+			return;
+		}
+~~~
+
+
+### org.apache.catalina.connector.Response
+
+~~~java
+ @Override
+    public void sendError(int status, String message) throws IOException {
+
+        if (isCommitted()) {
+            throw new IllegalStateException
+                (sm.getString("coyoteResponse.sendError.ise"));
+        }
+
+        // Ignore any call from an included servlet
+        if (included) {
+            return;
+        }
+
+        setError();
+
+        getCoyoteResponse().setStatus(status);
+        getCoyoteResponse().setMessage(message);
+
+        // Clear any data content that has been buffered
+        resetBuffer();
+
+        // Cause the response to be finished (from the application perspective)
+        setSuspended(true);
+    }
+~~~
+
+~~~java
+ public boolean setError() {
+        return errorState.compareAndSet(0, 1);
+    }
+~~~
