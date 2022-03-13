@@ -11,7 +11,7 @@ public class ExceptionController {
 
     @GetMapping
     public ResponseEntity exception() {
-        throw new RuntimeException("exception");
+        throw new CustomException();
     }
 
     @GetMapping("/500")
