@@ -1,4 +1,4 @@
-package com.github.hotire.springcore.boot;
+package com.github.hotire.springcore.boot.auto;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
