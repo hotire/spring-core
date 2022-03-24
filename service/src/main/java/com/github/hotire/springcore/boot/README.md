@@ -23,11 +23,29 @@ DeferredImportSelector 따로 처리한다.
 - parse 가 끝난 후 DeferredImportSelector에 쌓아둔 작업 처리 
 
 
-## AutoConfigurationPackage
+## @AutoConfigurationPackage
 
 - @Import(AutoConfigurationPackages.Registrar.class)
 
 ### Registrar
+
+~~~java
+    static class Registrar implements ImportBeanDefinitionRegistrar, DeterminableImports {
+
+		@Override
+		public void registerBeanDefinitions(AnnotationMetadata metadata, BeanDefinitionRegistry registry) {
+			register(registry, new PackageImports(metadata).getPackageNames().toArray(new String[0]));
+		}
+
+		@Override
+		public Set<Object> determineImports(AnnotationMetadata metadata) {
+			return Collections.singleton(new PackageImports(metadata));
+		}
+
+	}
+~~~
+
+: PackageImports 는 ClassUtils를 통해 AutoConfigurationPackage Annoation packageName 을 가져온다. 
 
 ~~~java
 	public static void register(BeanDefinitionRegistry registry, String... packageNames) {
@@ -41,8 +59,7 @@ DeferredImportSelector 따로 처리한다.
 	}
 ~~~
 
-### PackageImports
-
+: BasePackagesBeanDefinition 등록한다. 
 
 ### BasePackages
 
