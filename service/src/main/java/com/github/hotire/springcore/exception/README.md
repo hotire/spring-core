@@ -6,6 +6,9 @@
 
 ### ExceptionHandlerExceptionResolver
 
+
+- initExceptionHandlerAdviceCache
+
 ~~~java
 	List<ControllerAdviceBean> adviceBeans = ControllerAdviceBean.findAnnotatedBeans(getApplicationContext());
 		for (ControllerAdviceBean adviceBean : adviceBeans) {
@@ -22,6 +25,27 @@
 			}
 		}
 ~~~
+
+- ExceptionHandlerMethodResolver
+
+~~~java
+public ExceptionHandlerMethodResolver(Class<?> handlerType) {
+		for (Method method : MethodIntrospector.selectMethods(handlerType, EXCEPTION_HANDLER_METHODS)) {
+			for (Class<? extends Throwable> exceptionType : detectExceptionMappings(method)) {
+				addExceptionMapping(exceptionType, method);
+			}
+		}
+	}
+~~~
+
+: EXCEPTION_HANDLER_METHODS 
+~~~java
+public static final MethodFilter EXCEPTION_HANDLER_METHODS = method ->
+			AnnotatedElementUtils.hasAnnotation(method, ExceptionHandler.class);
+~~~
+
+
+ExceptionHandlerMethodResolver
 
 ### WebMvcConfigurationSupport
 
