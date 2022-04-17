@@ -36,7 +36,7 @@ public class SpringApplicationCore {
         final SpringApplicationEventListener listeners = getRunListeners(args);
         ApplicationArguments applicationArguments = new DefaultApplicationArguments(args);
         try {
-            prepareEnvironment(listeners, bootstrapContext, applicationArguments); // property load (System or yml...)
+            final ConfigurableEnvironment environment = prepareEnvironment(listeners, bootstrapContext, applicationArguments); // property load (System or yml...)
             final ConfigurableApplicationContext context = createApplicationContext();
             // context.setApplicationStartup(this.applicationStartup);
             // prepareContext(bootstrapContext, context, environment, listeners, applicationArguments, printedBanner);
