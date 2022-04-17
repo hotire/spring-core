@@ -102,15 +102,33 @@ public class BeanFactoryCore {
      */
     protected Object doCreateBean(String beanName, RootBeanDefinition mbd, @Nullable Object[] args)
             throws BeanCreationException {
-        return null;
+
+        final BeanWrapper wrapper = createBeanInstance(beanName, mbd, args); // 1. create
+        Object exposedObject = wrapper.getWrappedInstance();
+        populateBean(beanName, mbd, wrapper); // 2. DI
+        exposedObject = initializeBean(beanName, exposedObject, mbd); // 3. init
+        return exposedObject;
     }
 
     /**
      * @see AbstractAutowireCapableBeanFactory#createBeanInstance(String, RootBeanDefinition, Object[])
      */
     protected BeanWrapper createBeanInstance(String beanName, RootBeanDefinition mbd, @Nullable Object[] args) {
-        autowireConstructor(beanName, mbd, null, args);
+        final Constructor<?>[] ctors = determineConstructorsFromBeanPostProcessors(mbd.getBeanClass(), beanName);
+        if (ctors != null) {
+            return autowireConstructor(beanName, mbd, null, args);
+        }
         return instantiateBean(beanName, mbd);
+    }
+
+    /**
+     * @see AbstractAutowireCapableBeanFactory#determineConstructorsFromBeanPostProcessors(Class, String)
+     * @see org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor#determineCandidateConstructors(Class, String)
+     */
+    protected Constructor<?>[] determineConstructorsFromBeanPostProcessors(@Nullable Class<?> beanClass, String beanName)
+            throws BeansException {
+//        bp.determineCandidateConstructors(beanClass, beanName) // SmartInstantiationAwareBeanPostProcessor
+        return null;
     }
 
     /**
@@ -123,9 +141,61 @@ public class BeanFactoryCore {
     }
 
     /**
-     * @see AbstractAutowireCapableBeanFactory#initializeBean(String, Object, RootBeanDefinition)
+     * @see AbstractAutowireCapableBeanFactory#instantiateBean(String, RootBeanDefinition)
      */
     protected BeanWrapper instantiateBean(String beanName, RootBeanDefinition mbd) {
+        return null;
+    }
+
+    // DI
+
+    /**
+     * @see AbstractAutowireCapableBeanFactory#populateBean(String, RootBeanDefinition, BeanWrapper)
+     */
+    protected void populateBean(String beanName, RootBeanDefinition mbd, @Nullable BeanWrapper bw) {
+
+    }
+
+    // initializeBean
+
+    /**
+     * @see AbstractAutowireCapableBeanFactory#initializeBean(String, Object, RootBeanDefinition)
+     */
+    protected Object initializeBean(String beanName, Object bean, @Nullable RootBeanDefinition mbd) {
+
+        applyBeanPostProcessorsBeforeInitialization(bean, beanName);
+        try {
+            invokeInitMethods(beanName, bean, mbd);
+        } catch (Throwable ex) {
+            throw new BeanCreationException(
+                    (mbd != null ? mbd.getResourceDescription() : null),
+                    beanName, "Invocation of init method failed", ex);
+        }
+        applyBeanPostProcessorsAfterInitialization(bean, beanName);
+        return null;
+    }
+
+    /**
+     * @see org.springframework.beans.factory.config.AutowireCapableBeanFactory#applyBeanPostProcessorsBeforeInitialization(Object, String)
+     */
+    public Object applyBeanPostProcessorsBeforeInitialization(Object existingBean, String beanName)
+            throws BeansException {
+        return null;
+    }
+
+    /**
+     * @see AbstractAutowireCapableBeanFactory#invokeInitMethods(String, Object, RootBeanDefinition)
+     */
+    protected void invokeInitMethods(String beanName, Object bean, @Nullable RootBeanDefinition mbd)
+            throws Throwable {
+
+    }
+
+    /**
+     * @see org.springframework.beans.factory.config.AutowireCapableBeanFactory#applyBeanPostProcessorsAfterInitialization(Object, String)
+     */
+    public Object applyBeanPostProcessorsAfterInitialization(Object existingBean, String beanName)
+            throws BeansException {
         return null;
     }
 
