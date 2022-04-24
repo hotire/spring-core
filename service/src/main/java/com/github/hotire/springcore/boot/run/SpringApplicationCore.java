@@ -2,11 +2,13 @@ package com.github.hotire.springcore.boot.run;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationContextFactory;
+import org.springframework.boot.Banner;
 import org.springframework.boot.DefaultApplicationArguments;
 import org.springframework.boot.DefaultBootstrapContext;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 
 import com.github.hotire.springcore.boot.SpringApplicationEventListener;
@@ -37,6 +39,8 @@ public class SpringApplicationCore {
         ApplicationArguments applicationArguments = new DefaultApplicationArguments(args);
         try {
             final ConfigurableEnvironment environment = prepareEnvironment(listeners, bootstrapContext, applicationArguments); // property load (System or yml...)
+            configureIgnoreBeanInfo(environment);
+            Banner printedBanner = printBanner(environment);
             final ConfigurableApplicationContext context = createApplicationContext();
             // context.setApplicationStartup(this.applicationStartup);
             // prepareContext(bootstrapContext, context, environment, listeners, applicationArguments, printedBanner);
@@ -71,10 +75,24 @@ public class SpringApplicationCore {
     }
 
     /**
+     * @see SpringApplication#configureIgnoreBeanInfo(ConfigurableEnvironment)
+     */
+    private void configureIgnoreBeanInfo(ConfigurableEnvironment environment) {
+
+    }
+
+    /**
+     * @see SpringApplication#printBanner(ConfigurableEnvironment)
+     */
+    private Banner printBanner(ConfigurableEnvironment environment) {
+        return (environment1, sourceClass, out) -> { };
+    }
+
+    /**
      * @see SpringApplication#getOrCreateEnvironment()
      */
     private ConfigurableEnvironment getOrCreateEnvironment() {
-       return null;
+        return null;
     }
 
     /**
@@ -86,6 +104,7 @@ public class SpringApplicationCore {
 
     /**
      * @see SpringApplication#refreshContext(ConfigurableApplicationContext)
+     * @see AbstractApplicationContext#refresh()
      */
     private void refreshContext(ConfigurableApplicationContext context) {
         context.refresh();
