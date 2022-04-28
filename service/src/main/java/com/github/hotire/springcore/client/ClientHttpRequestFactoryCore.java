@@ -1,6 +1,7 @@
 package com.github.hotire.springcore.client;
 
 import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.net.URI;
 
 import org.springframework.http.HttpMethod;
@@ -14,10 +15,17 @@ import org.springframework.http.client.SimpleClientHttpRequestFactory;
  */
 public class ClientHttpRequestFactoryCore implements ClientHttpRequestFactory {
     /**
-     * @see SimpleClientHttpRequestFactory#createRequest(URI, HttpMethod) 
+     * @see SimpleClientHttpRequestFactory#createRequest(URI, HttpMethod)
      */
     @Override
     public ClientHttpRequest createRequest(URI uri, HttpMethod httpMethod) throws IOException {
         return null;
+    }
+
+    /**
+     * @see SimpleClientHttpRequestFactory#prepareConnection(HttpURLConnection, String)
+     */
+    protected void prepareConnection(HttpURLConnection connection, String httpMethod) throws IOException {
+
     }
 }
