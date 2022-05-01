@@ -14,6 +14,9 @@ import org.springframework.http.client.ClientHttpResponse;
  */
 public class ClientHttpRequestCore implements ClientHttpRequest {
 
+    /**
+     * @see org.springframework.http.client.SimpleBufferingClientHttpRequest#execute()
+     */
     @Override
     public ClientHttpResponse execute() throws IOException {
         return null;
