@@ -10,6 +10,7 @@ import org.springframework.boot.WebApplicationType;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
+import org.springframework.core.metrics.ApplicationStartup;
 
 import com.github.hotire.springcore.boot.SpringApplicationEventListener;
 
@@ -20,6 +21,7 @@ public class SpringApplicationCore {
 
     private final WebApplicationType webApplicationType;
     private final ApplicationContextFactory applicationContextFactory = ApplicationContextFactory.DEFAULT;
+    private final ApplicationStartup applicationStartup = ApplicationStartup.DEFAULT;
 
     public static ConfigurableApplicationContext run(Class<?>[] primarySources, String[] args) {
         return new SpringApplication(primarySources).run(args);
@@ -42,8 +44,8 @@ public class SpringApplicationCore {
             configureIgnoreBeanInfo(environment);
             Banner printedBanner = printBanner(environment);
             final ConfigurableApplicationContext context = createApplicationContext();
-            // context.setApplicationStartup(this.applicationStartup);
-            // prepareContext(bootstrapContext, context, environment, listeners, applicationArguments, printedBanner);
+            context.setApplicationStartup(this.applicationStartup);
+//             prepareContext(bootstrapContext, context, environment, listeners, applicationArguments, printedBanner);
             refreshContext(context);
         } catch (Exception e) {
 
