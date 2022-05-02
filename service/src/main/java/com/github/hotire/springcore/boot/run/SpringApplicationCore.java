@@ -110,4 +110,10 @@ public class SpringApplicationCore {
         context.refresh();
     }
 
+    /**
+     * @see SpringApplication#afterRefresh(ConfigurableApplicationContext, ApplicationArguments)
+     */
+    protected void afterRefresh(ConfigurableApplicationContext context, ApplicationArguments args) {
+    }
+
 }
