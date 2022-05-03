@@ -45,7 +45,7 @@ public class SpringApplicationCore {
             Banner printedBanner = printBanner(environment);
             final ConfigurableApplicationContext context = createApplicationContext();
             context.setApplicationStartup(this.applicationStartup);
-//             prepareContext(bootstrapContext, context, environment, listeners, applicationArguments, printedBanner);
+            prepareContext(bootstrapContext, context, environment, listeners, applicationArguments, printedBanner);
             refreshContext(context);
         } catch (Exception e) {
 
@@ -118,4 +118,23 @@ public class SpringApplicationCore {
     protected void afterRefresh(ConfigurableApplicationContext context, ApplicationArguments args) {
     }
 
+    /**
+     * @see SpringApplication#prepareContext(DefaultBootstrapContext, ConfigurableApplicationContext, ConfigurableEnvironment, org.springframework.boot.SpringApplicationRunListeners, ApplicationArguments, Banner)
+     */
+    private void prepareContext(DefaultBootstrapContext bootstrapContext, ConfigurableApplicationContext context,
+                                ConfigurableEnvironment environment, SpringApplicationEventListener listeners,
+                                ApplicationArguments applicationArguments, Banner printedBanner) {
+        context.setEnvironment(environment);
+        postProcessApplicationContext(context);
+
+    }
+
+    /**
+     * Apply any relevant post processing the ApplicationContext
+     * @see SpringApplication#postProcessApplicationContext(ConfigurableApplicationContext)
+     */
+    protected void postProcessApplicationContext(ConfigurableApplicationContext context) {
+
+    }
+    
 }
