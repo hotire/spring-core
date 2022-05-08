@@ -1,5 +1,10 @@
 package com.github.hotire.springcore.boot.run;
 
+import java.util.List;
+
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationContextFactory;
 import org.springframework.boot.Banner;
@@ -7,12 +12,17 @@ import org.springframework.boot.DefaultApplicationArguments;
 import org.springframework.boot.DefaultBootstrapContext;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
+import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.core.GenericTypeResolver;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.metrics.ApplicationStartup;
+import org.springframework.util.Assert;
 
 import com.github.hotire.springcore.boot.SpringApplicationEventListener;
+
+import lombok.Getter;
 
 /**
  * @see SpringApplication
@@ -23,6 +33,11 @@ public class SpringApplicationCore {
     private final ApplicationContextFactory applicationContextFactory = ApplicationContextFactory.DEFAULT;
     private final ApplicationStartup applicationStartup = ApplicationStartup.DEFAULT;
 
+    @Getter
+    private List<ApplicationContextInitializer<?>> initializers;
+    private boolean allowBeanDefinitionOverriding;
+    private boolean allowCircularReferences;
+
     public static ConfigurableApplicationContext run(Class<?>[] primarySources, String[] args) {
         return new SpringApplication(primarySources).run(args);
     }
@@ -30,7 +45,6 @@ public class SpringApplicationCore {
     public SpringApplicationCore() {
         this.webApplicationType = WebApplicationTypeCore.deduceFromClasspath();
     }
-
 
     /**
      * @see SpringApplication#run(String...)
@@ -126,7 +140,21 @@ public class SpringApplicationCore {
                                 ApplicationArguments applicationArguments, Banner printedBanner) {
         context.setEnvironment(environment);
         postProcessApplicationContext(context);
-
+        applyInitializers(context);
+        listeners.contextPrepared(context);
+        bootstrapContext.close(context);
+        ConfigurableListableBeanFactory beanFactory = context.getBeanFactory();
+        beanFactory.registerSingleton("springApplicationArguments", applicationArguments);
+        if (printedBanner != null) {
+            beanFactory.registerSingleton("springBootBanner", printedBanner);
+        }
+        if (beanFactory instanceof AbstractAutowireCapableBeanFactory) {
+            ((AbstractAutowireCapableBeanFactory) beanFactory).setAllowCircularReferences(this.allowCircularReferences);
+            if (beanFactory instanceof DefaultListableBeanFactory) {
+                ((DefaultListableBeanFactory) beanFactory)
+                        .setAllowBeanDefinitionOverriding(this.allowBeanDefinitionOverriding);
+            }
+        }
     }
 
     /**
@@ -136,5 +164,17 @@ public class SpringApplicationCore {
     protected void postProcessApplicationContext(ConfigurableApplicationContext context) {
 
     }
-    
+
+    /**
+     * @see SpringApplication#applyInitializers(ConfigurableApplicationContext)
+     */
+    protected void applyInitializers(ConfigurableApplicationContext context) {
+        for (ApplicationContextInitializer initializer : getInitializers()) {
+            Class<?> requiredType = GenericTypeResolver.resolveTypeArgument(initializer.getClass(),
+                                                                            ApplicationContextInitializer.class);
+            Assert.isInstanceOf(requiredType, context, "Unable to call initializer.");
+            initializer.initialize(context);
+        }
+    }
+
 }
