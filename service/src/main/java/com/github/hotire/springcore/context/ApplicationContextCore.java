@@ -1,21 +1,62 @@
 package com.github.hotire.springcore.context;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.concurrent.atomic.AtomicBoolean;
+
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.Banner;
+import org.springframework.boot.DefaultBootstrapContext;
+import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationEvent;
+import org.springframework.context.ApplicationListener;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.LifecycleProcessor;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.DefaultLifecycleProcessor;
+import org.springframework.core.env.ConfigurableEnvironment;
+import org.springframework.util.ObjectUtils;
+import org.springframework.web.context.support.GenericWebApplicationContext;
 
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @see ApplicationContext
  * @see ConfigurableApplicationContext
  * @see AbstractApplicationContext
  */
+@Slf4j
 public class ApplicationContextCore {
+
+    private long startupDate;
+
+    /** Flag that indicates whether this context is currently active. */
+    private final AtomicBoolean active = new AtomicBoolean();
+
+    /** Flag that indicates whether this context has been closed already. */
+    private final AtomicBoolean closed = new AtomicBoolean();
+
+    @Getter
+    private final String displayName = ObjectUtils.identityToString(this);
+
+    /** Statically specified listeners. */
+    private final Set<ApplicationListener<?>> applicationListeners = new LinkedHashSet<>();
+
+    /** Local listeners registered before refresh. */
+    private Set<ApplicationListener<?>> earlyApplicationListeners;
+
+    private Set<ApplicationEvent> earlyApplicationEvents;
+
+    /**
+     * @see SpringApplication#prepareContext(DefaultBootstrapContext, ConfigurableApplicationContext, ConfigurableEnvironment, org.springframework.boot.SpringApplicationRunListeners, ApplicationArguments, Banner)
+     * context.setEnvironment(environment);
+     */
+    @Getter
+    private ConfigurableEnvironment environment;
 
     @Getter
     private final LifecycleProcessor lifecycleProcessor = new DefaultLifecycleProcessor();
@@ -26,12 +67,68 @@ public class ApplicationContextCore {
      */
     public void refresh() throws BeansException, IllegalStateException {
 
+        prepareRefresh();
+
         // Last step: publish corresponding event.
         finishRefresh();
 
     }
+
     /**
-     * @see AbstractApplicationContext#postProcessBeanFactory(ConfigurableListableBeanFactory) 
+     * @see AbstractApplicationContext#prepareRefresh()
+     */
+    protected void prepareRefresh() {
+        // Switch to active.
+        this.startupDate = System.currentTimeMillis();
+        this.closed.set(false);
+        this.active.set(true);
+
+        if (log.isDebugEnabled()) {
+            if (log.isTraceEnabled()) {
+                log.trace("Refreshing " + this);
+            } else {
+                log.debug("Refreshing " + getDisplayName());
+            }
+        }
+
+        // Initialize any placeholder property sources in the context environment.
+        initPropertySources();
+
+        // Validate that all properties marked as required are resolvable:
+        // see ConfigurablePropertyResolver#setRequiredProperties
+        getEnvironment().validateRequiredProperties();
+
+        // Store pre-refresh ApplicationListeners...
+        if (this.earlyApplicationListeners == null) {
+            this.earlyApplicationListeners = new LinkedHashSet<>(this.applicationListeners);
+        } else {
+            // Reset local application listeners to pre-refresh state.
+            this.applicationListeners.clear();
+            this.applicationListeners.addAll(this.earlyApplicationListeners);
+        }
+
+        // Allow for the collection of early ApplicationEvents,
+        // to be published once the multicaster is available...
+        this.earlyApplicationEvents = new LinkedHashSet<>();
+    }
+
+    /**
+     * @see AbstractApplicationContext#initPropertySources()
+     * @see GenericWebApplicationContext#initPropertySources()
+     */
+    protected void initPropertySources() {
+        // For subclasses: do nothing by default.
+    }
+
+    /**
+     * @see AbstractApplicationContext#finishRefresh()
+     */
+    protected void finishRefresh() {
+        getLifecycleProcessor().onRefresh();
+    }
+
+    /**
+     * @see AbstractApplicationContext#postProcessBeanFactory(ConfigurableListableBeanFactory)
      */
     protected void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) {
     }
@@ -41,13 +138,6 @@ public class ApplicationContextCore {
      */
     protected void invokeBeanFactoryPostProcessors(ConfigurableListableBeanFactory beanFactory) {
 
-    }
-
-    /**
-     * @see AbstractApplicationContext#finishRefresh()
-     */
-    protected void finishRefresh() {
-        getLifecycleProcessor().onRefresh();
     }
 
 }
