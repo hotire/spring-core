@@ -4,7 +4,6 @@ import java.util.Set;
 
 import org.springframework.boot.context.event.ApplicationEnvironmentPreparedEvent;
 import org.springframework.context.ApplicationListener;
-import org.springframework.context.ConfigurableApplicationContext;
 
 import com.github.hotire.springcore.context.CustomApplicationContextInitializer;
 
@@ -26,12 +25,5 @@ public class SpringApplicationEventListener implements ApplicationListener<Appli
         listeners.add(new CustomApplicationContextInitializer());
         event.getSpringApplication().setInitializers(listeners);
         log.info("SpringApplicationEventListener listen {}", event);
-    }
-
-    /**
-     * @see org.springframework.boot.SpringApplicationRunListeners#contextPrepared(ConfigurableApplicationContext)
-     */
-    public void contextPrepared(ConfigurableApplicationContext context) {
-
     }
 }

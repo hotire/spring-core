@@ -10,8 +10,10 @@ import org.springframework.boot.ApplicationContextFactory;
 import org.springframework.boot.Banner;
 import org.springframework.boot.DefaultApplicationArguments;
 import org.springframework.boot.DefaultBootstrapContext;
+import org.springframework.boot.LazyInitializationBeanFactoryPostProcessor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
+import org.springframework.boot.context.properties.source.ConfigurationPropertySources;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
@@ -20,7 +22,11 @@ import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.metrics.ApplicationStartup;
 import org.springframework.util.Assert;
 
-import com.github.hotire.springcore.boot.SpringApplicationEventListener;
+import com.github.hotire.springcore.boot.SpringApplicationRunListenersCore;
+import com.github.hotire.springcore.boot.webtype.env.ApplicationEnvironmentCore;
+import com.github.hotire.springcore.boot.webtype.env.ApplicationReactiveWebEnvironmentCore;
+import com.github.hotire.springcore.boot.webtype.env.ApplicationServletEnvironmentCore;
+import com.github.hotire.springcore.context.ApplicationContextCore;
 
 import lombok.Getter;
 
@@ -38,6 +44,8 @@ public class SpringApplicationCore {
     private boolean allowBeanDefinitionOverriding;
     private boolean allowCircularReferences;
 
+    private final boolean lazyInitialization = false;
+
     public static ConfigurableApplicationContext run(Class<?>[] primarySources, String[] args) {
         return new SpringApplication(primarySources).run(args);
     }
@@ -50,14 +58,17 @@ public class SpringApplicationCore {
      * @see SpringApplication#run(String...)
      */
     public ConfigurableApplicationContext run(String... args) {
+        long startTime = System.nanoTime();
         final DefaultBootstrapContext bootstrapContext = createBootstrapContext();
-        final SpringApplicationEventListener listeners = getRunListeners(args);
+        ConfigurableApplicationContext context = null;
+        configureHeadlessProperty();
+        final SpringApplicationRunListenersCore listeners = getRunListeners(args);
         ApplicationArguments applicationArguments = new DefaultApplicationArguments(args);
         try {
             final ConfigurableEnvironment environment = prepareEnvironment(listeners, bootstrapContext, applicationArguments); // property load (System or yml...)
             configureIgnoreBeanInfo(environment);
             Banner printedBanner = printBanner(environment);
-            final ConfigurableApplicationContext context = createApplicationContext();
+            context = createApplicationContext();
             context.setApplicationStartup(this.applicationStartup);
             prepareContext(bootstrapContext, context, environment, listeners, applicationArguments, printedBanner);
             refreshContext(context);
@@ -76,18 +87,30 @@ public class SpringApplicationCore {
     }
 
     /**
-     * @see SpringApplication#getListeners()
+     * @see SpringApplication#configureHeadlessProperty()
+     * GUI 설정
      */
-    private SpringApplicationEventListener getRunListeners(String[] args) {
-        return null;
+    private void configureHeadlessProperty() {
+
+    }
+
+    /**
+     * @see SpringApplication#getRunListeners(String[])
+     */
+    private SpringApplicationRunListenersCore getRunListeners(String[] args) {
+        return new SpringApplicationRunListenersCore();
     }
 
     /**
      * @see SpringApplication#prepareEnvironment(org.springframework.boot.SpringApplicationRunListeners, DefaultBootstrapContext, ApplicationArguments)
      */
-    private ConfigurableEnvironment prepareEnvironment(SpringApplicationEventListener listeners,
+    private ConfigurableEnvironment prepareEnvironment(SpringApplicationRunListenersCore listeners,
                                                        DefaultBootstrapContext bootstrapContext, ApplicationArguments applicationArguments) {
-        return getOrCreateEnvironment();
+        final ConfigurableEnvironment environment = getOrCreateEnvironment();
+        configureEnvironment(environment, applicationArguments.getSourceArgs());
+        ConfigurationPropertySources.attach(environment); // Support ConfigurationPropertySource
+        listeners.environmentPrepared(bootstrapContext, environment);
+        return environment;
     }
 
     /**
@@ -108,7 +131,24 @@ public class SpringApplicationCore {
      * @see SpringApplication#getOrCreateEnvironment()
      */
     private ConfigurableEnvironment getOrCreateEnvironment() {
-        return null;
+        switch (this.webApplicationType) {
+            case SERVLET:
+                return new ApplicationServletEnvironmentCore();
+            case REACTIVE:
+                return new ApplicationReactiveWebEnvironmentCore();
+            default:
+                return new ApplicationEnvironmentCore();
+        }
+    }
+
+    /**
+     * @see SpringApplication#configureEnvironment(ConfigurableEnvironment, String[])
+     * @see SpringApplication#configurePropertySources(ConfigurableEnvironment, String[])
+     * @see SpringApplication#configureProfiles(ConfigurableEnvironment, String[])
+     */
+    protected void configureEnvironment(ConfigurableEnvironment environment, String[] args) {
+//        configurePropertySources(environment, args);
+//        configureProfiles(environment, args);
     }
 
     /**
@@ -121,6 +161,7 @@ public class SpringApplicationCore {
     /**
      * @see SpringApplication#refreshContext(ConfigurableApplicationContext)
      * @see AbstractApplicationContext#refresh()
+     * @see ApplicationContextCore#refresh()
      */
     private void refreshContext(ConfigurableApplicationContext context) {
         context.refresh();
@@ -136,7 +177,7 @@ public class SpringApplicationCore {
      * @see SpringApplication#prepareContext(DefaultBootstrapContext, ConfigurableApplicationContext, ConfigurableEnvironment, org.springframework.boot.SpringApplicationRunListeners, ApplicationArguments, Banner)
      */
     private void prepareContext(DefaultBootstrapContext bootstrapContext, ConfigurableApplicationContext context,
-                                ConfigurableEnvironment environment, SpringApplicationEventListener listeners,
+                                ConfigurableEnvironment environment, SpringApplicationRunListenersCore listeners,
                                 ApplicationArguments applicationArguments, Banner printedBanner) {
         context.setEnvironment(environment);
         postProcessApplicationContext(context);
@@ -155,6 +196,10 @@ public class SpringApplicationCore {
                         .setAllowBeanDefinitionOverriding(this.allowBeanDefinitionOverriding);
             }
         }
+        if (this.lazyInitialization) {
+            context.addBeanFactoryPostProcessor(new LazyInitializationBeanFactoryPostProcessor());
+        }
+        // TODO Load the sources
     }
 
     /**
