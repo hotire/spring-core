@@ -1,4 +1,4 @@
-package com.github.hotire.springcore.property;
+package com.github.hotire.springcore.env;
 
 import org.springframework.boot.ConfigurableBootstrapContext;
 import org.springframework.boot.context.event.ApplicationEnvironmentPreparedEvent;

@@ -1,4 +1,4 @@
-package com.github.hotire.springcore.property;
+package com.github.hotire.springcore.env;
 
 import java.util.Collections;
 import java.util.List;
@@ -12,12 +12,19 @@ import org.springframework.core.env.ConfigurableEnvironment;
 public class ConfigDataEnvironmentCore {
 
     private final ConfigDataEnvironmentContributorsCore contributors;
-    
+
     /**
      * @see org.springframework.boot.context.config.ConfigDataEnvironment.IMPORT_PROPERTY
      */
     static final String IMPORT_PROPERTY = "spring.config.import";
-    
+
+    /**
+     * @see org.springframework.boot.context.config.ConfigDataEnvironment#processAndApply()
+     */
+    public void processAndApply() {
+
+    }
+
     public ConfigDataEnvironmentCore(ConfigurableEnvironment environment) {
         Binder binder = Binder.get(environment);
         this.contributors = createContributors(binder);

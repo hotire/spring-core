@@ -1,4 +1,4 @@
-package com.github.hotire.springcore.property;
+package com.github.hotire.springcore.env;
 
 import java.util.Collection;
 
@@ -24,7 +24,7 @@ public class ConfigDataEnvironmentPostProcessorCore {
      */
     void postProcessEnvironment(ConfigurableEnvironment environment, ResourceLoader resourceLoader,
                                 Collection<String> additionalProfiles) {
-
+        getConfigDataEnvironment(environment, resourceLoader, additionalProfiles).processAndApply();
     }
 
     /**
@@ -32,6 +32,6 @@ public class ConfigDataEnvironmentPostProcessorCore {
      */
     ConfigDataEnvironmentCore getConfigDataEnvironment(ConfigurableEnvironment environment, ResourceLoader resourceLoader,
                                                    Collection<String> additionalProfiles) {
-        return null;
+        return new ConfigDataEnvironmentCore(environment);
     }
 }
