@@ -73,6 +73,11 @@ public class ApplicationContextCore {
 
         prepareBeanFactory(beanFactory);
 
+        // Allows post-processing of the bean factory in context subclasses.
+        postProcessBeanFactory(beanFactory);
+
+        invokeBeanFactoryPostProcessors(beanFactory);
+
         // Last step: publish corresponding event.
         finishRefresh();
 
@@ -150,12 +155,20 @@ public class ApplicationContextCore {
 
     /**
      * @see AbstractApplicationContext#postProcessBeanFactory(ConfigurableListableBeanFactory)
+     * @see org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext#postProcessBeanFactory(ConfigurableListableBeanFactory)
+     * @see org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext#postProcessBeanFactory(ConfigurableListableBeanFactory)
+     * 초기화 이후 beanFactory를 수정합니다. 모든 bean definitions은 로드되었을 것이지만 bean은 생성되지 않았다.
+     * 특정 BeanPostProcessors 와 같이 등록을 허용한다.
+     *
+     * 해당 부분에서 AnnotationConfigServletWebServerApplicationContext scan이 이루어진다.
+     * + registerWebApplicationScopes() web전용 bean scopre도 등록된다.
      */
     protected void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) {
     }
 
     /**
      * @see AbstractApplicationContext#invokeBeanFactoryPostProcessors(ConfigurableListableBeanFactory)
+     * 등록된 BeanFactoryPostProcessor 을 인스턴스화하고 모두 호출한다.
      */
     protected void invokeBeanFactoryPostProcessors(ConfigurableListableBeanFactory beanFactory) {
 
