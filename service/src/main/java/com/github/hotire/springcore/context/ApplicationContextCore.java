@@ -69,6 +69,10 @@ public class ApplicationContextCore {
 
         prepareRefresh();
 
+        ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();
+
+        prepareBeanFactory(beanFactory);
+
         // Last step: publish corresponding event.
         finishRefresh();
 
@@ -118,6 +122,23 @@ public class ApplicationContextCore {
      */
     protected void initPropertySources() {
         // For subclasses: do nothing by default.
+    }
+
+    /**
+     * @see AbstractApplicationContext#obtainFreshBeanFactory()
+     */
+    protected ConfigurableListableBeanFactory obtainFreshBeanFactory() {
+        return null;
+    }
+
+    /**
+     * @see AbstractApplicationContext#prepareBeanFactory(ConfigurableListableBeanFactory)
+     * Configure the factory's standard context characteristics,
+     * such as the context's ClassLoader and post-processors.
+     * beanFactory의 ClassLoader, post-processors와 같은 표준 구성한다.
+     */
+    protected void prepareBeanFactory(ConfigurableListableBeanFactory beanFactory) {
+
     }
 
     /**
