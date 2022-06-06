@@ -169,8 +169,21 @@ public class ApplicationContextCore {
     /**
      * @see AbstractApplicationContext#invokeBeanFactoryPostProcessors(ConfigurableListableBeanFactory)
      * 등록된 BeanFactoryPostProcessor 을 인스턴스화하고 모두 호출한다.
+     *
+     * BeanFactoryPostProcessor 확장한 BeanDefinitionRegistryPostProcessor도 추가적으로 호출된다.
+     *
+     * BeanDefinitionRegistryPostProcessor 대표적으로 ConfigurationClassPostProcessor
      */
     protected void invokeBeanFactoryPostProcessors(ConfigurableListableBeanFactory beanFactory) {
+
+    }
+
+    /**
+     * @see AbstractApplicationContext#registerBeanPostProcessors(ConfigurableListableBeanFactory)
+     *
+     * 모든 BeanPostProcessor Bean을 인스턴스화하고 등록합니다.
+     */
+    protected void registerBeanPostProcessors(ConfigurableListableBeanFactory beanFactory) {
 
     }
 
