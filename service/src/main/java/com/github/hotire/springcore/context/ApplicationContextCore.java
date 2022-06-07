@@ -82,6 +82,8 @@ public class ApplicationContextCore {
 
         initMessageSource();
 
+        initApplicationEventMulticaster();
+
         // Last step: publish corresponding event.
         finishRefresh();
 
@@ -196,6 +198,14 @@ public class ApplicationContextCore {
      * Initialize the MessageSource.
      */
     protected void initMessageSource() {
+
+    }
+
+    /**
+     * @see AbstractApplicationContext#initApplicationEventMulticaster()
+     * Initialize the ApplicationEventMulticaster.
+     */
+    protected void initApplicationEventMulticaster() {
 
     }
 }
