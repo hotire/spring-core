@@ -78,6 +78,10 @@ public class ApplicationContextCore {
 
         invokeBeanFactoryPostProcessors(beanFactory);
 
+        registerBeanPostProcessors(beanFactory);
+
+        initMessageSource();
+
         // Last step: publish corresponding event.
         finishRefresh();
 
@@ -187,4 +191,11 @@ public class ApplicationContextCore {
 
     }
 
+    /**
+     * @see AbstractApplicationContext#initMessageSource()
+     * Initialize the MessageSource.
+     */
+    protected void initMessageSource() {
+
+    }
 }
