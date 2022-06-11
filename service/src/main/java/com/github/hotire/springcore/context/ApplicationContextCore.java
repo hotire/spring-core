@@ -84,6 +84,8 @@ public class ApplicationContextCore {
 
         initApplicationEventMulticaster();
 
+        onRefresh();
+
         // Last step: publish corresponding event.
         finishRefresh();
 
@@ -208,4 +210,12 @@ public class ApplicationContextCore {
     protected void initApplicationEventMulticaster() {
 
     }
+
+    /**
+     * @see AbstractApplicationContext#onRefresh()
+     * @see org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext#onRefresh() // createWebServer
+     */
+    protected void onRefresh() throws BeansException {
+    }
+
 }
