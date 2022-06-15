@@ -6,6 +6,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.Banner;
 import org.springframework.boot.DefaultBootstrapContext;
@@ -15,6 +16,7 @@ import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.LifecycleProcessor;
+import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.DefaultLifecycleProcessor;
 import org.springframework.core.env.ConfigurableEnvironment;
@@ -73,7 +75,6 @@ public class ApplicationContextCore {
 
         prepareBeanFactory(beanFactory);
 
-        // Allows post-processing of the bean factory in context subclasses.
         postProcessBeanFactory(beanFactory);
 
         invokeBeanFactoryPostProcessors(beanFactory);
@@ -86,7 +87,10 @@ public class ApplicationContextCore {
 
         onRefresh();
 
-        // Last step: publish corresponding event.
+        registerListeners();
+
+        finishBeanFactoryInitialization(beanFactory);
+
         finishRefresh();
 
     }
@@ -158,7 +162,18 @@ public class ApplicationContextCore {
      * @see AbstractApplicationContext#finishRefresh()
      */
     protected void finishRefresh() {
+
+        clearResourceCaches();
+
+        // Initialize lifecycle processor for this context.
+        initLifecycleProcessor();
+
+        // Propagate refresh to lifecycle processor first.
         getLifecycleProcessor().onRefresh();
+
+        // Publish the final event.
+        publishEvent(new ContextRefreshedEvent(null));
+
     }
 
     /**
@@ -216,6 +231,43 @@ public class ApplicationContextCore {
      * @see org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext#onRefresh() // createWebServer
      */
     protected void onRefresh() throws BeansException {
+    }
+
+    /**
+     * @see AbstractApplicationContext#clearResourceCaches()
+     */
+    public void clearResourceCaches() {
+        // TODO
+    }
+
+    /**
+     * @see AbstractApplicationContext#initLifecycleProcessor()
+     */
+    protected void initLifecycleProcessor() {
+        // TODO
+    }
+
+    /**
+     * @see AbstractApplicationContext#publishEvent(Object)
+     */
+    public void publishEvent(ApplicationEvent event) {
+
+    }
+
+    /**
+     * @see AbstractApplicationContext#registerListeners()
+     */
+    protected void registerListeners() {
+
+    }
+
+    /**
+     * @see AbstractApplicationContext#finishBeanFactoryInitialization(ConfigurableListableBeanFactory)
+     * @see DefaultListableBeanFactory#preInstantiateSingletons()
+     */
+    protected void finishBeanFactoryInitialization(ConfigurableListableBeanFactory beanFactory) {
+        // ....
+        beanFactory.preInstantiateSingletons();
     }
 
 }
