@@ -14,6 +14,7 @@ import org.springframework.boot.LazyInitializationBeanFactoryPostProcessor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.context.properties.source.ConfigurationPropertySources;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
@@ -72,10 +73,18 @@ public class SpringApplicationCore {
             context.setApplicationStartup(this.applicationStartup);
             prepareContext(bootstrapContext, context, environment, listeners, applicationArguments, printedBanner);
             refreshContext(context);
+            afterRefresh(context, applicationArguments);
+            callRunners(context, applicationArguments);
         } catch (Exception e) {
 
         }
         return null;
+    }
+
+    /**
+     * @see SpringApplication#callRunners(ApplicationContext, ApplicationArguments)
+     */
+    private void callRunners(ConfigurableApplicationContext context, ApplicationArguments applicationArguments) {
     }
 
     /**
