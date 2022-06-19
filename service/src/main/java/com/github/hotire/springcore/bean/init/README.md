@@ -12,6 +12,6 @@ initializeBean 에서 init 메서드들이 실행된다.
     - InitializingBean (afterPropertiesSet)
     - invokeCustomInitMethod (@Bean(initMethod = "init"))
     
-- applyBeanPostProcessorsAfterInitialization
+- applyBeanPostProcessorsBeforeInitialization
     - PostConstruct, CommonAnnotationBeanPostProcessor : InitDestroyAnnotationBeanPostProcessor에 의해 invokeInitMethods 호출한다. 
    
