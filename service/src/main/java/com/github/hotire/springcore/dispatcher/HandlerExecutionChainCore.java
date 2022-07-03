@@ -11,7 +11,7 @@ import org.springframework.web.servlet.HandlerExecutionChain;
 public class HandlerExecutionChainCore {
 
     /**
-     * @see HandlerExecutionChain#applyPreHandle(HttpServletRequest, HttpServletResponse) 
+     * @see HandlerExecutionChain#applyPreHandle(HttpServletRequest, HttpServletResponse)
      */
     boolean applyPreHandle(HttpServletRequest request, HttpServletResponse response) throws Exception {
         return false;
