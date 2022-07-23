@@ -42,7 +42,11 @@ public class ConfigurationClassParserCore {
 
     }
 
-
+    /**
+     * @see org.springframework.context.annotation.ConfigurationClassParser#doProcessConfigurationClass(org.springframework.context.annotation.ConfigurationClass, org.springframework.context.annotation.ConfigurationClassParser.SourceClass, Predicate)
+     *
+     * ComponentScans / Component / PropertySources / Import 핵심이다.
+     */
     protected final Object doProcessConfigurationClass(
             Object configClass, Object sourceClass, Predicate<String> filter)
             throws IOException {
