@@ -189,6 +189,10 @@ https://blog.naver.com/gngh0101/222445524716
 
 - https://blog.naver.com/gngh0101/221738449583
 
+### 예외 처리 - HandlerExceptionResolver / ExceptionHandler 등록
+
+- https://blog.naver.com/gngh0101/222690822682
+
 ```
 ```
 

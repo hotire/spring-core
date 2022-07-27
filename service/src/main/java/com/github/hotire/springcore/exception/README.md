@@ -110,6 +110,10 @@ WebMvcConfigurationSupport에 의해 HandlerExceptionResolverComposite이 빈으
 
 ## Error Page
 
+### ErrorPage
+
+org.apache.tomcat.util.descriptor.web.ErrorPage
+
 ### ErrorMvcAutoConfiguration
 
 ### ErrorPageCustomizer

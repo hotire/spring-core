@@ -1,7 +1,5 @@
 # Properties
 
-
-
 ## Application properties, yml
 
 ### Boot Run 
