@@ -12,6 +12,6 @@ public class LoggerFactoryCore {
      * @see LoggerFactory#getLogger(String)
      */
     public static Logger getLogger(String name) {
-        return LoggerFactory#getLogger(name);
+        return LoggerFactory.getLogger(name);
     }
 }
