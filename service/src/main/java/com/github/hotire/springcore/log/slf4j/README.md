@@ -5,4 +5,5 @@ https://www.slf4j.org/faq.html#noLoggerFactory
 
 ### Binding Parameters
 
-http://dveamer.github.io/backend/HowToUseSlf4j.html
+- https://www.slf4j.org/faq.html#string_or_object
+- http://dveamer.github.io/backend/HowToUseSlf4j.html
