@@ -13,7 +13,7 @@ public interface ILoggerFactoryCore {
 
     /**
      * @see ILoggerFactory#getLogger(String)
-     * @see LoggerContext#getLogger(String) 
+     * @see LoggerContext#getLogger(String)
      */
      Logger getLogger(String name);
 }

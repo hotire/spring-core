@@ -10,4 +10,10 @@ public class LoggerContextCore {
 
     private Map<String, Logger> loggerCache;
 
+    /**
+     * @see LoggerContext#getLogger(String) 
+     */
+    public final Logger getLogger(final String name) {
+        return loggerCache.get(name);
+    }
 }
