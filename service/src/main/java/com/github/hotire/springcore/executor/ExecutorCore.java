@@ -1,7 +1,11 @@
 package com.github.hotire.springcore.executor;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+
 /**
- * @see java.util.concurrent.Executor
+ * @see Executor
+ * @see Executors
  */
 public class ExecutorCore {
 
