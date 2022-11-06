@@ -12,7 +12,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestResponseBody
 public class RequestResponseBodyMethodProcessorCore {
 
     /**
-     * @see RequestResponseBodyMethodProcessor#adaptArgumentIfNecessary(Object, MethodParameter) 
+     * @see RequestResponseBodyMethodProcessor#adaptArgumentIfNecessary(Object, MethodParameter)
      */
     protected Object adaptArgumentIfNecessary(@Nullable Object arg, MethodParameter parameter) {
         if (parameter.getParameterType() == Optional.class) {
