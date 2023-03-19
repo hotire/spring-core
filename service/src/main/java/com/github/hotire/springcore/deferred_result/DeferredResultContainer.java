@@ -2,6 +2,7 @@ package com.github.hotire.springcore.deferred_result;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.context.request.async.DeferredResult;
 
@@ -9,6 +10,7 @@ import org.springframework.web.context.request.async.DeferredResult;
 public class DeferredResultContainer {
     private final Map<DeferredResultId, DeferredResult<Object>> resultCache = new ConcurrentHashMap<>();
 
+    @Data
     @RequiredArgsConstructor
     static class DeferredResultId {
         private final String value;
@@ -19,10 +21,12 @@ public class DeferredResultContainer {
     }
 
     @SuppressWarnings("unchecked")
-    public <T> DeferredResult<T> of(final DeferredResultId id) {
-        final DeferredResult<T> deferredResult = new DeferredResult<>();
-        resultCache.putIfAbsent(id, (DeferredResult<Object>) deferredResult);
-        return deferredResult;
+    public <T> DeferredResult<T> get(final DeferredResultId id) {
+        resultCache.computeIfAbsent(id, deferredResultId -> {
+            final DeferredResult<T> deferredResult = new DeferredResult<>();
+            return (DeferredResult<Object>) deferredResult;
+        });
+        return (DeferredResult<T>) resultCache.get(id);
     }
 
     public <T> void publish(final DeferredResultId id,  final T result) {

@@ -13,7 +13,7 @@ class DeferredResultContainerTest {
         // given
         final DeferredResultContainer container = new DeferredResultContainer();
         final DeferredResultId id = container.createId("abc");
-        final DeferredResult<String> deferredResult = container.of(id);
+        final DeferredResult<String> deferredResult = container.get(id);
         final String result = "result";
 
         // when
