@@ -5,9 +5,11 @@ import java.util.concurrent.ConcurrentHashMap;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.async.DeferredResult;
 
 @Slf4j
+@Component
 @RequiredArgsConstructor
 public class DeferredResultContainer {
     private final Map<DeferredResultId, DeferredResult<Object>> resultCache = new ConcurrentHashMap<>();
@@ -23,9 +25,9 @@ public class DeferredResultContainer {
     }
 
     @SuppressWarnings("unchecked")
-    public <T> DeferredResult<T> get(final DeferredResultId id) {
+    public <T> DeferredResult<T> get(final DeferredResultId id, final Long timeout, final Object timeoutResult) {
         resultCache.computeIfAbsent(id, deferredResultId -> {
-            final DeferredResult<T> deferredResult = new DeferredResult<>();
+            final DeferredResult<T> deferredResult = new DeferredResult<>(timeout, timeoutResult);
             deferredResult.onCompletion(() -> log.info("[DeferredResultContainer] onCompletion"));
             deferredResult.onTimeout(() -> {
                 log.warn("[DeferredResultContainer] onTimeout");

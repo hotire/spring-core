@@ -13,7 +13,9 @@ class DeferredResultContainerTest {
         // given
         final DeferredResultContainer container = new DeferredResultContainer();
         final DeferredResultId id = container.createId("abc");
-        final DeferredResult<String> deferredResult = container.get(id);
+        final Long timeout = 100L;
+        final String timeoutResult = "timeout";
+        final DeferredResult<String> deferredResult = container.get(id, timeout, timeoutResult);
         final String result = "result";
 
         // when
