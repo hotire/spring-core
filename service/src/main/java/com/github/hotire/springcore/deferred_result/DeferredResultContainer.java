@@ -18,8 +18,10 @@ public class DeferredResultContainer {
         return new DeferredResultId(value);
     }
 
+    @SuppressWarnings("unchecked")
     public <T> DeferredResult<T> of(final DeferredResultId id) {
         final DeferredResult<T> deferredResult = new DeferredResult<>();
+        resultCache.putIfAbsent(id, (DeferredResult<Object>) deferredResult);
         return deferredResult;
     }
 
