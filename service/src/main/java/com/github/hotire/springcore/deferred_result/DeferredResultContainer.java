@@ -4,8 +4,10 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.context.request.async.DeferredResult;
 
+@Slf4j
 @RequiredArgsConstructor
 public class DeferredResultContainer {
     private final Map<DeferredResultId, DeferredResult<Object>> resultCache = new ConcurrentHashMap<>();
@@ -24,6 +26,15 @@ public class DeferredResultContainer {
     public <T> DeferredResult<T> get(final DeferredResultId id) {
         resultCache.computeIfAbsent(id, deferredResultId -> {
             final DeferredResult<T> deferredResult = new DeferredResult<>();
+            deferredResult.onCompletion(() -> log.info("[DeferredResultContainer] onCompletion"));
+            deferredResult.onTimeout(() -> {
+                log.warn("[DeferredResultContainer] onTimeout");
+                resultCache.remove(id);
+            });
+            deferredResult.onError(error -> {
+                log.error("[DeferredResultContainer] onError message: {}", error.getMessage(), error);
+                resultCache.remove(id);
+            });
             return (DeferredResult<Object>) deferredResult;
         });
         return (DeferredResult<T>) resultCache.get(id);
@@ -32,6 +43,7 @@ public class DeferredResultContainer {
     public <T> void publish(final DeferredResultId id,  final T result) {
         resultCache.computeIfPresent(id, (deferredResultId, objectDeferredResult) -> {
             objectDeferredResult.setResult(result);
+            resultCache.remove(id);
             return null;
         });
     }
