@@ -2,6 +2,7 @@ package com.github.hotire.springcore.deferred_result;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,8 +15,8 @@ public class DeferredResultController {
 
     private final DeferredResultContainer container;
 
-    @GetMapping
-    public DeferredResult<String> deferredResult(@RequestParam String id, @RequestParam Long timeout) {
+    @GetMapping("/{id}")
+    public DeferredResult<String> deferredResult(@PathVariable String id, @RequestParam Long timeout) {
         return container.get(container.createId("hello"), timeout, "Timeout");
     }
 
