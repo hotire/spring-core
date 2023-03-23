@@ -12,7 +12,7 @@ import org.springframework.web.servlet.mvc.method.annotation.DeferredResultMetho
 public class DeferredResultMethodReturnValueHandlerCore {
 
     /**
-     * @see DeferredResultMethodReturnValueHandler#handleReturnValue(Object, MethodParameter, ModelAndViewContainer, NativeWebRequest) 
+     * @see DeferredResultMethodReturnValueHandler#handleReturnValue(Object, MethodParameter, ModelAndViewContainer, NativeWebRequest)
      */
     public void handleReturnValue(@Nullable Object returnValue, MethodParameter returnType,
         ModelAndViewContainer mavContainer, NativeWebRequest webRequest) throws Exception {
