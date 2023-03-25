@@ -1,5 +1,6 @@
 package com.github.hotire.springcore.deferred_result;
 
+import java.util.concurrent.atomic.AtomicInteger;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,13 @@ import org.springframework.web.context.request.async.DeferredResult;
 public class DeferredResultController {
 
     private final DeferredResultContainer container;
+
+    private final AtomicInteger counter = new AtomicInteger();
+
+    @GetMapping
+    public DeferredResult<String> deferredResult() {
+        return container.get(container.createId(String.valueOf(counter.getAndIncrement())), 10000L, "Timeout");
+    }
 
     @GetMapping("/{id}")
     public DeferredResult<String> deferredResult(@PathVariable String id, @RequestParam Long timeout) {

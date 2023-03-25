@@ -1,6 +1,7 @@
 package com.github.hotire.springcore.deferred_result;
 
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,10 @@ import org.springframework.web.context.request.async.DeferredResult;
 @RequiredArgsConstructor
 public class DeferredResultContainer {
     private final Map<DeferredResultId, DeferredResult<Object>> resultCache = new ConcurrentHashMap<>();
+
+    public Set<DeferredResultId> getResultCacheIds() {
+        return resultCache.keySet();
+    }
 
     @Data
     @RequiredArgsConstructor
