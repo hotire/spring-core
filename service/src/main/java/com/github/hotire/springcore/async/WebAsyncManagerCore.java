@@ -17,11 +17,17 @@ public class WebAsyncManagerCore {
     }
 
     /**
-     * @see WebAsyncManager#startDeferredResultProcessing(DeferredResult, Object...) 
+     * @see WebAsyncManager#startDeferredResultProcessing(DeferredResult, Object...)
      */
     public void startDeferredResultProcessing(
         final DeferredResult<?> deferredResult, Object... processingContext) throws Exception {
         
     }
 
+    /**
+     * @see WebAsyncManager#setConcurrentResultAndDispatch(Object) 
+     */
+    private void setConcurrentResultAndDispatch(Object result) {
+        
+    }
 }
