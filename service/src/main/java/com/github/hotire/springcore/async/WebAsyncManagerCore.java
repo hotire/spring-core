@@ -1,6 +1,7 @@
 package com.github.hotire.springcore.async;
 
 import java.util.concurrent.Callable;
+import org.springframework.web.context.request.async.DeferredResult;
 import org.springframework.web.context.request.async.WebAsyncManager;
 
 /**
@@ -9,9 +10,17 @@ import org.springframework.web.context.request.async.WebAsyncManager;
 public class WebAsyncManagerCore {
 
     /**
-     * @see WebAsyncManager#startCallableProcessing(Callable, Object...) 
+     * @see WebAsyncManager#startCallableProcessing(Callable, Object...)
      */
     public void startCallableProcessing(Callable<?> callable, Object... processingContext) throws Exception {
+        
+    }
+
+    /**
+     * @see WebAsyncManager#startDeferredResultProcessing(DeferredResult, Object...) 
+     */
+    public void startDeferredResultProcessing(
+        final DeferredResult<?> deferredResult, Object... processingContext) throws Exception {
         
     }
 
