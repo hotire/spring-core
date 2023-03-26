@@ -11,7 +11,7 @@ public class WebAsyncUtilsCore {
 
 
     /**
-     * @see WebAsyncUtils#getAsyncManager(WebRequest) 
+     * @see WebAsyncUtils#getAsyncManager(WebRequest)
      */
     public static WebAsyncManager getAsyncManager(WebRequest webRequest) {
         return WebAsyncUtils.getAsyncManager(webRequest);
