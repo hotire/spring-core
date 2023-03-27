@@ -12,7 +12,7 @@ public class DeferredResultConsumer {
 
     private final DeferredResultContainer container;
 
-    @Scheduled(fixedDelay = 500)
+//    @Scheduled(fixedDelay = 500)
     public void consume() {
         log.info("[DeferredResultConsumer] consume");
         container.getResultCacheIds().forEach(id -> {

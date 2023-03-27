@@ -31,9 +31,12 @@ public class DeferredResultContainer {
 
     @SuppressWarnings("unchecked")
     public <T> DeferredResult<T> get(final DeferredResultId id, final Long timeout, final Object timeoutResult) {
-        resultCache.computeIfAbsent(id, deferredResultId -> {
+        return (DeferredResult<T>) resultCache.computeIfAbsent(id, deferredResultId -> {
             final DeferredResult<T> deferredResult = new DeferredResult<>(timeout, timeoutResult);
-            deferredResult.onCompletion(() -> log.info("[DeferredResultContainer] onCompletion"));
+            deferredResult.onCompletion(() -> {
+                log.info("[DeferredResultContainer] onCompletion");
+                resultCache.remove(id);
+            });
             deferredResult.onTimeout(() -> {
                 log.warn("[DeferredResultContainer] onTimeout");
                 resultCache.remove(id);
@@ -44,7 +47,6 @@ public class DeferredResultContainer {
             });
             return (DeferredResult<Object>) deferredResult;
         });
-        return (DeferredResult<T>) resultCache.get(id);
     }
 
     public <T> void publish(final DeferredResultId id,  final T result) {

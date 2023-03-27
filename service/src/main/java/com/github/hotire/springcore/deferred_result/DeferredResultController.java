@@ -25,11 +25,17 @@ public class DeferredResultController {
 
     @GetMapping("/{id}")
     public DeferredResult<String> deferredResult(@PathVariable String id, @RequestParam Long timeout) {
-        return container.get(container.createId("hello"), timeout, "Timeout");
+        return container.get(container.createId(id), timeout, "Timeout");
     }
+
 
     @GetMapping("/publish")
     public void publish(@RequestParam String id, @RequestParam String value) {
-        container.publish(container.createId("hello"), value);
+        container.publish(container.createId(id), value);
+    }
+
+    @GetMapping("/publish-error")
+    public void publish(@RequestParam String id) {
+        container.get(container.createId(id), 10000L, "Timeout").setErrorResult(new RuntimeException("hello error"));
     }
 }

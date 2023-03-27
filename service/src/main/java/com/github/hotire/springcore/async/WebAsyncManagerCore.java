@@ -25,7 +25,7 @@ public class WebAsyncManagerCore {
     }
 
     /**
-     * @see WebAsyncManager#setConcurrentResultAndDispatch(Object) 
+     * @see WebAsyncManager#setConcurrentResultAndDispatch(Object)
      */
     private void setConcurrentResultAndDispatch(Object result) {
         
