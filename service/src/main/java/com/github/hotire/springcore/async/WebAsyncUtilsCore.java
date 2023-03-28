@@ -1,6 +1,9 @@
 package com.github.hotire.springcore.async;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.context.request.async.AsyncWebRequest;
 import org.springframework.web.context.request.async.WebAsyncManager;
 import org.springframework.web.context.request.async.WebAsyncUtils;
 
@@ -15,5 +18,12 @@ public class WebAsyncUtilsCore {
      */
     public static WebAsyncManager getAsyncManager(WebRequest webRequest) {
         return WebAsyncUtils.getAsyncManager(webRequest);
+    }
+
+    /**
+     * @see WebAsyncUtils#createAsyncWebRequest(HttpServletRequest, HttpServletResponse) 
+     */
+    public static AsyncWebRequest createAsyncWebRequest(HttpServletRequest request, HttpServletResponse response) {
+        return WebAsyncUtils.createAsyncWebRequest(request, response);
     }
 }
