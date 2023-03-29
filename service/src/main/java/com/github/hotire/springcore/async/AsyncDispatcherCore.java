@@ -12,7 +12,7 @@ import org.apache.catalina.AsyncDispatcher;
 public interface AsyncDispatcherCore {
 
     /**
-     * @see AsyncDispatcher#dispatch(ServletRequest, ServletResponse) 
+     * @see AsyncDispatcher#dispatch(ServletRequest, ServletResponse)
      */
     void dispatch(ServletRequest request, ServletResponse response)
         throws ServletException, IOException;
