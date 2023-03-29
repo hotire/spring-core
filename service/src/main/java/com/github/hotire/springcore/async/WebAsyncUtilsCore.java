@@ -21,7 +21,7 @@ public class WebAsyncUtilsCore {
     }
 
     /**
-     * @see WebAsyncUtils#createAsyncWebRequest(HttpServletRequest, HttpServletResponse) 
+     * @see WebAsyncUtils#createAsyncWebRequest(HttpServletRequest, HttpServletResponse)
      */
     public static AsyncWebRequest createAsyncWebRequest(HttpServletRequest request, HttpServletResponse response) {
         return WebAsyncUtils.createAsyncWebRequest(request, response);
