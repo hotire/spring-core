@@ -1,0 +1,5 @@
+# DeferredResult
+
+## Internal Core
+
+### DeferredResultMethodReturnValueHandler
