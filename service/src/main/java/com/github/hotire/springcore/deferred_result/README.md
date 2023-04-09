@@ -16,3 +16,12 @@ WebAsyncUtils.getAsyncManager(webRequest).startDeferredResultProcessing(result, 
 ### WebAsyncManager
 
 - startDeferredResultProcessing
+
+### DeferredResult
+
+- setResultHandler
+
+### DeferredResultInterceptorChain
+
+### DeferredResultProcessingInterceptor
+
