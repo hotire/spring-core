@@ -24,7 +24,7 @@ public class DeferredResultCore {
     }
 
     /**
-     * @see DeferredResult#setResultHandler(DeferredResultHandler) 
+     * @see DeferredResult#setResultHandler(DeferredResultHandler)
      */
     public final void setResultHandler(DeferredResultHandler resultHandler) {
         

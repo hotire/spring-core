@@ -23,5 +23,20 @@ WebAsyncUtils.getAsyncManager(webRequest).startDeferredResultProcessing(result, 
 
 ### DeferredResultInterceptorChain
 
+### DeferredResult.DeferredResultHandler
+
+- handleResult
+
+~~~java
+deferredResult.setResultHandler(result -> {
+				result = interceptorChain.applyPostProcess(this.asyncWebRequest, deferredResult, result);
+				setConcurrentResultAndDispatch(result);
+			});
+~~~
+
+### DeferredResultInterceptorChain
+
+- applyPostProcess
+
 ### DeferredResultProcessingInterceptor
 
