@@ -11,9 +11,9 @@ import org.springframework.web.context.request.async.DeferredResultProcessingInt
 public class DeferredResultProcessingInterceptorCore {
 
     /**
-     * @see DeferredResultProcessingInterceptor#postProcess(NativeWebRequest, DeferredResult, Object) 
+     * @see DeferredResultProcessingInterceptor#postProcess(NativeWebRequest, DeferredResult, Object)
      */
-    public  <T> void postProcess(NativeWebRequest request, DeferredResult<T> deferredResult,
+    public <T> void postProcess(NativeWebRequest request, DeferredResult<T> deferredResult,
         Object concurrentResult) throws Exception {
     }
 
