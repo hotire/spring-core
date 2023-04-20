@@ -1,5 +1,7 @@
 package com.github.hotire.springcore.async;
 
+import java.io.IOException;
+import javax.servlet.AsyncEvent;
 import org.springframework.web.context.request.async.AsyncWebRequest;
 import org.springframework.web.context.request.async.StandardServletAsyncWebRequest;
 
@@ -8,5 +10,19 @@ import org.springframework.web.context.request.async.StandardServletAsyncWebRequ
  * @see StandardServletAsyncWebRequest
  */
 public class AsyncWebRequestCore {
+
+    /**
+     * @see AsyncWebRequest#addTimeoutHandler(Runnable)
+     * @see StandardServletAsyncWebRequest#addTimeoutHandler(Runnable)
+     */
+    void addTimeoutHandler(Runnable runnable) {
+
+    }
+
+    /**
+     * @see StandardServletAsyncWebRequest#onTimeout(AsyncEvent) 
+     */
+    void onTimeout(AsyncEvent event) throws IOException {
+    }
 
 }

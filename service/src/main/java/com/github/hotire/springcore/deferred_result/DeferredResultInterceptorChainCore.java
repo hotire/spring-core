@@ -11,7 +11,7 @@ public class DeferredResultInterceptorChainCore {
 
 
     /**
-     * @see org.springframework.web.context.request.async.DeferredResultInterceptorChain#triggerAfterTimeout(NativeWebRequest, DeferredResult) 
+     * @see org.springframework.web.context.request.async.DeferredResultInterceptorChain#triggerAfterTimeout(NativeWebRequest, DeferredResult)
      */
     public void triggerAfterTimeout(NativeWebRequest request, DeferredResult<?> deferredResult) throws Exception {
 
