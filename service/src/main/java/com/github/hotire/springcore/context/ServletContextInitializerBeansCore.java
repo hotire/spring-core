@@ -1,5 +1,6 @@
 package com.github.hotire.springcore.context;
 
+import org.springframework.beans.factory.ListableBeanFactory;
 import org.springframework.boot.web.servlet.ServletContextInitializerBeans;
 
 
@@ -9,4 +10,10 @@ import org.springframework.boot.web.servlet.ServletContextInitializerBeans;
  */
 public class ServletContextInitializerBeansCore {
 
+    /**
+     * @see ServletContextInitializerBeans#addAdaptableBeans(ListableBeanFactory) 
+     */
+    protected void addAdaptableBeans(ListableBeanFactory beanFactory) {
+
+    }
 }
