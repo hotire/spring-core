@@ -23,7 +23,7 @@ public class ApplicationFilterFactoryCore {
     }
 
     /**
-     * @see ApplicationFilterFactory#matchDispatcher(FilterMap, DispatcherType) 
+     * @see ApplicationFilterFactory#matchDispatcher(FilterMap, DispatcherType)
      */
     private static boolean matchDispatcher(FilterMap filterMap, DispatcherType type) {
         return true;
