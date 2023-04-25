@@ -81,6 +81,12 @@
       <version>4.0.3</version>
       <scope>test</scope>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/net.javacrumbs.shedlock/shedlock-spring -->
+    <dependency>
+      <groupId>net.javacrumbs.shedlock</groupId>
+      <artifactId>shedlock-spring</artifactId>
+      <version>5.2.0</version>
+    </dependency>
   </dependencies>
 
   <build>
