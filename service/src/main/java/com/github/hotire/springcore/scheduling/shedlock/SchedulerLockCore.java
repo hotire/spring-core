@@ -5,6 +5,7 @@ import net.javacrumbs.shedlock.spring.annotation.SchedulerLock;
 /**
  * @see SchedulerLock
  */
-public class SchedulerLockCore {
+public @interface SchedulerLockCore {
 
+    String lockAtMostFor() default "";
 }
