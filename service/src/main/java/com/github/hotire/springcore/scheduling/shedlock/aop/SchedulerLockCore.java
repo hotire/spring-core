@@ -1,4 +1,4 @@
-package com.github.hotire.springcore.scheduling.shedlock;
+package com.github.hotire.springcore.scheduling.shedlock.aop;
 
 import net.javacrumbs.shedlock.spring.annotation.SchedulerLock;
 
