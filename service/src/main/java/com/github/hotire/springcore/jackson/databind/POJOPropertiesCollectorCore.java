@@ -1,5 +1,6 @@
 package com.github.hotire.springcore.jackson.databind;
 
+import com.fasterxml.jackson.databind.introspect.AnnotatedMember;
 import com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector;
 import com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder;
 import java.util.LinkedHashMap;
@@ -9,6 +10,11 @@ import java.util.Map;
  * @see POJOPropertiesCollector
  */
 public interface POJOPropertiesCollectorCore {
+
+    /**
+     * @see POJOPropertiesCollector#getJsonValueAccessor()
+     */
+    AnnotatedMember getJsonValueAccessor();
 
     /**
      * @see POJOPropertiesCollector#collectAll()
