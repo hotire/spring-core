@@ -1,6 +1,7 @@
 package com.github.hotire.springcore.jackson.databind;
 
 import com.fasterxml.jackson.databind.BeanDescription;
+import com.fasterxml.jackson.databind.introspect.AnnotatedMember;
 import com.fasterxml.jackson.databind.introspect.BasicBeanDescription;
 
 /**
@@ -8,6 +9,10 @@ import com.fasterxml.jackson.databind.introspect.BasicBeanDescription;
  * @see BeanDescription;
  * @see BasicBeanDescription
  */
-public class BasicBeanDescriptionCore {
+public interface BasicBeanDescriptionCore {
 
+    /**
+     * @see BasicBeanDescription#findJsonValueAccessor()
+     */
+    AnnotatedMember findJsonValueAccessor();
 }
