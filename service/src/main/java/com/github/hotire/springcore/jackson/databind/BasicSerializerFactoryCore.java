@@ -13,7 +13,7 @@ import com.fasterxml.jackson.databind.ser.BasicSerializerFactory;
 public interface BasicSerializerFactoryCore {
 
     /**
-     * @see BasicSerializerFactory#findSerializerByAnnotations(SerializerProvider, JavaType, BeanDescription) 
+     * @see BasicSerializerFactory#findSerializerByAnnotations(SerializerProvider, JavaType, BeanDescription)
      */
     JsonSerializer<?> findSerializerByAnnotations(SerializerProvider prov,
         JavaType type, BeanDescription beanDesc)
