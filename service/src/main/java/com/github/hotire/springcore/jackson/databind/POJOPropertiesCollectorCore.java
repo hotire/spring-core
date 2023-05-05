@@ -14,7 +14,11 @@ public interface POJOPropertiesCollectorCore {
     /**
      * @see POJOPropertiesCollector#getJsonValueAccessor()
      */
-    AnnotatedMember getJsonValueAccessor();
+    default AnnotatedMember getJsonValueAccessor() {
+        collectAll();
+        return null;
+    }
+
 
     /**
      * @see POJOPropertiesCollector#collectAll()
