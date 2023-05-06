@@ -41,7 +41,7 @@ public class ObjectMapperCore {
     }
 
     /**
-     * @see ObjectMapper#createGenerator(Writer) 
+     * @see ObjectMapper#createGenerator(Writer)
      */
     public JsonGenerator createGenerator(Writer w) throws IOException {
         JsonGenerator g = _jsonFactory.createGenerator(w);
