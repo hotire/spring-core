@@ -9,4 +9,10 @@ import ch.qos.logback.core.hook.ShutdownHookBase;
  */
 public class ShutdownHookBaseCore {
 
+    /**
+     * @see DelayingShutdownHook#run()
+     */
+    public void run() {
+    }
+
 }
