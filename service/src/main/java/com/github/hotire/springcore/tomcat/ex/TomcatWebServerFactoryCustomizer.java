@@ -13,12 +13,15 @@ public class TomcatWebServerFactoryCustomizer implements WebServerFactoryCustomi
 
     /**
      * @see AbstractProtocol
-     * @see IntrospectionUtils#setProperty(Object, String, String, boolean, StringBuilder) 
+     * @see IntrospectionUtils#setProperty(Object, String, String, boolean, StringBuilder)
+     * @see AbstractProtocol#setMaxThreads(int)
+     * @see AbstractProtocol#setMinSpareThreads(int)
      */
     @Override
     public void customize(TomcatServletWebServerFactory factory) {
         factory.addConnectorCustomizers(connector -> {
-            connector.setProperty("maxThread", "200");
+            connector.setProperty("maxThreads", "200");
+            connector.setProperty("minSpareThreads", "200");
         });
     }
 }
