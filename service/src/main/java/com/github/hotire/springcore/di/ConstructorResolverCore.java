@@ -6,6 +6,7 @@ import java.util.Set;
 
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.TypeConverter;
+import org.springframework.beans.factory.config.DependencyDescriptor;
 import org.springframework.beans.factory.support.RootBeanDefinition;
 import org.springframework.core.MethodParameter;
 import org.springframework.lang.Nullable;
@@ -24,7 +25,8 @@ public class ConstructorResolverCore {
     }
 
     /**
-     * @see org.springframework.beans.factory.support.ConstructorResolver#resolveAutowiredArgument(MethodParameter, String, Set, TypeConverter, boolean) 
+     * @see org.springframework.beans.factory.support.ConstructorResolver#resolveAutowiredArgument(MethodParameter, String, Set, TypeConverter, boolean)
+     * @see org.springframework.beans.factory.support.DefaultListableBeanFactory#resolveDependency(DependencyDescriptor, String, Set, TypeConverter) 
      */
     private Object[] resolvePreparedArguments(String beanName, RootBeanDefinition mbd, BeanWrapper bw,
                                               Executable executable, Object[] argsToResolve) {
