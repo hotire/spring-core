@@ -17,4 +17,11 @@ public class ContextAnnotationAutowireCandidateResolverCore {
         DependencyDescriptor descriptor, @Nullable String beanName) {
         return null;
     }
+
+    /**
+     * @see ContextAnnotationAutowireCandidateResolver#isLazy(DependencyDescriptor) 
+     */
+    protected boolean isLazy(DependencyDescriptor descriptor) {
+        return true;
+    }
 }
