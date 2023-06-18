@@ -11,7 +11,8 @@ public class ContextAnnotationAutowireCandidateResolverCore {
 
 
     /**
-     * @see ContextAnnotationAutowireCandidateResolver#getLazyResolutionProxyIfNecessary(DependencyDescriptor, String) 
+     * @see ContextAnnotationAutowireCandidateResolver#getLazyResolutionProxyIfNecessary(DependencyDescriptor,
+     * String)
      */
     public Object getLazyResolutionProxyIfNecessary(
         DependencyDescriptor descriptor, @Nullable String beanName) {
@@ -19,9 +20,18 @@ public class ContextAnnotationAutowireCandidateResolverCore {
     }
 
     /**
-     * @see ContextAnnotationAutowireCandidateResolver#isLazy(DependencyDescriptor) 
+     * @see ContextAnnotationAutowireCandidateResolver#isLazy(DependencyDescriptor)
      */
     protected boolean isLazy(DependencyDescriptor descriptor) {
         return true;
+    }
+
+    /**
+     * @see ContextAnnotationAutowireCandidateResolver#buildLazyResolutionProxy(DependencyDescriptor,
+     * String)
+     */
+    protected Object buildLazyResolutionProxy(final DependencyDescriptor descriptor,
+        final @Nullable String beanName) {
+        return null;
     }
 }
