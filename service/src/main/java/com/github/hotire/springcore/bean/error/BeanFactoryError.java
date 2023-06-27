@@ -2,6 +2,7 @@ package com.github.hotire.springcore.bean.error;
 
 import javax.annotation.PostConstruct;
 
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
@@ -19,7 +20,7 @@ public class BeanFactoryError {
     public void init() {
         try {
             context.getBean(NotFound.class);
-        } catch (Exception e) {
+        } catch (NoSuchBeanDefinitionException e) {
             log.error(e.getMessage(), e);
         }
     }
