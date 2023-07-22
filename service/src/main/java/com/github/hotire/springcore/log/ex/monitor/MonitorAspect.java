@@ -1,4 +1,4 @@
-package com.github.hotire.springcore.log;
+package com.github.hotire.springcore.log.ex.monitor;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -43,16 +43,16 @@ public class MonitorAspect {
     }
 
     @Around("@annotation(monitor)")
-    public Object monitorMethod(ProceedingJoinPoint joinPoint, com.github.hotire.springcore.log.Monitor monitor) throws Throwable {
+    public Object monitorMethod(ProceedingJoinPoint joinPoint, Monitor monitor) throws Throwable {
         return monitor(joinPoint, monitor);
     }
 
     @Around("@within(monitor)")
-    public Object monitorType(ProceedingJoinPoint joinPoint, com.github.hotire.springcore.log.Monitor monitor) throws Throwable {
+    public Object monitorType(ProceedingJoinPoint joinPoint, Monitor monitor) throws Throwable {
         return monitor(joinPoint, monitor);
     }
 
-    protected Optional<StopWatch> getStopWatch(com.github.hotire.springcore.log.Monitor monitor) {
+    protected Optional<StopWatch> getStopWatch(Monitor monitor) {
         return monitor.timer() ? Optional.of(new StopWatch()) : Optional.empty();
     }
 

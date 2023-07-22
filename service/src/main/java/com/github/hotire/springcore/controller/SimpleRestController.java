@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.hotire.springcore.bean.Proto;
-import com.github.hotire.springcore.log.Monitor;
+import com.github.hotire.springcore.log.ex.monitor.Monitor;
 
 @Monitor
 @RestController

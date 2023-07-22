@@ -1,4 +1,4 @@
-package com.github.hotire.springcore.log;
+package com.github.hotire.springcore.log.ex.monitor;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
