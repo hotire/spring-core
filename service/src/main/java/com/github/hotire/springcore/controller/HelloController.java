@@ -20,11 +20,6 @@ public class HelloController implements ApplicationListener {
 
     private HelloService helloService;
 
-    @Bean(initMethod = "init")
-    public com.github.hotire.springcore.controller.InitTest initTest() {
-        return new InitTest();
-    }
-
     public HelloController(HelloService helloService) {
         System.out.println();
     }
@@ -35,8 +30,7 @@ public class HelloController implements ApplicationListener {
     }
 
     @GetMapping("/hello2")
-    public @ResponseBody
-    String hello2() {
+    public @ResponseBody String hello2() {
         return "hello2";
     }
 
