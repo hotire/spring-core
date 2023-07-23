@@ -17,7 +17,7 @@ public class RequestMappingLoggingAspect {
 
     }
 
-    @Pointcut("@annotation(org.springframework.web.bind.annotation.GetMapping)")
+    @Pointcut("@annotation(org.springframework.web.bind.annotation.RequestMapping) || @annotation(org.springframework.web.bind.annotation.GetMapping)")
     public void requestMapping() {
 
     }
