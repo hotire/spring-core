@@ -1,16 +1,14 @@
 package com.github.hotire.springcore.controller;
 
+import com.github.hotire.springcore.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.github.hotire.springcore.service.HelloService;
 
 /**
  * RequestMappingHandlerMapping / RequestMappingHandlerAdapter

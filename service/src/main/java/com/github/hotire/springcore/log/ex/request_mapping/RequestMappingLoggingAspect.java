@@ -12,13 +12,20 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class RequestMappingLoggingAspect {
 
-    @Pointcut("@within(org.springframework.stereotype.Controller)")
+    @Pointcut("within(org.springframework.stereotype.Controller)")
     public void controller() {
 
     }
 
-    @Around("controller()")
-    public void around(ProceedingJoinPoint joinPoint) {
+    // @annotation(org.springframework.web.bind.annotation.RequestMapping) ||
+    @Pointcut("@annotation(org.springframework.web.bind.annotation.GetMapping)")
+    public void requestMapping() {
+
+    }
+
+    @Around("controller() && requestMapping()")
+    public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
         log.info("[RequestMappingLoggingAspect]");
+        return joinPoint.proceed();
     }
 }
