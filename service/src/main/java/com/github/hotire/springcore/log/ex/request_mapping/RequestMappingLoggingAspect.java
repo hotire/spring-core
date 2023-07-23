@@ -12,12 +12,11 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class RequestMappingLoggingAspect {
 
-    @Pointcut("within(org.springframework.stereotype.Controller)")
+    @Pointcut("@within(org.springframework.stereotype.Controller) || @within(org.springframework.web.bind.annotation.RestController)")
     public void controller() {
 
     }
 
-    // @annotation(org.springframework.web.bind.annotation.RequestMapping) ||
     @Pointcut("@annotation(org.springframework.web.bind.annotation.GetMapping)")
     public void requestMapping() {
 
