@@ -26,4 +26,20 @@ class ThreadPoolExecutorCoreTest {
         }));
         log.info("end");
     }
+
+    @Test
+    void takeLinkedBlockingQueue() {
+        final ThreadPoolExecutor executor = new ThreadPoolExecutor(1, 1, 1L,
+            TimeUnit.MILLISECONDS,
+            new LinkedBlockingQueue<Runnable>(1));
+        executor.execute(() -> {
+            ThreadUtils.sleep(1000L);
+            log.info("blocking");
+        });
+        executor.execute(() -> {
+            ThreadUtils.sleep(1000L);
+            log.info("blocking");
+        });
+        ThreadUtils.sleep(30000L);
+    }
 }
