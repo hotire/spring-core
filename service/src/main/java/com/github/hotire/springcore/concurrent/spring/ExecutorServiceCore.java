@@ -6,6 +6,10 @@ import  java.util.concurrent.ExecutorService;
 /**
  * @see ExecutorService
  */
-public class ExecutorServiceCore {
+public interface ExecutorServiceCore {
 
+    /**
+     * @see ExecutorService#shutdown()
+     */
+    void shutdown();
 }
