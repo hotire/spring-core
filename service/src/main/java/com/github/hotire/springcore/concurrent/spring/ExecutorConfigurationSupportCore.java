@@ -7,4 +7,8 @@ import org.springframework.scheduling.concurrent.ExecutorConfigurationSupport;
  */
 public class ExecutorConfigurationSupportCore {
 
+    /**
+     * @see ExecutorConfigurationSupport#waitForTasksToCompleteOnShutdown
+     */
+    private boolean waitForTasksToCompleteOnShutdown = false;
 }
