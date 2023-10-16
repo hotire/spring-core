@@ -12,6 +12,64 @@ import org.junit.jupiter.api.Test;
 @Slf4j
 class ThreadPoolExecutorCoreTest {
 
+    private static class Task implements Runnable {
+
+        private final String name;
+        private final long time;
+
+        Task(String name, long time) {
+            this.name = name;
+            this.time = time;
+        }
+
+        @Override
+        public void run() {
+            System.out.println("Run " + Thread.currentThread().getName() + "-" + name);
+            try {
+                Thread.sleep(time);
+            } catch (InterruptedException ex) {
+                Thread.currentThread().interrupt();
+            }
+            System.out.println("Finish " + Thread.currentThread().getName() + "-" + name);
+        }
+
+        @Override
+        public String toString() {
+            return name;
+        }
+    }
+
+    private static void print(ThreadPoolExecutor tpe, String name) {
+        System.out.println("After " + name + " execute -  pool size= " + tpe.getPoolSize() + ", queue=" + tpe.getQueue());
+    }
+
+    @Test
+    void testKeepAlive() throws InterruptedException {
+        ThreadPoolExecutor tpe = new ThreadPoolExecutor(
+            1, 2, 500, TimeUnit.MILLISECONDS,
+            new LinkedBlockingQueue<>(1));
+        System.out.println("init pool size= " + tpe.getPoolSize() + ", queue size=" + tpe.getQueue().size());
+
+        tpe.execute(new Task("1st", 10000));
+        Thread.sleep(1000);
+        print(tpe, "1st");
+
+        tpe.execute(new Task("2nd", 100));
+        Thread.sleep(1000);
+        print(tpe, "2nd");
+
+        tpe.execute(new Task("3d", 2000));
+        Thread.sleep(1000);
+        print(tpe, "3d");
+
+        while (tpe.getPoolSize()>1) {
+            Thread.sleep(100);
+        }
+        System.out.println("pool size= " + tpe.getPoolSize() + ", queue size=" + tpe.getQueue().size());
+        tpe.shutdown();
+    }
+
+
     @Test
     void callerRunsPolicy() {
         final ThreadPoolExecutor executor = new ThreadPoolExecutor(1, 1, 0L,
