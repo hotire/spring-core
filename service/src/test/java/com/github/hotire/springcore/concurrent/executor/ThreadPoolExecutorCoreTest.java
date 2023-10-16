@@ -43,6 +43,9 @@ class ThreadPoolExecutorCoreTest {
         System.out.println("After " + name + " execute -  pool size= " + tpe.getPoolSize() + ", queue=" + tpe.getQueue());
     }
 
+    /**
+     * https://stackoverflow.com/questions/12236694/how-does-maximumpoolsize-of-threadpoolexecutor-works/38615877#38615877
+     */
     @Test
     void testKeepAlive() throws InterruptedException {
         ThreadPoolExecutor tpe = new ThreadPoolExecutor(
