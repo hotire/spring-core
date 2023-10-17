@@ -15,4 +15,12 @@ public class ThreadPoolExecutorCore {
 
     }
 
+
+    /**
+     * @see ThreadPoolExecutor#getTask()
+     */
+    private Runnable getTask() {
+        return () -> {};
+    }
+
 }
