@@ -18,7 +18,8 @@ public interface ExecutorServiceCore {
 
 
     /**
-     * @see ExecutorService#awaitTermination(long, TimeUnit) 
+     * @see ExecutorService#awaitTermination(long, TimeUnit)
+     * @see java.util.concurrent.ThreadPoolExecutor#awaitTermination(long, TimeUnit)
      */
     boolean awaitTermination(long timeout, TimeUnit unit)
         throws InterruptedException;
