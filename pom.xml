@@ -98,6 +98,10 @@
       <artifactId>jol-core</artifactId>
       <version>0.10</version>
     </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+    </dependency>
   </dependencies>
 
   <build>
