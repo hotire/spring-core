@@ -8,10 +8,12 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.client.ClientHttpRequest;
 import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 
 /**
  * @see ClientHttpRequestFactory
  * @see SimpleClientHttpRequestFactory
+ * @see HttpComponentsClientHttpRequestFactory
  */
 public class ClientHttpRequestFactoryCore implements ClientHttpRequestFactory {
     /**

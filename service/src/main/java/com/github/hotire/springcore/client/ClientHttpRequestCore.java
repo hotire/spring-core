@@ -11,6 +11,7 @@ import org.springframework.http.client.ClientHttpResponse;
 /**
  * @see ClientHttpRequest
  * @see org.springframework.http.client.SimpleBufferingClientHttpRequest
+ * @see org.springframework.http.client.HttpComponentsClientHttpRequest
  */
 public class ClientHttpRequestCore implements ClientHttpRequest {
 
