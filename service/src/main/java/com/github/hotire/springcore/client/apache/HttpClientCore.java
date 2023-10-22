@@ -9,5 +9,4 @@ import org.apache.http.impl.client.CloseableHttpClient;
  * @see org.apache.http.impl.client.InternalHttpClient;
  */
 public class HttpClientCore {
-
 }
