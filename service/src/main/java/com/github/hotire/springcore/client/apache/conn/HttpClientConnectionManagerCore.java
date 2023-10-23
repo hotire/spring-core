@@ -10,7 +10,7 @@ import org.apache.http.conn.routing.HttpRoute;
 public interface HttpClientConnectionManagerCore {
 
     /** 
-     * @see HttpClientConnectionManager#requestConnection(HttpRoute, Object) 
+     * @see HttpClientConnectionManager#requestConnection(HttpRoute, Object)
      */
     ConnectionRequest requestConnection(HttpRoute route, Object state);
 }
