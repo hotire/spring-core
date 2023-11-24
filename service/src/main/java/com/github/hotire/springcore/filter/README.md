@@ -6,3 +6,7 @@ ApplicationContext.refresh -> ServletWebServerApplicationContext.onRefresh -> cr
 
 getSelfInitializer 호출  ServletContextInitializerBeans에 의해서 호출된다. 
 
+
+## OncePerRequestFilter
+
+- https://jerry92k.tistory.com/70
