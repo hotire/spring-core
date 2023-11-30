@@ -260,3 +260,10 @@ try {
         return errorState.compareAndSet(0, 1);
     }
 ~~~
+
+
+## fillInStackTrace
+
+### Java Exception 생성 비용은 비싸다.
+
+- https://meetup.nhncloud.com/posts/47
