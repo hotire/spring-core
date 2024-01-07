@@ -29,7 +29,7 @@ public class TaskExecutorAdapterCore {
     }
 
     /**
-     * @see TaskExecutorAdapter#submit(Callable) 
+     * @see TaskExecutorAdapter#submit(Callable)
      */
     public <T> Future<T> submit(Callable<T> task) {
         return null;
