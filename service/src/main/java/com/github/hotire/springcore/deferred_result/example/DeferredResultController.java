@@ -1,4 +1,4 @@
-package com.github.hotire.springcore.deferred_result;
+package com.github.hotire.springcore.deferred_result.example;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import lombok.RequiredArgsConstructor;

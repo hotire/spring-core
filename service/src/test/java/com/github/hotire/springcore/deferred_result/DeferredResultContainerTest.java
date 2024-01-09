@@ -2,7 +2,8 @@ package com.github.hotire.springcore.deferred_result;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-import com.github.hotire.springcore.deferred_result.DeferredResultContainer.DeferredResultId;
+import com.github.hotire.springcore.deferred_result.example.DeferredResultContainer;
+import com.github.hotire.springcore.deferred_result.example.DeferredResultContainer.DeferredResultId;
 import org.junit.jupiter.api.Test;
 import org.springframework.web.context.request.async.DeferredResult;
 
