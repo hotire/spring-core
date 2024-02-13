@@ -10,6 +10,7 @@ public interface ConfigurableBeanFactoryCore {
 
     /**
      * @see ConfigurableBeanFactory#registerScope(String, Scope) 
+     * @see org.springframework.beans.factory.support.AbstractBeanFactory#registerScope(String, Scope) 
      */
     void registerScope(String scopeName, Scope scope);
 }
