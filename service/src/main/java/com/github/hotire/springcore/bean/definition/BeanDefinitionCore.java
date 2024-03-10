@@ -18,4 +18,12 @@ public class BeanDefinitionCore {
      * @see AbstractBeanDefinition#instanceSupplier
      */
     private Supplier<?> instanceSupplier;
+
+
+    /**
+     * @see AbstractBeanDefinition#getInstanceSupplier()
+     */
+    public Supplier<?> getInstanceSupplier() {
+        return this.instanceSupplier;
+    }
 }
