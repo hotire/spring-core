@@ -1,0 +1,7 @@
+package com.github.hotire.springcore.bean_factory_post_processor.example;
+
+
+import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
+
+public class SimpleClassPathScanningCandidateComponentProvider extends ClassPathScanningCandidateComponentProvider {
+}

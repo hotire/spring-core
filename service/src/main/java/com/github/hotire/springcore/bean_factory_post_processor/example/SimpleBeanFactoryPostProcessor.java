@@ -7,7 +7,7 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProce
 import org.springframework.stereotype.Component;
 
 @Component
-public class BeanFactoryPostProcessorExample implements BeanDefinitionRegistryPostProcessor {
+public class SimpleBeanFactoryPostProcessor implements BeanDefinitionRegistryPostProcessor {
 
     private BeanDefinitionRegistry registry;
 
