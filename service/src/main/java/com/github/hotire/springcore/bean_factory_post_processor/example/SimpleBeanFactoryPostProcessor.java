@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SimpleBeanFactoryPostProcessor implements BeanDefinitionRegistryPostProcessor {
 
+    private final SimpleClassPathScanningCandidateComponentProvider provider = new SimpleClassPathScanningCandidateComponentProvider();
     private BeanDefinitionRegistry registry;
 
     @Override
