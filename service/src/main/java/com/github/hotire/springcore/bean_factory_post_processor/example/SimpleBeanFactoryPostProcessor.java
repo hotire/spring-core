@@ -5,6 +5,8 @@ import java.util.stream.Collectors;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.beans.factory.support.AbstractBeanDefinition;
+import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
 import org.springframework.boot.autoconfigure.AutoConfigurationPackages;
@@ -22,6 +24,18 @@ public class SimpleBeanFactoryPostProcessor implements BeanDefinitionRegistryPos
         final List<BeanDefinition> beanDefinitions = AutoConfigurationPackages.get(beanFactory).stream()
             .flatMap( basePackage -> provider.findCandidateComponents(basePackage).stream())
             .collect(Collectors.toList());
+
+        beanDefinitions.forEach(beanDefinition -> {
+            final String getBeanClassName = beanDefinition.getBeanClassName();
+            final AbstractBeanDefinition simpleBeanDefinition = BeanDefinitionBuilder
+                .genericBeanDefinition(beanDefinition.getBeanClassName())
+                .getBeanDefinition();
+            simpleBeanDefinition.setInstanceSupplier(() -> {
+                // TODO setInstanceSupplier
+                throw new RuntimeException();
+            });
+            registry.registerBeanDefinition(getBeanClassName, simpleBeanDefinition);
+        });
     }
 
     @Override
