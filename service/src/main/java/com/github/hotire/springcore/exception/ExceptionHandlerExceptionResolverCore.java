@@ -20,6 +20,10 @@ import org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHan
  */
 @RequiredArgsConstructor
 public class ExceptionHandlerExceptionResolverCore {
+
+    /**
+     * @see ExceptionHandlerExceptionResolver#exceptionHandlerCache
+     */
     private final Map<Class<?>, ExceptionHandlerMethodResolver> exceptionHandlerCache =
         new ConcurrentHashMap<>(64);
 
