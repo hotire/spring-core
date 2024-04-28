@@ -36,7 +36,7 @@ public class ExceptionHandlerMethodResolverCore {
     }
 
     /**
-     * @see ExceptionHandlerMethodResolver#addExceptionMapping(Class, Method) 
+     * @see ExceptionHandlerMethodResolver#addExceptionMapping(Class, Method)
      */
     private void addExceptionMapping(Class<? extends Throwable> exceptionType, Method method) {
         Method oldMethod = this.mappedMethods.put(exceptionType, method);
