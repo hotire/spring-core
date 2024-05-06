@@ -5,6 +5,11 @@ import java.util.concurrent.RecursiveTask;
 /**
  * @see RecursiveTask
  */
-public class RecursiveTaskCore {
+public abstract class RecursiveTaskCore<V> {
 
+
+    /**
+     * @see RecursiveTask#compute()
+     */
+    protected abstract V compute();
 }
