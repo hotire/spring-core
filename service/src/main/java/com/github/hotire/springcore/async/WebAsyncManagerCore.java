@@ -10,6 +10,11 @@ import org.springframework.web.context.request.async.WebAsyncManager;
 public class WebAsyncManagerCore {
 
     /**
+     * @see WebAsyncManager#concurrentResult;
+     */
+    private volatile Object concurrentResult;
+
+    /**
      * @see WebAsyncManager#startCallableProcessing(Callable, Object...)
      */
     public void startCallableProcessing(Callable<?> callable, Object... processingContext) throws Exception {

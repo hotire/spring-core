@@ -12,6 +12,13 @@ import org.springframework.web.context.request.async.StandardServletAsyncWebRequ
 public class AsyncWebRequestCore {
 
     /**
+     * @see AsyncWebRequest#dispatch()
+     */
+    void dispatch() {
+
+    }
+
+    /**
      * @see AsyncWebRequest#addTimeoutHandler(Runnable)
      * @see StandardServletAsyncWebRequest#addTimeoutHandler(Runnable)
      */

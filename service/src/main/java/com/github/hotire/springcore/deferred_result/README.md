@@ -53,3 +53,7 @@ deferredResult.setResultHandler(result -> {
 - org.springframework.web.context.request.async.DeferredResult#getInterceptor()
 
 다시 WebAsyncManager.setConcurrentResultAndDispatch로 이어짐
+
+### AsyncWebRequest
+
+- dispatch
