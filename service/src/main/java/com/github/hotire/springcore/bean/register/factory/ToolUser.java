@@ -1,6 +1,6 @@
 package com.github.hotire.springcore.bean.register.factory;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 import org.springframework.beans.factory.config.AbstractFactoryBean;
 import org.springframework.stereotype.Component;

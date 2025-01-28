@@ -1,6 +1,6 @@
 package com.github.hotire.springcore.bean.error;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
@@ -21,7 +21,7 @@ public class BeanFactoryError {
         try {
             context.getBean(NotFound.class);
         } catch (NoSuchBeanDefinitionException e) {
-            log.error(e.getMessage(), e);
+            log.error("got error {}, but ignored", e.getMessage(), e);
         }
     }
 

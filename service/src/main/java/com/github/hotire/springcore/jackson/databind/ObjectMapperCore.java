@@ -28,7 +28,7 @@ public class ObjectMapperCore {
      * @see ObjectMapper#writeValueAsString(Object)
      */
     public String writeValueAsString(Object value)
-        throws JsonProcessingException {
+        throws IOException {
         SegmentedStringWriter sw = new SegmentedStringWriter(_jsonFactory._getBufferRecycler());
         try {
             _writeValueAndClose(createGenerator(sw), value);

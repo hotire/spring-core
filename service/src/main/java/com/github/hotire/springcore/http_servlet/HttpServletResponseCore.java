@@ -1,7 +1,7 @@
 package com.github.hotire.springcore.http_servlet;
 
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * @see HttpServletResponse

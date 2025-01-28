@@ -1,6 +1,6 @@
 package com.github.hotire.springcore.property;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConstructorBinding;
@@ -10,7 +10,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 
-@ConstructorBinding
 @ConfigurationProperties(prefix = "application")
 @RequiredArgsConstructor
 @Slf4j

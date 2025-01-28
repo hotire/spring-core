@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
-import org.springframework.web.client.AsyncRestTemplate;
+//import org.springframework.web.client.AsyncRestTemplate;
 import org.springframework.web.client.RestTemplate;
 
 import com.github.hotire.springcore.bean.register.import_register.EnableRegisterRestTemplate;
@@ -21,7 +21,7 @@ class EnableRegisterRestTemplateTestAllTest {
 
     @Test
     void di() {
-        assertThat(context.getBean(AsyncRestTemplate.class)).isNotNull();
+//        assertThat(context.getBean(AsyncRestTemplate.class)).isNotNull();
         assertThat(context.getBean(RestTemplate.class)).isNotNull();
     }
 }

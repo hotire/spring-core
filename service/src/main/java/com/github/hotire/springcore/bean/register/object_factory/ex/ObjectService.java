@@ -1,6 +1,6 @@
 package com.github.hotire.springcore.bean.register.object_factory.ex;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.stereotype.Service;

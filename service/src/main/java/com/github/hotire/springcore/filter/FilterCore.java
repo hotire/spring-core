@@ -1,5 +1,5 @@
 package com.github.hotire.springcore.filter;
-import javax.servlet.Filter;
+import jakarta.servlet.Filter;
 
 
 /**

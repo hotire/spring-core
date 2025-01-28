@@ -1,6 +1,6 @@
 package com.github.hotire.springcore.validation;
 
-import javax.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotEmpty;
 
 public class ValidationRequest {
     @NotEmpty

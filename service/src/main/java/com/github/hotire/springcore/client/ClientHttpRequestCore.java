@@ -5,6 +5,7 @@ import java.io.OutputStream;
 import java.net.URI;
 
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.client.ClientHttpRequest;
 import org.springframework.http.client.ClientHttpResponse;
 
@@ -25,6 +26,11 @@ public class ClientHttpRequestCore implements ClientHttpRequest {
 
     @Override
     public OutputStream getBody() throws IOException {
+        return null;
+    }
+
+    @Override
+    public HttpMethod getMethod() {
         return null;
     }
 

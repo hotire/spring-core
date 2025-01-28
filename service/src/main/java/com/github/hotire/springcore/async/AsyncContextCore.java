@@ -1,6 +1,6 @@
 package com.github.hotire.springcore.async;
 
-import javax.servlet.AsyncContext;
+import jakarta.servlet.AsyncContext;
 
 /**
  * @see AsyncContext

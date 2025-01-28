@@ -200,6 +200,14 @@ https://blog.naver.com/gngh0101/222445524716
 
 https://github.com/hotire/spring-boot-webflux
 
+
+## Boot Version
+
+### 3.0 Migration Guide
+
+https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide
+
+
 ## 기타 
 
 ### Enable Async 동작 원리 

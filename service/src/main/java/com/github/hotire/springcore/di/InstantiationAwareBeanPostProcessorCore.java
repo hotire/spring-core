@@ -5,7 +5,7 @@ import java.lang.reflect.AccessibleObject;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeansException;

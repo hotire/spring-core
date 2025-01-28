@@ -17,4 +17,9 @@ public class CustomAopProxy implements AopProxy {
     public Object getProxy(ClassLoader classLoader) {
         return this;
     }
+
+    @Override
+    public Class<?> getProxyClass(ClassLoader classLoader) {
+        return CustomAopProxy.class;
+    }
 }

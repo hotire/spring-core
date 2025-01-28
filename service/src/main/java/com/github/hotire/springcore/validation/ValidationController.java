@@ -1,7 +1,7 @@
 package com.github.hotire.springcore.validation;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotEmpty;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotEmpty;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;

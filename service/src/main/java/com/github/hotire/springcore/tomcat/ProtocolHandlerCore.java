@@ -18,9 +18,9 @@ public class ProtocolHandlerCore {
     }
 
     /**
-     * @see org.apache.coyote.ProtocolHandler#create(String, boolean)
+     * @see org.apache.coyote.ProtocolHandler#create(String)
      */
-    public static ProtocolHandler create(String protocol, boolean apr) throws ClassNotFoundException, InvocationTargetException, InstantiationException, NoSuchMethodException, IllegalAccessException {
-        return ProtocolHandler.create(protocol, apr);
+    public static ProtocolHandler create(String protocol) throws ClassNotFoundException, InvocationTargetException, InstantiationException, NoSuchMethodException, IllegalAccessException {
+        return ProtocolHandler.create(protocol);
     }
 }

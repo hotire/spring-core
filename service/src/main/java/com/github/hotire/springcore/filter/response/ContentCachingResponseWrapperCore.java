@@ -2,10 +2,10 @@ package com.github.hotire.springcore.filter.response;
 
 
 import java.io.IOException;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.ServletResponse;
-import javax.servlet.ServletResponseWrapper;
-import javax.servlet.WriteListener;
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.ServletResponseWrapper;
+import jakarta.servlet.WriteListener;
 import lombok.RequiredArgsConstructor;
 import org.springframework.util.FastByteArrayOutputStream;
 import org.springframework.web.util.ContentCachingResponseWrapper;

@@ -1,7 +1,7 @@
 package com.github.hotire.springcore.filter;
 
 
-import javax.servlet.Filter;
+import jakarta.servlet.Filter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.RegistrationBean;
 

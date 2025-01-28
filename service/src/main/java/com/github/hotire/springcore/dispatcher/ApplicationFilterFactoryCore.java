@@ -1,8 +1,8 @@
 package com.github.hotire.springcore.dispatcher;
 
-import javax.servlet.DispatcherType;
-import javax.servlet.Servlet;
-import javax.servlet.ServletRequest;
+import jakarta.servlet.DispatcherType;
+import jakarta.servlet.Servlet;
+import jakarta.servlet.ServletRequest;
 import org.apache.catalina.Wrapper;
 import org.apache.catalina.core.ApplicationFilterChain;
 import org.apache.catalina.core.ApplicationFilterFactory;

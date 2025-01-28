@@ -1,5 +1,6 @@
 package com.github.hotire.springcore.boot;
 
+import java.time.Duration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringApplicationRunListener;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -40,13 +41,13 @@ public class CustomSpringApplicationRunListener implements SpringApplicationRunL
     }
 
     @Override
-    public void started(ConfigurableApplicationContext context) {
+    public void started(ConfigurableApplicationContext context, Duration timeTaken) {
         log.info("started");
     }
 
     @Override
-    public void running(ConfigurableApplicationContext context) {
-        log.info("running");
+    public void ready(ConfigurableApplicationContext context, Duration timeTaken) {
+        log.info("ready");
     }
 
     @Override

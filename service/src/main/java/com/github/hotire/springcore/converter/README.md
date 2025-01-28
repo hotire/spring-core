@@ -52,7 +52,7 @@ Set<Class<?>> includes = new LinkedHashSet<>();
 		includes.add(JsonComponent.class);
 		includes.add(WebMvcConfigurer.class);
 		includes.add(WebMvcRegistrations.class);
-		includes.add(javax.servlet.Filter.class);
+		includes.add(jakarta.servlet.Filter.class);
 		includes.add(FilterRegistrationBean.class);
 		includes.add(DelegatingFilterProxyRegistrationBean.class);
 		includes.add(HandlerMethodArgumentResolver.class);

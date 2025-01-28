@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
 import org.springframework.core.annotation.AnnotationAttributes;
 import org.springframework.core.type.AnnotationMetadata;
 import org.springframework.util.StringUtils;
-import org.springframework.web.client.AsyncRestTemplate;
+//import org.springframework.web.client.AsyncRestTemplate;
 import org.springframework.web.client.RestTemplate;
 
 import com.github.hotire.springcore.bean.register.import_selector.Mode;
@@ -28,9 +28,9 @@ public class ImportRestTemplateRegister implements ImportBeanDefinitionRegistrar
     private final Map<Mode, Class[]> restTemplateMap;
 
     public ImportRestTemplateRegister() {
-        restTemplateMap = ImmutableMap.of(Mode.NONE, new Class[] { RestTemplate.class },
-                                          Mode.ASYNC, new Class[] { AsyncRestTemplate.class },
-                                          Mode.ALL, new Class[] { RestTemplate.class, AsyncRestTemplate.class });
+        restTemplateMap = ImmutableMap.of(Mode.NONE, new Class[] { RestTemplate.class });
+//                                          Mode.ASYNC, new Class[] { AsyncRestTemplate.class },
+//                                          Mode.ALL, new Class[] { RestTemplate.class, AsyncRestTemplate.class });
     }
 
     @Override

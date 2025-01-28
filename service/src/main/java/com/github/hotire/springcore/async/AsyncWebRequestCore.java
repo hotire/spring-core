@@ -1,7 +1,7 @@
 package com.github.hotire.springcore.async;
 
 import java.io.IOException;
-import javax.servlet.AsyncEvent;
+import jakarta.servlet.AsyncEvent;
 import org.springframework.web.context.request.async.AsyncWebRequest;
 import org.springframework.web.context.request.async.StandardServletAsyncWebRequest;
 
