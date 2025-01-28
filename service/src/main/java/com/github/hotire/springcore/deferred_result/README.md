@@ -17,6 +17,16 @@ WebAsyncUtils.getAsyncManager(webRequest).startDeferredResultProcessing(result, 
 
 - startDeferredResultProcessing
 
+1. interceptor 설정
+2. setResultHandler 설정
+
+~~~java
+	deferredResult.setResultHandler(result -> {
+				result = interceptorChain.applyPostProcess(this.asyncWebRequest, deferredResult, result);
+				setConcurrentResultAndDispatch(result);
+			});
+~~~
+
 ### DeferredResult
 
 - setResultHandler
@@ -40,3 +50,6 @@ deferredResult.setResultHandler(result -> {
 
 ### DeferredResultProcessingInterceptor
 
+- org.springframework.web.context.request.async.DeferredResult#getInterceptor()
+
+다시 WebAsyncManager.setConcurrentResultAndDispatch로 이어짐
