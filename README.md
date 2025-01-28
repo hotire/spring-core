@@ -203,6 +203,10 @@ https://github.com/hotire/spring-boot-webflux
 
 ## Boot Version
 
+### 2.0 Core
+
+https://github.com/hotire/spring-core/tree/boot2
+
 ### 3.0 Migration Guide
 
 https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide
